@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var Client = require('node-rest-client').Client;
 var fs = require('fs');
 
 var user = {
@@ -52,5 +51,5 @@ fs.readFile('writeto.txt', 'utf8', function(err, contents) {
 module.exports = router;
 
 router.get('/', function(req, res, next) {
-    res.send(user + videos);
+    res.render('dashboard', {name : user["profileData"]["firstName"]});
 });
