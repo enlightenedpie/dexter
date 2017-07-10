@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+
 
 
 
@@ -7,6 +9,7 @@
 <div id="toolbar">
 
 	<ul>
+
 		<li> 
 
 		<!-- MODAL WINDOW -->
@@ -39,11 +42,10 @@
 			<modal v-if="showModal" @close="showModal = false"> </modal>
   		<!-- MODAL END -->
 
-		</li>
-
 		<li> Supertutortv </li>
 		<li> Hi, {{name}} </li>
 	</ul>
+
 
 </div>
 
@@ -76,9 +78,11 @@
 
 <script>
 
+
 	Vue.component('modal', {
   		template: '#modal-template'
 	})
+
 
 	var menuModal = new Vue ({
 		el: "#toolbar",
