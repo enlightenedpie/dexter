@@ -1,8 +1,50 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
+
+#maindiv {
+	background-color:lightblue;
+	text-align:center;
+}
+
+#toolbar {
+	position:relative;
+	top:0px;
+	height:50px;
+	background-color:yellow;
+}
+
+#recommended {
+	position:relative;
+	background-color:teal;
+}
+
+#recently-watched {
+	position:relative;
+	background-color:pink;
+}
+
+
+#toolbar li{
+	padding:10px;
+	display:inline;
+	float:left;
+}
+
+#toolbar li: last-child {
+	float:right;
+}
+
+
+
+
+
+
+
+
+
