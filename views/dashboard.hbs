@@ -51,6 +51,7 @@
 
 <!-- RECENTLY WATCHED -->
 <div id="recently-watched">
+<button @click="addRecentVideos"> TEST </button>
 	<p> Recently Watched </p>
 </div>
 
@@ -76,6 +77,30 @@
 			showModal: false
 		}
 	})
+
+  var recentVideos = new Vue ({
+    el: "#recently-watched",
+    data: {
+      recentVideoList: []
+    },
+    methods : {
+      addRecentVideos(){
+        for (var key in data.videos) {
+          if (data.videos[key][completion] == true) {
+            this.recentVideoList.push(data.videos[key]);
+          }
+        }
+      }
+    }
+  })
+
+
+
+
+
+
+
+
 
 
 </script>
