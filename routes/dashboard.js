@@ -61,9 +61,13 @@ module.exports = router;
 
 router.get('/', function(req, res) {
     res.render('dashboard', {
-        name : user["profileData"]["firstName"],
-        courses : user["courses"],
-        orders : user["orderData"],
-        settings : user["settingsData"]
+        data : user
     });
 });
+
+// router.get('/', function(req, res) {
+//     res.render('dashboard', {
+//         name : user["profileData"]["firstName"],
+//         courseName : Object.keys(user["courses"])[0]
+//     });
+// });
