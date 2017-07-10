@@ -1,0 +1,53 @@
+<!-- TOOLBAR -->
+<div id="toolbar">
+
+	<ul>
+		<li> <button id='modal-button' @click="showModal = true"> Menu </button> </li>
+		<li> Supertutortv </li>
+		<li> Hi, {{name}} </li>
+	</ul>
+
+
+</div>
+
+<!-- MAIN DIV -->
+<div id="maindiv">
+
+<h1> ACT Prep Course </h1>
+
+<iframe width="840" height="690" src="https://www.youtube.com/embed/9szNGXja85M">
+</iframe>
+
+</div>
+
+<!-- RECENTLY WATCHED -->
+<div id="recently-watched">
+	<p> Recently Watched </p>
+</div>
+
+<!-- RECOMMENDED -->
+<div id="recommended">
+	<p> Recommended </p>
+</div>
+
+
+
+
+
+
+<script src="https://unpkg.com/vue@2.3.4"></script>
+
+<script>
+
+	var menuModal = new Vue ({
+		el: "#toolbar",
+		data: {
+			showModal: false
+		}
+	})
+
+
+</script>
+
+
+
