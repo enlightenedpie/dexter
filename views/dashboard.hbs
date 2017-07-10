@@ -1,8 +1,47 @@
+<<<<<<< HEAD
+
+
+
+
+
+
 <!-- TOOLBAR -->
 <div id="toolbar">
 
 	<ul>
-		<li> <button id='modal-button' @click="showModal = true"> Menu </button> </li>
+
+		<li> 
+
+		<!-- MODAL WINDOW -->
+		<script type="text/x-template" id="modal-template">
+  			<transition name="modal">
+    			<div class="modal-mask">
+      			<div class="modal-wrapper">
+        			<div class="modal-container">
+
+        			<!-- ACTUAL MODAL TEXT -->
+          			<div class="modal-body">
+          				<h1> Your profile </h1>
+          					<button> Profile </button>
+          					<button> Orders </button>
+          					<button> Course </button>
+          					<button> Settings </button>
+          					<button> Log Out </button>
+              			<button class="modal-default-button" @click="$emit('close')"> Exit </button>
+          			</div>
+          			<!-- END OF MODAL TEXT -->
+          			
+        			</div>
+      			</div>
+    			</div>
+  			</transition>
+		</script>
+
+		<!-- MODAL BUTTON -->
+		<button id='modal-button' @click="showModal = true"> Menu </button>
+			<modal v-if="showModal" @close="showModal = false"> </modal>
+  		<!-- MODAL END -->
+
 		<li> Supertutortv </li>
 		<li> Hi, {{name}} </li>
 	</ul>
@@ -11,9 +50,9 @@
 </div>
 
 <!-- MAIN DIV -->
-<div id="maindiv">
+<div class="maindiv">
 
-<h1> ACT Prep Course </h1>
+<h1> {{courseName}} </h1>
 
 <iframe width="840" height="690" src="https://www.youtube.com/embed/9szNGXja85M">
 </iframe>
@@ -34,6 +73,12 @@
 <script src="https://unpkg.com/vue@2.3.4"></script>
 
 <script>
+
+
+	Vue.component('modal', {
+  		template: '#modal-template'
+	})
+
 
 	var menuModal = new Vue ({
 		el: "#toolbar",
