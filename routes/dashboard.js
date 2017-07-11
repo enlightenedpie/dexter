@@ -32,18 +32,18 @@ var data = {
             "uri": "https://www.youtube.com/embed/9szNGXja85M"
         }
     },
-    "profileData" : {
+    "profile" : {
         "firstName" : "Rick",
         "lastName" : "Sanchez",
         "image" : "https://i.ytimg.com/vi/AzZ4K1OzomE/maxresdefault.jpg"
     },
-    "orderData" : {
-        "ACT" : "z07d6j6i76"
+    "orders" : {
+        "Complete ACT Prep Package" : "z07d6j6i76"
     },
-    "settingsData": {
-        "recommendContent" : true,
+    "settings": {
+        "recommendContent" : "checked",
         "resetPassword" : "dummylink.js",
-        "offlineContent" : false
+        "offlineContent" : "checked"
     }
 };
 

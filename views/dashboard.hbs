@@ -28,25 +28,56 @@
 
                     <div id="Orders" class="tabcontent">
                       <h3>Orders</h3>
-                      <p>What'chu want?</p> 
+                      <ul>
+                          {{#each data.orders}}
+                              <li>{{@key}}
+                              <ul>
+                              <li>Order number: {{this}}</li>
+                              </ul>
+                              <li></li>
+                          {{/each}}
+                      </ul>
                     </div>
 
                     <div id="Courses" class="tabcontent">
                       <h3>Courses</h3>
                       <ul>
                         {{#each data.courses}}
-                          <li>{{@key}}</li>
+                          <a>{{@key}}</a>
                         {{/each}}
                       </ul>
                     </div>
 
                     <div id="Settings" class="tabcontent">
                       <h3>Settings</h3>
-                      <p>What'chu want?</p>
+                        <a>Recommend Content</a>
+                      <div class="onoffswitch">
+                          <input type="checkbox" name="suggestcontent" id="recommendContent"
+                              {{data.settings.recommendContent}}>
+                          <label for="myonoffswitch">
+                          </label>
+                      </div>
+                        <br>
+                        <br>
+
+                        <a>Reset password</a>
+                        <div class="passwordreset">
+                            <input type="text" name="resetpassword">
+                            <br>
+                            <input type="text" name="resetcheck">
+                        </div>
+                        <br>
+                        <br>
+                            <a>Offline Content</a>
+                    <a><div class="onoffswitch">
+                        <input type="checkbox" name="suggestcontent" class="onoffswitch-checkbox" id="offlineContent"
+                            {{data.settings.offlineContent}}>
+                        <label class="onoffswitch-label" for="myonoffswitch">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div></a>
                     </div>
-
-
-
               			<button class="modal-default-button" @click="$emit('close')"> Exit </button>
           			</div>
           			<!-- END OF MODAL TEXT -->
@@ -64,7 +95,7 @@
   		<!-- MODAL END -->
 
 		<li> Supertutortv </li>
-		<li> Hi, {{data.profileData.firstName}} </li>
+		<li> Hi, {{data.profile.firstName}} </li>
 	</ul>
 
 </div>
