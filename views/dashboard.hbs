@@ -1,7 +1,7 @@
 <!-- TOOLBAR -->
 <div id="toolbar">
 
-        <ul>
+  <ul>
 		<li>
 		<!-- MODAL WINDOW -->
 		<script type="text/x-template" id="modal-template">
@@ -13,15 +13,40 @@
         			<!-- ACTUAL MODAL TEXT -->
           			<div class="modal-body">
           				<h1> Your profile </h1>
-          					<button> Profile </button>
-          					<button> Orders </button>
-          					<ul> Courses
-                                {{#each data.courses}}
-                                    {{@key}}
-                                {{/each}}
-                            </ul>
-          					<button> Settings </button>
-          					<button> Log Out </button>
+          					<div class="tab">
+                    <button class="tablinks" onclick="openTab(event, 'Profile')">Profile</button>
+                    <button class="tablinks" onclick="openTab(event, 'Orders')">Orders</button>
+                    <button class="tablinks" onclick="openTab(event, 'Courses')">Courses</button>
+                    <button class="tablinks" onclick="openTab(event, 'Settings')">Settings</button>
+                  </div>
+
+
+                    <div id="Profile" class="tabcontent">
+                      <h3>Profile</h3>
+                      <p>What'chu want?</p>
+                    </div>
+
+                    <div id="Orders" class="tabcontent">
+                      <h3>Orders</h3>
+                      <p>What'chu want?</p> 
+                    </div>
+
+                    <div id="Courses" class="tabcontent">
+                      <h3>Courses</h3>
+                      <ul>
+                        {{#each data.courses}}
+                          <li>{{@key}}</li>
+                        {{/each}}
+                      </ul>
+                    </div>
+
+                    <div id="Settings" class="tabcontent">
+                      <h3>Settings</h3>
+                      <p>What'chu want?</p>
+                    </div>
+
+
+
               			<button class="modal-default-button" @click="$emit('close')"> Exit </button>
           			</div>
           			<!-- END OF MODAL TEXT -->
@@ -31,8 +56,6 @@
     			</div>
   			</transition>
 		</script>
-
-            <script src="js/handlebars.js"></script>
 
 
 		<!-- MODAL BUTTON -->
@@ -48,23 +71,23 @@
 <!-- MAIN DIV -->
 <div class="maindiv">
 
-<h1> Course Name</h1>
+  <h1> \{{currentCourse}} </h1>
 
-<iframe width="840" height="690" src="https://www.youtube.com/embed/9szNGXja85M">
+
+  <iframe width="840" height="690" src="https://www.youtube.com/embed/9szNGXja85M">
 </iframe>
 
 </div>
 
 <!-- RECENTLY WATCHED -->
 <div id="recently-watched">
-<button @click="addRecentVideos"> TEST </button>
 	<p> Recently Watched </p>
 </div>
 
 {{#each data.videos}}
     {{#if this.completion}}
-    {{@key}} : <iframe src={{this.uri}}>
-    </iframe>
+    <li> {{@key}} : <iframe src={{this.uri}}>
+    </iframe> </li>
     <br>
     {{/if}}
 {{/each}}
@@ -75,27 +98,46 @@
 </div>
 {{#each data.videos}}
     {{#unless this.completion}}
-    {{@key}} : <iframe id={{@key}} src={{this.uri}}>
-    </iframe>
+    {{@key}} : <li> <iframe id={{@key}} src={{this.uri}}>
+    </iframe> </li>
     <br>
     {{/unless}}
 {{/each}}
+
 
 <script src="https://unpkg.com/vue@2.3.4"></script>
 
 <script>
 
 
-	Vue.component('modal', {
-  		template: '#modal-template'
-	});
 
+
+
+
+	Vue.component('modal', {
+  	template: '#modal-template'
+	})
+
+  var modalTabs = new Vue({
+    el: "#modal-template",
+    data : {
+      selected: false
+    }
+
+  })
+
+  var curCourse = new Vue ({
+    el: ".maindiv",
+    data: {
+      currentCourse: "ACT"
+    }
+  })
 
 	const menuModal = new Vue ({
 		el: "#toolbar",
 		data: {
 			showModal: false
 		}
-	});
+	})
 
 </script>
