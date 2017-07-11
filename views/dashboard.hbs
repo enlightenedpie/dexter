@@ -3,17 +3,76 @@
 
   <ul>
 		<li>
-		<!-- MODAL WINDOW -->
-		<script type="text/x-template" id="modal-template">
-  			<transition name="modal">
-    			<div class="modal-mask">
-      			<div class="modal-wrapper">
-        			<div class="modal-container">
+		
+		<!-- MODAL BUTTON -->
+		<button id='modal-button' @click="showModal = true"> Menu </button>
+			<modal v-if="showModal" @close="showModal = false"> </modal>
+  		<!-- MODAL END -->
 
-        			<!-- ACTUAL MODAL TEXT -->
-          			<div class="modal-body">
-          				<h1> Your profile </h1>
-          					<div class="tab">
+		<li> Supertutortv </li>
+		<li> Hi, {{data.profile.firstName}} </li>
+	</ul>
+
+</div>
+<!-- MAIN DIV -->
+<div class="maindiv">
+
+  <h1> \{{currentCourse}} </h1>
+
+
+  <iframe width="840" height="690" src="https://www.youtube.com/embed/9szNGXja85M">
+</iframe>
+
+</div>
+
+<!-- RECENTLY WATCHED -->
+<div id="recently-watched">
+	<p> Recently Watched </p>
+</div>
+
+{{#each data.videos}}
+    {{#if this.completion}}
+    <li> {{@key}} : <iframe src={{this.uri}}>
+    </iframe> </li>
+    <br>
+    {{/if}}
+{{/each}}
+
+<!-- RECOMMENDED -->
+<div id="recommended">
+	<p> Recommended </p>
+</div>
+{{#each data.videos}}
+    {{#unless this.completion}}
+    <li> {{@key}} : <iframe id={{@key}} src={{this.uri}}>
+    </iframe> </li>
+    <br>
+    {{/unless}}
+{{/each}}
+
+
+<script src="https://unpkg.com/vue@2.3.4"></script>
+
+<script>
+
+
+
+
+
+//MODAL TAG TEMPLATE
+	Vue.component('modal', {
+  	template: 
+
+`       <transition name="modal">
+          <div class="modal-mask">
+            <div class="modal-wrapper">
+              <div class="modal-container">
+
+              <!-- ACTUAL MODAL TEXT -->
+
+                <div class="modal-body">
+                  <h1> Your profile </h1>
+                    <div class="tab">
                     <button class="tablinks" onclick="openTab(event, 'Profile')">Profile</button>
                     <button class="tablinks" onclick="openTab(event, 'Orders')">Orders</button>
                     <button class="tablinks" onclick="openTab(event, 'Courses')">Courses</button>
@@ -23,7 +82,8 @@
 
                     <div id="Profile" class="tabcontent">
                       <h3>Profile</h3>
-                      <p>What'chu want?</p>
+                        {{data.profile.firstName}} {{data.profile.lastName}}
+                        <img src={{data.profile.image}} height="80">
                     </div>
 
                     <div id="Orders" class="tabcontent">
@@ -78,84 +138,16 @@
                         </label>
                     </div></a>
                     </div>
-              			<button class="modal-default-button" @click="$emit('close')"> Exit </button>
-          			</div>
-          			<!-- END OF MODAL TEXT -->
+                    <button class="modal-default-button" @click="$emit('close')"> Exit </button>
+                </div>
+                <!-- END OF MODAL TEXT -->
 
-        			</div>
-      			</div>
-    			</div>
-  			</transition>
-		</script>
+              </div>
+            </div>
+          </div>
+        </transition>`
 
-
-		<!-- MODAL BUTTON -->
-		<button id='modal-button' @click="showModal = true"> Menu </button>
-			<modal v-if="showModal" @close="showModal = false"> </modal>
-  		<!-- MODAL END -->
-
-		<li> Supertutortv </li>
-		<li> Hi, {{data.profile.firstName}} </li>
-	</ul>
-
-</div>
-<!-- MAIN DIV -->
-<div class="maindiv">
-
-  <h1> \{{currentCourse}} </h1>
-
-
-  <iframe width="840" height="690" src="https://www.youtube.com/embed/9szNGXja85M">
-</iframe>
-
-</div>
-
-<!-- RECENTLY WATCHED -->
-<div id="recently-watched">
-	<p> Recently Watched </p>
-</div>
-
-{{#each data.videos}}
-    {{#if this.completion}}
-    <li> {{@key}} : <iframe src={{this.uri}}>
-    </iframe> </li>
-    <br>
-    {{/if}}
-{{/each}}
-
-<!-- RECOMMENDED -->
-<div id="recommended">
-	<p> Recommended </p>
-</div>
-{{#each data.videos}}
-    {{#unless this.completion}}
-    {{@key}} : <li> <iframe id={{@key}} src={{this.uri}}>
-    </iframe> </li>
-    <br>
-    {{/unless}}
-{{/each}}
-
-
-<script src="https://unpkg.com/vue@2.3.4"></script>
-
-<script>
-
-
-
-
-
-
-	Vue.component('modal', {
-  	template: '#modal-template'
 	})
-
-  var modalTabs = new Vue({
-    el: "#modal-template",
-    data : {
-      selected: false
-    }
-
-  })
 
   var curCourse = new Vue ({
     el: ".maindiv",
