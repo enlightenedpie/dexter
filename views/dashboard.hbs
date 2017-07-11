@@ -55,10 +55,27 @@
 	<p> Recently Watched </p>
 </div>
 
+{{#each data.videos}}
+    {{#if this.completion}}
+    {{@key}} : <iframe src={{this.uri}}>
+    </iframe>
+    <br>
+    {{/if}}
+{{/each}}
+
+
 <!-- RECOMMENDED -->
 <div id="recommended">
 	<p> Recommended </p>
 </div>
+
+{{#each data.videos}}
+    {{#unless this.completion}}
+    {{@key}} : <iframe src={{this.uri}}>
+    </iframe>
+    <br>
+    {{/unless}}
+{{/each}}
 
 
 <script src="https://unpkg.com/vue@2.3.4"></script>
@@ -71,26 +88,11 @@
 	});
 
 
-	var menuModal = new Vue ({
+	const menuModal = new Vue ({
 		el: "#toolbar",
 		data: {
 			showModal: false
 		}
 	});
 
-  var recentVideos = new Vue ({
-    el: "#recently-watched",
-    data: {
-      recentVideoList: []
-    },
-    methods : {
-      addRecentVideos(){
-        for (let key in data.videos) {
-          if (data.videos.key.completion === true) {
-            this.recentVideoList.push(data.videos.key);
-          }
-        }
-      }
-    }
-  })
 </script>

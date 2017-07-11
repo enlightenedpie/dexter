@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/whitetail.iml" filepath="$PROJECT_DIR$/.idea/whitetail.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/dexter.iml" filepath="$PROJECT_DIR$/.idea/dexter.iml" />
     </modules>
   </component>
 </project>
