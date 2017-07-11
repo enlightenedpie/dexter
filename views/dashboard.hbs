@@ -15,7 +15,11 @@
           				<h1> Your profile </h1>
           					<button> Profile </button>
           					<button> Orders </button>
-          					<button> Course </button>
+          					<ul> Courses
+                                {{#each data.courses}}
+                                    {{@key}}
+                                {{/each}}
+                            </ul>
           					<button> Settings </button>
           					<button> Log Out </button>
               			<button class="modal-default-button" @click="$emit('close')"> Exit </button>
@@ -28,6 +32,9 @@
   			</transition>
 		</script>
 
+            <script src="js/handlebars.js"></script>
+
+
 		<!-- MODAL BUTTON -->
 		<button id='modal-button' @click="showModal = true"> Menu </button>
 			<modal v-if="showModal" @close="showModal = false"> </modal>
@@ -38,7 +45,6 @@
 	</ul>
 
 </div>
-
 <!-- MAIN DIV -->
 <div class="maindiv">
 
@@ -63,20 +69,17 @@
     {{/if}}
 {{/each}}
 
-
 <!-- RECOMMENDED -->
 <div id="recommended">
 	<p> Recommended </p>
 </div>
-
 {{#each data.videos}}
     {{#unless this.completion}}
-    {{@key}} : <iframe src={{this.uri}}>
+    {{@key}} : <iframe id={{@key}} src={{this.uri}}>
     </iframe>
     <br>
     {{/unless}}
 {{/each}}
-
 
 <script src="https://unpkg.com/vue@2.3.4"></script>
 

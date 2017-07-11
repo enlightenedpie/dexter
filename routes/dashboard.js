@@ -18,15 +18,17 @@ var data = {
     "videos" : {
         "ACTmath1" : {
             "completion": true,
+            "time" : "0",
             "uri": "https://www.youtube.com/embed/9szNGXja85M"
         },
         "ACTmath2" : {
             "completion" : true,
+            "time" : "0",
             "uri": "https://www.youtube.com/embed/9szNGXja85M"
         },
         "ACTmath3" : {
             "completion" : false,
-            "time" : "0m35s",
+            "time" : "35",
             "uri": "https://www.youtube.com/embed/9szNGXja85M"
         }
     },
