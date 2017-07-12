@@ -10,6 +10,7 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
+    "express-vue": "^3.15.1",
     "json-stringify-safe": "^5.0.1",
     "morgan": "~1.8.1",
     "node-rest-client": "^3.1.0",
