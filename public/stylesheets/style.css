@@ -1,7 +1,7 @@
 body {
   padding: 0px;
   /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
-  font-family: 'Lato', sans-serif;
+  font: 16px 'Lato', sans-serif;
   margin:0;
 }
 
@@ -11,7 +11,27 @@ a {
 
 li {
   list-style:none;
-  display: inline;
+}
+
+button {
+  outline:none;
+  border:none;
+  padding: 4px 8px;
+  background-color:white;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+iframe {
+  border:1px solid black;
+}
+
+.sub-vid {
+  position:relative;
+  left:50px;
+
 }
 
 .maindiv {
@@ -30,21 +50,46 @@ li {
   z-index:1;
 }
 
-#toolbar button {
-  text-decoration:none;
+#modal-button {
+  position:relative;
+  top:-19px;
+  height:100%;
+  border: none;
+  padding: 20px;
+  font-size:15px;
+  text-decoration: none;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  background-color: white; 
+  color: black; 
+  border: 2px solid #green;
 }
+
+#modal-button:hover {
+    background-color: #ddd;
+}
+
+
 
 #recommended {
 	position:relative;
-  top:40px;
+  top:70px;
 	background-color:teal;
+  border-top: 1px solid black;
+  border-bottom: 2px solid black;
 }
 
 #recently-watched {
 	position:relative;
-  top:40px;
+  top:70px;
 	background-color:pink;
+  border-top: 1px solid black;
 }
+
+h4 /*Headings for #recommended and #recently-watched */{
+  padding:10px;
+}
+
 
 
 #toolbar li{
@@ -56,6 +101,11 @@ li {
 
 #toolbar li:last-child {
 	float:right;
+}
+
+
+#toolbar li:middle-child {
+  float:right;
 }
 
 .onoffswitch {
@@ -176,8 +226,10 @@ div.tab button.active {
 
 .modal-default-button {
   float: right;
-  position:relative;
-  bottom: -100px;
+  position:fixed;
+  bottom:15%;
+  left:77%;
+  font-size:16px;
 }
 
 .modal-enter {
