@@ -171,12 +171,13 @@ div.tab button.active {
 
 .modal-default-body {
   position:relative;
-  bottom: 0;
 }
 
 
 .modal-default-button {
   float: right;
+  position:relative;
+  bottom: -100px;
 }
 
 .modal-enter {

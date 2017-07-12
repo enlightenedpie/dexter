@@ -27,8 +27,7 @@
 
 <!-- RECENTLY WATCHED -->
 <div id="recently-watched">
-	<p> Recently Watched </p>
-</div>
+	<h4> Recently Watched </h4>
 
 {{#each data.videos}}
     {{#if this.completion}}
@@ -37,11 +36,12 @@
     <br>
     {{/if}}
 {{/each}}
+</div>
 
 <!-- RECOMMENDED -->
 <div id="recommended">
-	<p> Recommended </p>
-</div>
+	<h4> Recommended </h4>
+
 {{#each data.videos}}
     {{#unless this.completion}}
     <li> {{@key}} : <iframe id={{@key}} src={{this.uri}}>
@@ -49,6 +49,8 @@
     <br>
     {{/unless}}
 {{/each}}
+
+  </div>
 
 
 <script src="https://unpkg.com/vue@2.3.4"></script>
@@ -72,7 +74,7 @@
 
                 <div class="modal-body">
                   <h1> Your profile </h1>
-                    <div class="tab">
+                  <div class="tab">
                     <button class="tablinks" onclick="openTab(event, 'Profile')">Profile</button>
                     <button class="tablinks" onclick="openTab(event, 'Orders')">Orders</button>
                     <button class="tablinks" onclick="openTab(event, 'Courses')">Courses</button>
@@ -80,67 +82,67 @@
                   </div>
 
 
-                    <div id="Profile" class="tabcontent">
-                      <h3>Profile</h3>
-                        {{data.profile.firstName}} {{data.profile.lastName}}
-                        <img src={{data.profile.image}} height="80">
-                    </div>
+                  <div id="Profile" class="tabcontent">
+                    <h3>Profile</h3>
+                      {{data.profile.firstName}} {{data.profile.lastName}}
+                      <img src={{data.profile.image}} height="80">
+                  </div>
 
-                    <div id="Orders" class="tabcontent">
-                      <h3>Orders</h3>
-                      <ul>
-                          {{#each data.orders}}
-                              <li>{{@key}}
-                              <ul>
-                              <li>Order number: {{this}}</li>
-                              </ul>
-                              <li></li>
-                          {{/each}}
-                      </ul>
-                    </div>
+                  <div id="Orders" class="tabcontent">
+                    <h3>Orders</h3>
+                    <ul>
+                    {{#each data.orders}}
+                        <li>{{@key}}
+                        <ul>
+                        <li>Order number: {{this}}</li>
+                        </ul>
+                        <li></li>
+                    {{/each}}
+                    </ul>
+                  </div>
 
-                    <div id="Courses" class="tabcontent">
-                      <h3>Courses</h3>
-                      <ul>
-                        {{#each data.courses}}
-                          <a>{{@key}}</a>
-                        {{/each}}
-                      </ul>
-                    </div>
+                  <div id="Courses" class="tabcontent">
+                    <h3>Courses</h3>
+                    <ul>
+                      {{#each data.courses}}
+                        <a>{{@key}}</a>
+                      {{/each}}
+                    </ul>
+                  </div>
 
-                    <div id="Settings" class="tabcontent">
-                      <h3>Settings</h3>
-                        <a>Recommend Content</a>
-                      <div class="onoffswitch">
-                          <input type="checkbox" name="suggestcontent" id="recommendContent"
-                              {{data.settings.recommendContent}}>
-                          <label for="myonoffswitch">
-                          </label>
-                      </div>
-                        <br>
-                        <br>
-
-                        <a>Reset password</a>
-                        <div class="passwordreset">
-                            <input type="text" name="resetpassword">
-                            <br>
-                            <input type="text" name="resetcheck">
-                        </div>
-                        <br>
-                        <br>
-                            <a>Offline Content</a>
-                    <a><div class="onoffswitch">
-                        <input type="checkbox" name="suggestcontent" class="onoffswitch-checkbox" id="offlineContent"
-                            {{data.settings.offlineContent}}>
-                        <label class="onoffswitch-label" for="myonoffswitch">
-                            <span class="onoffswitch-inner"></span>
-                            <span class="onoffswitch-switch"></span>
+                  <div id="Settings" class="tabcontent">
+                    <h3>Settings</h3>
+                    <a>Recommend Content</a>
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="suggestcontent" id="recommendContent"
+                            {{data.settings.recommendContent}}>
+                        <label for="myonoffswitch">
                         </label>
-                    </div></a>
                     </div>
-                    <button class="modal-default-button" @click="$emit('close')"> Exit </button>
-                </div>
-                <!-- END OF MODAL TEXT -->
+                      <br>
+                      <br>
+
+                      <a>Reset password</a>
+                      <div class="passwordreset">
+                          <input type="text" name="resetpassword">
+                          <br>
+                          <input type="text" name="resetcheck">
+                      </div>
+                      <br>
+                      <br>
+                          <a>Offline Content</a>
+                    <a><div class="onoffswitch">
+                      <input type="checkbox" name="suggestcontent" class="onoffswitch-checkbox" id="offlineContent"
+                          {{data.settings.offlineContent}}>
+                      <label class="onoffswitch-label" for="myonoffswitch">
+                          <span class="onoffswitch-inner"></span>
+                          <span class="onoffswitch-switch"></span>
+                      </label>
+                    </div></a>
+                  </div>
+                  <button class="modal-default-button" @click="$emit('close')"> Exit </button>
+              </div>
+              <!-- END OF MODAL TEXT -->
 
               </div>
             </div>
