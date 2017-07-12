@@ -61,9 +61,9 @@
 
 //MODAL TAG TEMPLATE
 	Vue.component('modal', {
-  	template: 
+  	template:
 
-`       <transition name="modal">
+/*       <transition name="modal">
           <div class="modal-mask">
             <div class="modal-wrapper">
               <div class="modal-container">
@@ -145,22 +145,29 @@
               </div>
             </div>
           </div>
-        </transition>`
+        </transition> */
 
-	})
+	});
 
-  var curCourse = new Vue ({
+let courses = {};
+{{#each data.courses as |course name|}}
+    {{#each course as |value subject|}}
+        courses.{{name}}.{{subject}} = {{value}};
+    {{/each}}
+{{/each}}
+
+  let curCourse = new Vue ({
     el: ".maindiv",
     data: {
       currentCourse: "ACT"
     }
-  })
+  });
 
 	const menuModal = new Vue ({
 		el: "#toolbar",
 		data: {
 			showModal: false
 		}
-	})
+	});
 
 </script>

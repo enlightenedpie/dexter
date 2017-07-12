@@ -13,6 +13,11 @@ var data = {
             "Science" : true,
             "Essay" : true,
             "Practice" : true
+        },
+        "SAT" : {
+            "English" : true,
+            "Math" : true,
+            "Essay" : false
         }
     },
     "videos" : {
