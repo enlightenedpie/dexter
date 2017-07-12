@@ -1,0 +1,52 @@
+<template lang="html">
+                  <div id="Orders" class="tabcontent">
+                    <h3>Orders</h3>
+  <div id="Profile" class="tabcontent">
+                    <h3>Profile</h3>
+                    <img :src="user.profile.image" height="80">
+                    <p>{{user.profile.firstName}} {{user.profile.lastName}}</p>
+                    <ul>
+                    </ul>
+                    </div>
+                  <div id="Courses" class="tabcontent">
+                    <h3>Courses</h3>
+                    <ul>
+                    </ul>
+                  </div>
+                                    <div id="Settings" class="tabcontent">
+                    <h3>Settings</h3>
+                    <a>Recommend Content</a>
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="suggestcontent" id="recommendContent"
+                       {{user.settings.recommendContent}}>
+                    </div>
+                      <br>
+                      <br>
+                      <a>Reset password</a>
+                      <div class="passwordreset">
+                          <input type="text" name="resetpassword">
+                          <br>
+                          <input type="text" name="resetcheck">
+                      </div>
+                      <br>
+                      <br>
+                          <a>Offline Content</a>
+                    <a><div class="onoffswitch">
+                      <input type="checkbox" name="suggestcontent" class="onoffswitch-checkbox" id="offlineContent"
+                          {{user.settings.offlineContent}}>
+                          <span class="onoffswitch-inner"></span>
+                          <span class="onoffswitch-switch"></span>
+                    </div></a>
+                  </div>
+                  <button class="modal-default-button" @click="$emit('close')"> Confirm </button>
+              </div>
+</template>
+
+<script>
+export default {
+    props: ['user']
+}
+</script>
+
+<style lang="css">
+</style>

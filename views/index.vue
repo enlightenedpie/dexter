@@ -1,15 +1,9 @@
 <template lang="html">
-    <ul>
-		<li>
+    <div>
+        <h1>{{title}}</h1>
+        <modal :user="user"></modal>
 
-		<!-- MODAL BUTTON -->
-		<button id='modal-button' @click="showModal = true"> Menu </button>
-			<modal v-if="showModal" @close="showModal = false"> </modal>
-  		<!-- MODAL END -->
-
-		<li> Supertutortv </li>
-		<li> Hi, {{userData.profile.firstName}} </li>
-	</ul>
+    </div>
 </template>
 
 <script>
