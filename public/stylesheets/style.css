@@ -70,7 +70,6 @@ iframe {
 }
 
 
-
 #recommended {
 	position:relative;
   top:70px;
@@ -249,9 +248,11 @@ div.tab button.active {
 /* END OF MODAL FORMATTING */
 
 
-
-
-
-
+/* FOR FINDING CSS 
+* {
+  background: #000 !important;
+  color: #0f0 !important;
+  outline: solid #f00 1px !important;
+} */
 
 
