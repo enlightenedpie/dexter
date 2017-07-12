@@ -24,17 +24,17 @@ var data = {
         "ACTmath1" : {
             "completion": true,
             "time" : "0",
-            "uri": "https://www.youtube.com/embed/9szNGXja85M"
+            "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
         },
         "ACTmath2" : {
             "completion" : true,
             "time" : "0",
-            "uri": "https://www.youtube.com/embed/9szNGXja85M"
+            "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
         },
         "ACTmath3" : {
             "completion" : false,
             "time" : "35",
-            "uri": "https://www.youtube.com/embed/9szNGXja85M"
+            "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
         }
     },
     "profile" : {

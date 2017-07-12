@@ -20,7 +20,7 @@
   <h1> \{{currentCourse}} </h1>
 
 
-  <iframe width="840" height="690" src="https://www.youtube.com/embed/9szNGXja85M">
+    <iframe width="854" height="480" src="https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1" frameborder="0" allowfullscreen></iframe>
 </iframe>
 
 </div>
@@ -30,21 +30,22 @@
 	<p> Recently Watched </p>
 </div>
 
-{{#each data.videos}}
+{{#each data.videos as |this key|}}
     {{#if this.completion}}
-    <li> {{@key}} : <iframe src={{this.uri}}>
-    </iframe> </li>
-    <br>
+        <li> {{key}} : <iframe id={{key}} src={{this.uri}}>
+        </iframe> </li>
+        <br>
     {{/if}}
 {{/each}}
+
 
 <!-- RECOMMENDED -->
 <div id="recommended">
 	<p> Recommended </p>
 </div>
-{{#each data.videos}}
+{{#each data.videos as |this key|}}
     {{#unless this.completion}}
-    <li> {{@key}} : <iframe id={{@key}} src={{this.uri}}>
+    <li> {{key}} : <iframe id={{key}} src={{this.uri}}>
     </iframe> </li>
     <br>
     {{/unless}}
@@ -61,15 +62,10 @@
 
 //MODAL TAG TEMPLATE
 	Vue.component('modal', {
-  	template:
-
-`       <transition name="modal">
+  	template: `<transition name="modal">
           <div class="modal-mask">
             <div class="modal-wrapper">
               <div class="modal-container">
-
-              <!-- ACTUAL MODAL TEXT -->
-
                 <div class="modal-body">
                   <h1> Your profile </h1>
                     <div class="tab">
@@ -89,8 +85,8 @@
                     <div id="Orders" class="tabcontent">
                       <h3>Orders</h3>
                       <ul>
-                          {{#each data.orders}}
-                              <li>{{@key}}
+                          {{#each data.orders as |this key|}}
+                              <li>{{key}}
                               <ul>
                               <li>Order number: {{this}}</li>
                               </ul>
@@ -102,8 +98,9 @@
                     <div id="Courses" class="tabcontent">
                       <h3>Courses</h3>
                       <ul>
-                        {{#each data.courses}}
-                          <a>{{@key}}</a>
+                        {{#each data.courses as |value key|}}
+                          <button name={{key}} value={{key}}>{{key}}</button>
+                          <br>
                         {{/each}}
                       </ul>
                     </div>
@@ -140,14 +137,10 @@
                     </div>
                     <button class="modal-default-button" @click="$emit('close')"> Exit </button>
                 </div>
-                <!-- END OF MODAL TEXT -->
-
               </div>
             </div>
           </div>
-        </transition> `
-
-	});
+        </transition> `});
 
 let courses = {};
 {{#each data.courses as |course name|}}
