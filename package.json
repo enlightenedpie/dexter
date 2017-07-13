@@ -31,5 +31,6 @@
     "vue": "^2.3.4",
     "vue-server-renderer": "^2.3.4",
     "xss": "^0.3.3"
-  }
+  },
+  "devDependencies": {}
 }

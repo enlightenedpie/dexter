@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const expressVue = require('express-vue');
+const Vue = require('vue');
 const app = express();
 
 app.engine('vue', expressVue);
@@ -11,7 +12,7 @@ app.set('vue', {
     defaultLayout: 'layout'
 });
 
-var userData = {
+const userData = {
     "courses" : {
         "ACT" : {
             "English" : true,
@@ -60,7 +61,7 @@ var userData = {
 };
 
 app.get('/', function(req, res){
-    var scope = {
+    const scope = {
         data: {
             userData: userData
         }
@@ -68,6 +69,28 @@ app.get('/', function(req, res){
     res.render('index', scope);
 });
 
+
+// register modal component
+Vue.component('modal', {
+    template: '#modal-template'
+})
+
+// start app
+new Vue({
+    el: '#app',
+    data: {
+        showModal: false
+    }
+})
+
+app.get('/test', function(req, res){
+    const scope = {
+        data: {
+            userData: userData
+        }
+    };
+    res.render('test', scope);
+});
 
 app.listen(3000);
 console.log('Express server listening on port 3000');
