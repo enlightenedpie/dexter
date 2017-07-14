@@ -1,48 +1,98 @@
-const express = require('express');
 const path = require('path');
-const favicon = require('serve-favicon');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const Vue = require('vue');
-
+const express = require('express');
 const expressVue = require('express-vue');
-
-const index = require('./routes/index');
-
 const app = express();
 
 app.engine('vue', expressVue);
 app.set('view engine', 'vue');
 app.set('views', path.join(__dirname, '/views'));
-
-
-// view engine setup
-
-// uncomment after placing your favicon in /public
-// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    let err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+app.set('vue', {
+    componentsDir: path.join(__dirname, '/views/components'),
+    defaultLayout: 'layout'
 });
 
-// error handler
-app.use(function(err, req, res) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
+var exampleMixin = {
+    methods: {
+        hello: function () {
+            console.log('Hello');
+        }
+    }
+};
 
-    // render the error page
-    res.status(err.status || 500);
-    res.render('error');
+app.get('/', function(req, res){
+    var scope = {
+        data: {
+            title: "SupertutorTV",
+            user:  {
+                "courses" : {
+                    "ACT" : {
+                        "English" : true,
+                        "Math" : true,
+                        "Reading" : true,
+                        "Science" : true,
+                        "Essay" : true,
+                        "Practice" : true
+                    },
+                    "SAT" : {
+                        "English" : true,
+                        "Math" : true,
+                        "Essay" : false
+                    }
+                },
+                "videos" : {
+                    "ACTmath1" : {
+                        "completion": true,
+                        "time" : "0",
+                        "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
+                    },
+                    "ACTmath2" : {
+                        "completion" : true,
+                        "time" : "0",
+                        "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
+                    },
+                    "ACTmath3" : {
+                        "completion" : false,
+                        "time" : "35",
+                        "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
+                    }
+                },
+                "profile" : {
+                    "firstName" : "Rick",
+                    "lastName" : "Sanchez",
+                    "image" : "https://i.ytimg.com/vi/AzZ4K1OzomE/maxresdefault.jpg"
+                },
+                "orders" : {
+                    "Complete ACT Prep Package" : "z07d6j6i76"
+                },
+                "settings": {
+                    "recommendContent" : "checked",
+                    "resetPassword" : "dummylink.js",
+                    "offlineContent" : "checked"
+                }
+            }
+        },
+        vue: {
+            head: {
+                title: "SupertutorTV",
+                meta: [],
+                structuredData: {}
+            },
+            components: ['modal']
+        }
+    };
+    res.render('index', scope);
 });
 
-module.exports = app;
+app.get('/users/:userName', function(req, res){
+    var user = users.filter(function(item) {
+        return item.name === req.params.userName;
+    })[0];
+    res.render('user', {
+        data: {
+            title: 'SupertutorTV',
+            user: user
+        }
+    });
+});
+
+app.listen(3000);
