@@ -81,6 +81,7 @@
 
 <script>
 export default {
-    props: ['user']
+    props: ['user'],
+    components: ['modal']
 }
 </script>

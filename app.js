@@ -83,7 +83,7 @@ app.get('/', function(req, res){
                 meta: ['mixin'],
                 structuredData: {}
             },
-            components: ['modal','tabs','tab'],
+            components: ['modal'],
             mixins: []
         }
     };
