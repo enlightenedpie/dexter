@@ -10,6 +10,8 @@ app.set('vue', {
     componentsDir: path.join(__dirname, '/views/components'),
     defaultLayout: 'layout'
 });
+app.use(express.static(__dirname + '/public/stylesheets'));
+
 
 const mixin = {
     methods: {
@@ -26,7 +28,7 @@ app.get('/', function(req, res){
         data: {
             title: "SupertutorTV",
             counter: 0,
-            showModal : true,
+            showModal : false,
             user:  {
                 "courses" : {
                     "ACT" : {
@@ -71,7 +73,7 @@ app.get('/', function(req, res){
                 "settings": {
                     "recommendContent" : true,
                     "resetPassword" : "dummylink.js",
-                    "offlineContent" : true
+                    "offlineContent" : false
                 }
             }
         },
@@ -86,18 +88,6 @@ app.get('/', function(req, res){
         }
     };
     res.render('index', scope);
-});
-
-app.get('/users/:userName', function(req, res){
-    let user = users.filter(function(item) {
-        return item.name === req.params.userName;
-    })[0];
-    res.render('user', {
-        data: {
-            title: 'SupertutorTV',
-            user: user
-        }
-    });
 });
 
 app.listen(3000);

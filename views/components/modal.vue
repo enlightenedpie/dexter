@@ -72,6 +72,3 @@ export default {
     props: ['user']
 }
 </script>
-
-<style lang="css">
-</style>

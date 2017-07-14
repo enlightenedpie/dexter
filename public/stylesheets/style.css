@@ -65,9 +65,8 @@ h1 /*main course heading*/{
   text-decoration: none;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
-  background-color: white; 
-  color: black; 
-  border: 2px solid #green;
+  background-color: white;
+  color: black;
 }
 
 #modal-button:hover {
@@ -108,10 +107,6 @@ h4 /*Headings for #recommended and #recently-watched */{
   padding-right:20px;
 }
 
-
-#toolbar li:middle-child {
-  float:right;
-}
 
 .onoffswitch {
     position: relative;
@@ -254,7 +249,7 @@ div.tab button.active {
 /* END OF MODAL FORMATTING */
 
 
-/* FOR FINDING CSS 
+/* FOR FINDING CSS
 * {
   background: #000 !important;
   color: #0f0 !important;
