@@ -1,7 +1,14 @@
 <template lang="html">
                   <div id="Orders" class="tabcontent">
                     <h3>Orders</h3>
-  <div id="Profile" class="tabcontent">
+                    <ul>
+                        <li v-for="(item, index) in user.orders">
+                            {{index}}
+                            <ul>
+                                    <li>{{item}}</li>
+                            </ul>
+                    </ul>
+                    <div id="Profile" class="tabcontent">
                     <h3>Profile</h3>
                     <img :src="user.profile.image" height="80">
                     <p>{{user.profile.firstName}} {{user.profile.lastName}}</p>
@@ -11,6 +18,9 @@
                   <div id="Courses" class="tabcontent">
                     <h3>Courses</h3>
                     <ul>
+                        <li v-for="(item, index) in user.courses">
+                            {{index}}
+                        </li>
                     </ul>
                   </div>
                                     <div id="Settings" class="tabcontent">
