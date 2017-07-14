@@ -1,9 +1,12 @@
 <template lang="html">
     <div>
-        <h1>{{title}}</h1>
         <div id="toolbar">
-         <button id='modal-button' v-on:click="showModal = true"> Menu </button>
-                <modal v-if="showModal" v-on:close="showModal = false" :user="user"> </modal>
+            <ul>
+                <li> <h1>{{title}}</h1> </li>
+                <li> <button id='modal-button' v-on:click="showModal = true"> Menu </button> </li>
+                <li> Hi, {{user.profile.firstName}} </li>
+            </ul>
+            <modal v-if="showModal" v-on:close="showModal = false" :user="user"> </modal>
         </div>
 
     </div>

@@ -11,10 +11,7 @@
             {{{script}}}
         </body>
     </html>
-</template>
-
-<script>
-</script>
+</template>   
 
 <style>
 
