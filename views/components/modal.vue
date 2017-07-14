@@ -1,5 +1,16 @@
 <template lang="html">
                   <div id="Orders" class="tabcontent">
+                  <div class="modal-mask">
+            <div class="modal-wrapper">
+              <div class="modal-container">
+                <div class="modal-body">
+                  <h1> Your Profile </h1>
+                  <div class="tab">
+                    <button class="tablinks" onclick="openTab(event, 'Profile')">Profile</button>
+                    <button class="tablinks" onclick="openTab(event, 'Orders')">Orders</button>
+                    <button class="tablinks" onclick="openTab(event, 'Courses')">Courses</button>
+                    <button class="tablinks" onclick="openTab(event, 'Settings')">Settings</button>
+                  </div>
                     <h3>Orders</h3>
                     <ul>
                         <li v-for="(item, index) in user.orders">
@@ -28,7 +39,7 @@
                     <a>Recommend Content</a>
                     <div class="onoffswitch">
                         <input type="checkbox" name="suggestcontent" id="recommendContent"
-                       {{user.settings.recommendContent}}>
+                       v-model="user.settings.recommendContent">
                     </div>
                       <br>
                       <br>
@@ -43,13 +54,17 @@
                           <a>Offline Content</a>
                     <a><div class="onoffswitch">
                       <input type="checkbox" name="suggestcontent" class="onoffswitch-checkbox" id="offlineContent"
-                          {{user.settings.offlineContent}}>
+                          v-model="user.settings.offlineContent">
                           <span class="onoffswitch-inner"></span>
                           <span class="onoffswitch-switch"></span>
                     </div></a>
                   </div>
                   <button class="modal-default-button" @click="$emit('close')"> Confirm </button>
               </div>
+            </div>
+          </div>
+      </div>
+  </div>
 </template>
 
 <script>

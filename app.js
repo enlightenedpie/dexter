@@ -16,15 +16,17 @@ const mixin = {
         methods: {
             switchCourse(course) {
                 curCourse.currentCourse = course;
-            }
+            },
         }
     },
 };
 
 app.get('/', function(req, res){
-    const scope = {
+    let scope = {
         data: {
             title: "SupertutorTV",
+            counter: 0,
+            showModal : true,
             user:  {
                 "courses" : {
                     "ACT" : {
@@ -67,9 +69,9 @@ app.get('/', function(req, res){
                     "Complete ACT Prep Package" : "z07d6j6i76"
                 },
                 "settings": {
-                    "recommendContent" : "checked",
+                    "recommendContent" : true,
                     "resetPassword" : "dummylink.js",
-                    "offlineContent" : "checked"
+                    "offlineContent" : true
                 }
             }
         },
@@ -79,14 +81,15 @@ app.get('/', function(req, res){
                 meta: ['mixin'],
                 structuredData: {}
             },
-            components: ['modal']
+            components: ['modal'],
+            mixins: []
         }
     };
     res.render('index', scope);
 });
 
 app.get('/users/:userName', function(req, res){
-    var user = users.filter(function(item) {
+    let user = users.filter(function(item) {
         return item.name === req.params.userName;
     })[0];
     res.render('user', {
