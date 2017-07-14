@@ -3,6 +3,7 @@
     <html lang="en">
         <head>
             <meta charset="UTF-8">
+            <link rel='stylesheet' href='/stylesheets/style.css' />
             <script src="https://unpkg.com/vue/dist/vue.js"></script>
         </head>
         <body>

@@ -1,3 +1,5 @@
+<link rel='stylesheet' href='/public/stylesheets/style.css' />
+
 <template lang="html">
     <div>
         <h1>{{title}}</h1>
