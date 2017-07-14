@@ -11,16 +11,18 @@ app.set('vue', {
     defaultLayout: 'layout'
 });
 
-var exampleMixin = {
+const mixin = {
     methods: {
-        hello: function () {
-            console.log('Hello');
+        methods: {
+            switchCourse(course) {
+                curCourse.currentCourse = course;
+            }
         }
-    }
+    },
 };
 
 app.get('/', function(req, res){
-    var scope = {
+    const scope = {
         data: {
             title: "SupertutorTV",
             user:  {
@@ -74,7 +76,7 @@ app.get('/', function(req, res){
         vue: {
             head: {
                 title: "SupertutorTV",
-                meta: [],
+                meta: ['mixin'],
                 structuredData: {}
             },
             components: ['modal']
