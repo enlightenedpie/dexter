@@ -2,9 +2,9 @@
     <div>
         <h1>{{title}}</h1>
         <div id="toolbar">
-         <button id='modal-button' @click="showModal = true"> Menu </button>
-                <modal v-if="showModal" @close="showModal = false" :user="user"> </modal>
-            </div>
+         <button id='modal-button' v-on:click="showModal = true"> Menu </button>
+                <modal v-if="showModal" v-on:close="showModal = false" :user="user"> </modal>
+        </div>
 
     </div>
 </template>
@@ -23,11 +23,12 @@ let curCourse = new Vue ({
         currentCourse: "ACT"
     }
 });
-const menuModal = new Vue ({
+let menuModal = new Vue ({
     el: "#toolbar",
     data: {
         showModal: false
     }
 });
+
 </script>
 

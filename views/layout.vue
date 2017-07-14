@@ -7,6 +7,7 @@
         </head>
         <body>
             {{{app}}}
+            {{{script}}}
         </body>
     </html>
 </template>
