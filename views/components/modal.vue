@@ -92,14 +92,14 @@ export default {
       }
     },
     methods: {
-      switchCourse() {
-        this.currentcourse = "SAT";
-            },
+      // switchCourse() {
+      //   this.currentcourse = "SAT";
+      //       },
       makeActive: function(item){
                 this.active = item;
             }
     },
-    props: ['currentcourse','user'],
+    props: ['currentcourse','user','switchCourse()'],
     components: ['modal']
 }
 
