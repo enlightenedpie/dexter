@@ -87,19 +87,12 @@ iframe {
 }
 
 
-#recommended {
-	position:relative;
-  top:70px;
-	background-color:teal;
-  border-top: 1px solid black;
-  border-bottom: 2px solid black;
+.recommended {
+	padding-left:30px;
 }
 
-#recently-watched {
-	position:relative;
-  top:70px;
-	background-color:pink;
-  border-top: 1px solid black;
+#NavBar {
+	padding-left:30px;
 }
 
 .onoffswitch {
