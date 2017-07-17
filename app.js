@@ -27,7 +27,6 @@ app.get('/', function(req, res){
             title: "SupertutorTV",
             counter: 0,
             showModal : false,
-            currentCourse: "ACT",
             user:  {
                 "courses" : {
                     "ACT" : {

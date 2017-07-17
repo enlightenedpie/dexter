@@ -40,7 +40,7 @@
                 <h3>Courses</h3>
                 <ul>
                   <li v-for="(item, index) in user.courses">
-                  <button v-on:click="switchCourse()"> {{index}} </button>
+                  <button v-on:click="changecourse()"> {{index}} </button>
                   </li>
                 </ul>
               </div>
@@ -87,7 +87,6 @@
 export default {
     data() {
       return {
-        currentcourse: "",
         active: 'profile'
       }
     },
@@ -99,7 +98,7 @@ export default {
                 this.active = item;
             }
     },
-    props: ['currentcourse','user','switchCourse()'],
+    props: ['currentcourse','user','changecourse'],
     components: ['modal']
 }
 
