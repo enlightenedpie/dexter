@@ -38,11 +38,10 @@ iframe {
   top:60px;
 }
 
-
 #toolbar {
 	position:fixed;
   width:100%;
-	top:0px;
+	top:0;
 	height:60px;
 	background-color:#f1f1f1;
   border-bottom: 1px solid black;
@@ -102,7 +101,6 @@ iframe {
 	background-color:pink;
   border-top: 1px solid black;
 }
-
 
 .onoffswitch {
     position: relative;
