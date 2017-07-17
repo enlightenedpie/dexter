@@ -15,8 +15,7 @@ li {
 button {
   outline:none;
   border:none;
-  padding: 4px 8px;
-  background-color:white;
+  background-color:#f1f1f1;
 }
 
 button:hover {
@@ -36,34 +35,52 @@ iframe {
 
 .maindiv {
   position:relative;
-	text-align:center;
-  top:40px;
+  top:60px;
 }
 
 
 #toolbar {
 	position:fixed;
   width:100%;
-	top:-5px;
+	top:0px;
 	height:60px;
 	background-color:#f1f1f1;
   border-bottom: 1px solid black;
   z-index:1;
 }
 
+#toolbar ul{
+  overflow:hidden;
+  margin: 0;
+  padding: 0;
+}
+
+#toolbar li {
+  display:inline;
+  padding:10px 20px;
+  float:left;
+  height:40px;
+}
+
+
+#toolbar li:last-child {
+  float:right;
+  border-left: 1px solid black;
+}
+
+#toolbar li:first-child {
+  border-right: 1px solid black;
+}
+
+
 #modal-button {
-  position:relative;
-  top:-20px;
-  height:100%;
-  border: none;
-  padding: 20px;
+  top:-1px;
+  height:60px;
   font-size:15px;
   text-decoration: none;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
-  background-color: white;
-  color: black;
-  border: 1px solid black;
+
 }
 
 #modal-button:hover {
@@ -85,26 +102,6 @@ iframe {
 	background-color:pink;
   border-top: 1px solid black;
 }
-
-#toolbar li{
-
-  padding:5px;
-  display:inline;
-  float:left;
-}
-
-#toolbar li:last-child {
-  float:right;
-  padding-right:20px;
-}
-
-#toolbar li:first-child {
-  float:left;
-  padding-right:20px;
-  position:relative;
-  top:-30px;
-}
-
 
 
 .onoffswitch {
