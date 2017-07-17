@@ -7,12 +7,16 @@
                 <li> Hi, {{user.profile.firstName}} </li>
             </ul>
         </div>
+
+         <modal v-if="showModal" v-on:close="showModal = false" :user="user" :currentcourse="currentCourse" :changecourse="switchCourse"> </modal>
+         
         <div class="maindiv">
-            <modal v-if="showModal" v-on:close="showModal = false" :user="user" :currentcourse="currentCourse" :changecourse="switchCourse"> </modal>
 
             <div id="video-holder">
-            <iframe width="100%" height="420" src="https://www.youtube.com/embed?v=5eHx-tBtgYs"> </iframe>
+            <iframe width="100%" height="500" src="https://www.youtube.com/embed/5eHx-tBtgYs" frameborder="0" allowfullscreen></iframe>
             </div>
+
+            <h1> Hour of Devastation Trailer </h1>
 
             <div id="NavBar">
                 <h3>{{currentCourse}}</h3>

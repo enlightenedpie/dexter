@@ -4,6 +4,10 @@ body {
   margin:0;
 }
 
+#stvlogo {
+
+}
+
 a {
   color: #00B7FF;
 }
@@ -22,8 +26,8 @@ button:hover {
   background-color: #ddd;
 }
 
-iframe {
-  border:1px solid black;
+h1 {
+  text-align:center;
 }
 
 .sub-vid {
@@ -46,6 +50,7 @@ iframe {
 	background-color:#f1f1f1;
   border-bottom: 1px solid black;
   z-index:1;
+  margin:auto;
 }
 
 #toolbar ul{
@@ -58,17 +63,20 @@ iframe {
   display:inline;
   padding:10px 20px;
   float:left;
-  height:40px;
+  height:30px;
 }
 
 
 #toolbar li:last-child {
+  padding-top:20px;
   float:right;
   border-left: 1px solid black;
 }
 
 #toolbar li:first-child {
   border-right: 1px solid black;
+  padding:0;
+  height:60px;
 }
 
 
@@ -79,6 +87,7 @@ iframe {
   text-decoration: none;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
+  padding:20px;
 
 }
 
@@ -146,9 +155,9 @@ div.tab button.active {
 
 /* Style the tab content */
 .tabcontent {
-    padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
+    height:0px;
 }
 
 .tabcontent h5 {
