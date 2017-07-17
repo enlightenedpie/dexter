@@ -18,11 +18,28 @@
                     </ul>
                 </a>
             </div>
-            <div>
-
-            </div>
 
             <modal v-if="showModal" v-on:close="showModal = false" :user="user" :currentcourse="currentCourse" :changecourse="switchCourse"> </modal>
+
+            <div id="NavBar">
+                <h3>{{currentCourse}}</h3>
+                <a>
+                    <ul v-for="(item, index) in user.courses">
+                    <li v-for="(subitem, subindex) in item.subjects">
+                        <a v-if="index === currentCourse">{{subitem}}</a>
+                    </li>
+                    </ul>
+                </a>
+            </div>
+            <div class="recommended">Recommended Videos
+                <a>
+                    <ul v-for="(item, index) in user.courses">
+                    <li v-for="(subitem, subindex) in item.recommended">
+                        <a v-if="index === currentCourse">{{subitem.name}}</a>
+                    </li>
+                    </ul>
+                </a>
+            </div>
         </div>
     </div>
 </template>
