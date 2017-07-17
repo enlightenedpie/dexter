@@ -11,7 +11,6 @@
          <modal v-if="showModal" v-on:close="showModal = false" :user="user" :currentcourse="currentCourse" :changecourse="switchCourse"> </modal>
          
         <div class="maindiv">
-
             <div id="video-holder">
             <iframe width="100%" height="500" src="https://www.youtube.com/embed/5eHx-tBtgYs" frameborder="0" allowfullscreen></iframe>
             </div>
@@ -37,6 +36,7 @@
                     </ul>
                 </a>
             </div>
+            <recommended :user="user" :currentcourse="currentCourse"></recommended>
         </div>
     </div>
 </template>
