@@ -30,35 +30,56 @@ app.get('/', function(req, res){
             user:  {
                 "courses" : {
                     "ACT" : {
-                        "English" : true,
-                        "Math" : true,
-                        "Reading" : true,
-                        "Science" : true,
-                        "Essay" : true,
-                        "Practice" : true
+                        "subjects" :
+                            ["English",
+                            "Math",
+                            "Reading",
+                            "Science",
+                            "Essay",
+                            "Practice"],
+                        "recommended" : {
+                            "16458" : {
+                                "name" : "ACT Math 1",
+                                "time" : "0",
+                                "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
+                            },
+                            "89347" : {
+                                "name" : "ACT Math 2",
+                                "time" : "0",
+                                "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
+                            },
+                            "85315" : {
+                                "name" : "ACT Math 3",
+                                "time" : "35",
+                                "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
+                            }
+                        }
                     },
                     "SAT" : {
-                        "English" : true,
-                        "Math" : true,
-                        "Essay" : false
+                        "subjects" :
+                            ["English",
+                            "Math",
+                            "Essay"],
+                        "recommended" : {
+                            "SATenglish1" : {
+                                "name" : "SAT English 1",
+                                "time" : "0",
+                                "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
+                        },
+                            "SATenglish2" : {
+                                "name" : "SAT English 2",
+                                "time" : "0",
+                                "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
+                            },
+                            "SATenglish3" : {
+                                "name" : "SAT English 3",
+                                "time" : "35",
+                                "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
+                            }}
                     }
                 },
                 "videos" : {
-                    "ACTmath1" : {
-                        "completion": true,
-                        "time" : "0",
-                        "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
-                    },
-                    "ACTmath2" : {
-                        "completion" : true,
-                        "time" : "0",
-                        "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
-                    },
-                    "ACTmath3" : {
-                        "completion" : false,
-                        "time" : "35",
-                        "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
-                    }
+
                 },
                 "profile" : {
                     "firstName" : "Rick",

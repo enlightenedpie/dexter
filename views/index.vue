@@ -7,22 +7,27 @@
                 <li> Hi, {{user.profile.firstName}} </li>
             </ul>
         </div>
+            <modal v-if="showModal" v-on:close="showModal = false" :user="user" :currentcourse="currentCourse" :changecourse="switchCourse"> </modal>
         <div id="NavBar">
         <h3>Buffer so I can see what the hell I'm working on</h3>
         <h3>{{currentCourse}}</h3>
             <a>
                 <ul v-for="(item, index) in user.courses">
-                <li v-for="(subitem, subindex) in item">
-                    <a v-if="index === currentCourse">{{subindex}}</a>
+                <li v-for="(subitem, subindex) in item.subjects">
+                    <a v-if="index === currentCourse">{{subitem}}</a>
                 </li>
                 </ul>
             </a>
         </div>
-        <div>
-
+        <div class="recommended">Recommended Videos
+            <a>
+                <ul v-for="(item, index) in user.courses">
+                <li v-for="(subitem, subindex) in item.recommended">
+                    <a v-if="index === currentCourse">{{subitem.name}}</a>
+                </li>
+                </ul>
+            </a>
         </div>
-
-        <modal v-if="showModal" v-on:close="showModal = false" :user="user" :currentcourse="currentCourse" :changecourse="switchCourse"> </modal>
 
     </div>
 </template>
