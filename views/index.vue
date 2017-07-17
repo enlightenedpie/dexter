@@ -8,17 +8,6 @@
             </ul>
         </div>
         <div class="maindiv">
-            <div id="NavBar">
-            <h3>{{currentCourse}}</h3>
-                <a>
-                    <ul v-for="(item, index) in user.courses">
-                    <li v-for="(subitem, subindex) in item">
-                        <a v-if="index === currentCourse">{{subindex}}</a>
-                    </li>
-                    </ul>
-                </a>
-            </div>
-
             <modal v-if="showModal" v-on:close="showModal = false" :user="user" :currentcourse="currentCourse" :changecourse="switchCourse"> </modal>
 
             <div id="NavBar">
