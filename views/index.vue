@@ -21,8 +21,8 @@ export default {
         }
     },
     methods: {
-        switchCourse() {
-            this.currentCourse = "SAT";
+        switchCourse(course) {
+            this.currentCourse = course;
             },
     }
 

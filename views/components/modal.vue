@@ -40,7 +40,7 @@
                 <h3>Courses</h3>
                 <ul>
                   <li v-for="(item, index) in user.courses">
-                  <button v-on:click="changecourse()"> {{index}} </button>
+                  <button v-on:click="changecourse(index)"> {{index}} </button>
                   </li>
                 </ul>
               </div>
@@ -91,9 +91,6 @@ export default {
       }
     },
     methods: {
-      // switchCourse() {
-      //   this.currentcourse = "SAT";
-      //       },
       makeActive: function(item){
                 this.active = item;
             }
