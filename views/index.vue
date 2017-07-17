@@ -2,11 +2,11 @@
     <div>
         <div id="toolbar">
             <ul>
-                <li> <h1>{{title}}</h1> </li>
+                <li> <h1>{{currentCourse}}</h1> </li>
                 <li> <button id='modal-button' v-on:click="showModal = true"> Menu </button> </li>
                 <li> Hi, {{user.profile.firstName}} </li>
             </ul>
-            <modal v-if="showModal" v-on:close="showModal = false" :user="user"> </modal>
+            <modal v-if="showModal" v-on:close="showModal = false" :user="user" :currentcourse="currentCourse"> </modal>
         </div>
 
     </div>
@@ -15,22 +15,26 @@
 <script>
 import Vue from 'vue';
 export default {
-    data: function() {
+    data() {
         return {
+        
         }
-    }
-}
-let curCourse = new Vue ({
-    el: ".maindiv",
-    data: {
-        currentCourse: "ACT"
-    }
-});
-let menuModal = new Vue ({
-    el: "#toolbar",
-    data: {
-        showModal: false
-    }
-});
+    },
+
+
+
+
+};
+//     data: function() {
+//         return {
+//         }
+//     }
+// }
+// let curCourse = new Vue ({
+//     el: ".maindiv",
+//     data: {
+//         currentCourse: "ACT"
+//     }
+// });
 
 </script>

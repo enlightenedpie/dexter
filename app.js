@@ -16,9 +16,7 @@ app.use(express.static(__dirname + '/public/stylesheets'));
 const mixin = {
     methods: {
         methods: {
-            switchCourse(course) {
-                curCourse.currentCourse = course;
-            },
+        
         }
     },
 };
@@ -29,6 +27,7 @@ app.get('/', function(req, res){
             title: "SupertutorTV",
             counter: 0,
             showModal : false,
+            currentCourse: "ACT",
             user:  {
                 "courses" : {
                     "ACT" : {

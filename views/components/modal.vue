@@ -30,14 +30,14 @@
               <tab name="Profile" class="tabcontent">
                 <h3>Profile</h3>
                 <img :src="user.profile.image" height="80">
-                <p>{{user.profile.firstName}} {{user.profile.lastName}}</p>
+                <p>{{currentcourse}} {{user.profile.lastName}}</p>
               </tab>
 
               <tab name="Courses" class="tabcontent">
                 <h3>Courses</h3>
                 <ul>
                   <li v-for="(item, index) in user.courses">
-                  {{index}}
+                  <button v-on:click="switchCourse()"> {{index}} </button>
                   </li>
                 </ul>
               </tab>
@@ -81,7 +81,17 @@
 
 <script>
 export default {
-    props: ['user'],
+    data() {
+      return {
+        currentcourse: ""
+      }
+    },
+    methods: {
+      switchCourse() {
+        this.currentcourse = "SAT";
+      }
+    },
+    props: ['currentcourse','user'],
     components: ['modal']
 }
 </script>
