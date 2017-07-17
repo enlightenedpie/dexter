@@ -6,7 +6,6 @@
                 <li><img src="https://supertutortv.com/wp-content/uploads/2016/10/sttv_site_logo.png" height=55 class="logo"/></li>
                 <li> Hi, {{user.profile.firstName}} </li>
             </ul>
-            <modal v-if="showModal" v-on:close="showModal = false" :user="user" :currentcourse="currentCourse" :changecourse="switchCourse"> </modal>
         </div>
         <div id="NavBar">
         <h3>Buffer so I can see what the hell I'm working on</h3>
@@ -22,6 +21,8 @@
         <div>
 
         </div>
+
+        <modal v-if="showModal" v-on:close="showModal = false" :user="user" :currentcourse="currentCourse" :changecourse="switchCourse"> </modal>
 
     </div>
 </template>

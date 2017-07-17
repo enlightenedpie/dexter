@@ -6,47 +6,43 @@
           <div class="modal-body">
 
             <h1> Your Profile </h1>
-            <!-- <div class="tab">
-              <button class="tablinks" onclick="openTab(event, 'Profile')">Profile</button>
-              <button class="tablinks" onclick="openTab(event, 'Orders')">Orders</button>
-              <button class="tablinks" onclick="openTab(event, 'Courses')">Courses</button>
-              <button class="tablinks" onclick="openTab(event, 'Settings')">Settings</button>
-            </div> -->
+            <div class="tab">
+              <button v-on:click="makeActive('profile')">Profile</button>
+              <button v-on:click="makeActive('orders')">Orders</button>
+              <button v-on:click="makeActive('courses')">Courses</button>
+              <button v-on:click="makeActive('settings')">Settings</button>
+            </div>
             <ul>
 
-            <li v-on:click="makeActive('profile')"> Profile
               <div v-if="active === 'profile'">
                 <h3>Profile</h3>
                 <img :src="user.profile.image" height="80">
                 <p>{{user.profile.firstName}} {{user.profile.lastName}}</p>
               </div>
 
-            <li v-on:click="makeActive('orders')"> Orders
               <div v-if="active === 'orders'">
                 <h3>Orders</h3>
                 <ul>
                   <li v-for="(item, index) in user.orders">
                     {{index}}
                     <ul>
-                      <li>{{item}}</li>
+                      <li>- {{item}}</li>
                     </ul>
                     </li>
                 </ul>
               </div>
               </li>
 
-            <li v-on:click="makeActive('courses')"> Courses
               <div v-if="active === 'courses'">
                 <h3>Courses</h3>
                 <ul>
                   <li v-for="(item, index) in user.courses">
-                  <button v-on:click="changecourse(index)"> {{index}} </button>
+                  <button class="course-buttons" v-on:click="changecourse(index)"> {{index}} </button>
                   </li>
                 </ul>
               </div>
               </li>
 
-              <li class="settings" v-on:click="makeActive('settings')"> Settings
               <div v-if="active === 'settings'">
                 <h3>Settings</h3>
                 <a>Recommend Content</a>
@@ -74,9 +70,8 @@
               </div>
              </li>
             </ul>
-            <button class="modal-default-button" @click="$emit('close')"> Confirm </button>
-
           </div>
+          <button class="modal-default-button" @click="$emit('close')"> Confirm </button>
         </div>
       </div>
     </div>
