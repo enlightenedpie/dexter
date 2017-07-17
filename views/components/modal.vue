@@ -4,7 +4,6 @@
       <div class="modal-wrapper">
         <div class="modal-container">
           <div class="modal-body">
-            <h1> Your Profile </h1>
             <div class="tab">
               <button v-on:click="makeActive('profile')">Profile</button>
               <button v-on:click="makeActive('orders')">Orders</button>
