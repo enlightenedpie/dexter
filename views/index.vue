@@ -6,8 +6,9 @@
                 <li> <button id='modal-button' v-on:click="showModal = true"> Menu </button> </li>
                 <li> Hi, {{user.profile.firstName}} </li>
             </ul>
-            <modal v-if="showModal" v-on:close="showModal = false" :user="user" :currentcourse="currentCourse" :changecourse="switchCourse"> </modal>
         </div>
+
+        <modal v-if="showModal" v-on:close="showModal = false" :user="user" :currentcourse="currentCourse" :changecourse="switchCourse"> </modal>
 
     </div>
 </template>
