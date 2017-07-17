@@ -4,7 +4,6 @@
       <div class="modal-wrapper">
         <div class="modal-container">
           <div class="modal-body">
-
             <h1> Your Profile </h1>
             <div class="tab">
               <button v-on:click="makeActive('profile')">Profile</button>
@@ -31,7 +30,6 @@
                     </li>
                 </ul>
               </div>
-              </li>
 
               <div v-if="active === 'courses'">
                 <h3>Courses</h3>
@@ -41,7 +39,6 @@
                   </li>
                 </ul>
               </div>
-              </li>
 
               <div v-if="active === 'settings'">
                 <h3>Settings</h3>
@@ -68,7 +65,6 @@
                   <span class="onoffswitch-switch"></span>
                 </div></a>
               </div>
-             </li>
             </ul>
           </div>
           <button class="modal-default-button" @click="$emit('close')"> Confirm </button>
@@ -93,5 +89,4 @@ export default {
     props: ['currentcourse','user','changecourse'],
     components: ['modal']
 }
-
 </script>

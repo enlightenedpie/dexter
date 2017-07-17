@@ -9,30 +9,11 @@
         </div>
         <div class="maindiv">
             <modal v-if="showModal" v-on:close="showModal = false" :user="user" :currentcourse="currentCourse" :changecourse="switchCourse"> </modal>
-
+            <navbar :user="user" :currentcourse="currentCourse"></navbar>
             <div id="video-holder">
-            <iframe width="100%" height="420" src="https://www.youtube.com/embed?v=5eHx-tBtgYs"> </iframe>
+                <iframe width="100%" height="500" src="https://www.youtube.com/embed/5eHx-tBtgYs?ecver=1" frameborder="0" allowfullscreen></iframe>
             </div>
-
-            <div id="NavBar">
-                <h3>{{currentCourse}}</h3>
-                <a>
-                    <ul v-for="(item, index) in user.courses">
-                    <li v-for="(subitem, subindex) in item.subjects">
-                        <a v-if="index === currentCourse">{{subitem}}</a>
-                    </li>
-                    </ul>
-                </a>
-            </div>
-            <div class="recommended">Recommended Videos
-                <a>
-                    <ul v-for="(item, index) in user.courses">
-                    <li v-for="(subitem, subindex) in item.recommended">
-                        <a v-if="index === currentCourse">{{subitem.name}}</a>
-                    </li>
-                    </ul>
-                </a>
-            </div>
+            <recommended :user="user" :currentcourse="currentCourse"></recommended>
         </div>
     </div>
 </template>
