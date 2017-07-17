@@ -12,37 +12,43 @@
               <button class="tablinks" onclick="openTab(event, 'Courses')">Courses</button>
               <button class="tablinks" onclick="openTab(event, 'Settings')">Settings</button>
             </div> -->
+            <ul>
 
-            <tabs>
-
-              <tab name="Orders" class="tabcontent" :selected="true">
-                <h3>Orders</h3>
-                <ul>
-                  <li v-for="(item, index) in user.orders">
-                    {{index}} 
-                  </li>
-                    <ul>
-                      <li>{{item}}</li>
-                    </ul>
-                </ul>
-              </tab>
-
-              <tab name="Profile" class="tabcontent">
+            <li v-on:click="makeActive('profile')"> Profile
+              <div v-if="active === 'profile'">
                 <h3>Profile</h3>
                 <img :src="user.profile.image" height="80">
                 <p>{{user.profile.firstName}} {{user.profile.lastName}}</p>
-              </tab>
+              </div>
 
-              <tab name="Courses" class="tabcontent">
+            <li v-on:click="makeActive('orders')"> Orders
+              <div v-if="active === 'orders'">
+                <h3>Orders</h3>
+                <ul>
+                  <li v-for="(item, index) in user.orders">
+                    {{index}}
+                    <ul>
+                      <li>{{item}}</li>
+                    </ul>
+                    </li>
+                </ul>
+              </div>
+              </li>
+
+
+            <li v-on:click="makeActive('courses')"> Courses
+              <div v-if="active === 'courses'">
                 <h3>Courses</h3>
                 <ul>
                   <li v-for="(item, index) in user.courses">
                   {{index}}
                   </li>
                 </ul>
-              </tab>
+              </div>
+              </li>
 
-              <tab name="Settings" class="tabcontent">
+              <li class="settings" v-on:click="makeActive('settings')"> Settings
+              <div v-if="active === 'settings'">
                 <h3>Settings</h3>
                 <a>Recommend Content</a>
                 <div class="onoffswitch">
@@ -66,10 +72,9 @@
                   <span class="onoffswitch-inner"></span>
                   <span class="onoffswitch-switch"></span>
                 </div></a>
-              </tab>
-
-            </tabs>
-
+              </div>
+             </li>
+            </ul>
             <button class="modal-default-button" @click="$emit('close')"> Confirm </button>
 
           </div>
@@ -82,6 +87,15 @@
 <script>
 export default {
     props: ['user'],
-    components: ['modal']
-}
+    data() {
+        return {
+            active : 'profile'
+        }
+    },
+    methods: {
+            makeActive: function(item){
+                this.active = item;
+            }
+    },
+};
 </script>
