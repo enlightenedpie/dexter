@@ -37,6 +37,10 @@ h1 {
 
 }
 
+#menu-icon {
+  width:11px;
+}
+
 .maindiv {
   position:relative;
   top:60px;
