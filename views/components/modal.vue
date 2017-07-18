@@ -79,6 +79,21 @@
         </div>
       </div>
     </div>
+        <div id="video-holder">
+            <iframe width="100%" height="500" v-bind:src="vidsrc" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div>
+        <div id="NavBar" class="navbar">
+            <h3>{{currentcourse}}</h3>
+        </div>
+        <div id="navbar-items">
+                <ul v-for="(item, index) in user.courses">
+                    <li v-if="index === currentcourse" v-bind:class="{active: index === currentcourse}" v-for="(subitem, subindex) in item.subjects">
+                        <a>{{subitem}}</a>
+                    </li>
+                </ul>
+        </div>
+    </div>
   </div>
 </template>
 
@@ -94,7 +109,7 @@ export default {
                 this.active = item;
             }
     },
-    props: ['currentcourse','user','switchcourse', 'showmodal', 'modalswitch'],
+    props: ['currentcourse','user','switchcourse', 'showmodal', 'modalswitch', 'vidsrc'],
     components: ['modal']
 }
 </script>

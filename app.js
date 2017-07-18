@@ -127,7 +127,7 @@ app.get('/', function(req, res){
                 meta: ['mixin'],
                 structuredData: {}
             },
-            components: ['modal', 'navbar', 'videos'],
+            components: ['modal', 'videos'],
             mixins: []
         }
     };
