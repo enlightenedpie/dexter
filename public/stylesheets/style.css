@@ -95,6 +95,12 @@ h1 {
   right:17px;
 }
 
+.thumbnails {
+  width:13%;
+  position:static;
+  top:200px;
+}
+
 .modal-button {
   top:-1px;
   height:60px;
@@ -115,6 +121,10 @@ h1 {
 	padding-left:30px;
 }
 
+.recent-and-recommended li {
+  display:inline;
+  padding:10px;
+}
 
 .onoffswitch {
     position: relative;

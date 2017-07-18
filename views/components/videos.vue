@@ -1,20 +1,24 @@
 <template>
     <div class="recent-and-recommended">
-        <div class="recommended">Recommended Videos
+        <div class="recommended">
+            <h3> Recommended Videos </h3>
             <ul v-for="(item, index) in user.courses">
                 <li v-for="(subitem, subindex) in item.recommended">
+                    <a v-bind:href="subitem.uri">
                     <a v-if="index === currentcourse">
-                    <img v-bind:src="subitem.thumbnail">
-                    <a v-bind:href="subitem.uri">{{subitem.name}}</a>
+                    <img class="thumbnails" v-bind:src="subitem.thumbnail">
+                    {{subitem.name}}</a>
                     </a>
                 </li>
             </ul>
         </div>
-        <div class="recent">Recently
-            <ul v-for="(item, index) in user.videos.recentlyWatched">
-                <li>
-                    <img v-bind:src="item.thumbnail">
-                    <a v-bind:href="item.uri">{{item.name}}</a>
+        <div class="recent">
+            <h3> Recently Watched </h3>
+            <ul>
+                <li v-for="(item, index) in user.videos.recentlyWatched">
+                    <a v-bind:href="item.uri">
+                    <img class="thumbnails" v-bind:src="item.thumbnail">
+                    {{item.name}}</a>
                 </li>
             </ul>
         </div>
