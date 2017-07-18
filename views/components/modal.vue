@@ -41,7 +41,7 @@
                 <div v-if="activecourse === 'courses'">
                   <h3>Courses</h3>
                   <ul>
-                    <li v-for="(item, index) in user.courses">
+                    <li v-for="(item, index) in resources.courses">
                     <button class="course-buttons" v-on:click="switchcourse(index)"> {{index}} </button>
                     </li>
                   </ul>
@@ -86,8 +86,8 @@
             <h3>{{currentcourse}}</h3>
         <div id="navbar-items">
           <ul class="nav-items">
-            <li v-for="(item, index) in user.courses[currentcourse].subjects" v-on:click="makeActiveTab(item)">
-              <a> {{item}} </a>
+            <li v-for="(item, index) in resources.courses[currentcourse].subjects" v-on:click="makeactivesubject(index)">
+              <a> {{index}} </a>
             </li>
           </ul>
         </div>
@@ -100,18 +100,14 @@ export default {
     data() {
       return {
         activecourse: 'profile',
-        activetab: ''
             }
     },
     methods: {
       makeActiveCourse: function(item){
                 this.activecourse = item;
-            },
-        makeActiveTab: function(item){
-            this.activetab = item;
-        }
+            }
     },
-    props: ['currentcourse','user','switchcourse', 'showmodal', 'modalswitch', 'vidsrc'],
+    props: ['activesubject', 'makeactivesubject', 'currentcourse','user','switchcourse', 'showmodal', 'modalswitch', 'vidsrc', 'resources'],
     components: ['modal']
 }
 </script>
