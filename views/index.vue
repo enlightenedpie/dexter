@@ -1,8 +1,13 @@
 <template lang="html">
     <div id="parentdiv">
         <div class="maindiv">
+
             <modal :showmodal="showModal" :modalswitch="modalswitch" :user="user" :currentcourse="currentCourse" :switchcourse="switchCourse" :vidsrc="vidsrc"> </modal>
-            <videos :user="user" :currentcourse="currentCourse"></videos>
+
+            <videos :title="'Recommended Videos'" :vidlist="user.courses[currentCourse].recommended"></videos>
+
+            <videos :title="'Recently Watched'" :vidlist="user.videos.recentlyWatched"></videos>
+
         </div>
     </div>
 </template>

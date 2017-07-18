@@ -102,7 +102,7 @@ export default {
     data() {
       return {
         active: 'profile'
-      }
+            }
     },
     methods: {
       makeactive: function(item){
