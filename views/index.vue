@@ -22,7 +22,7 @@ export default {
             currentCourse : "ACT",
             activesubject: "Math",
             showModal : false,
-            vidsrc : "https://www.youtube.com/embed/5eHx-tBtgYs?ecver="
+            vidsrc : "https://www.youtube.com/embed/gE8qZTEgS8E"
         }
     },
     methods: {
