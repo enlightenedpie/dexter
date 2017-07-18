@@ -6,7 +6,7 @@
             <div id="video-holder">
                 <iframe width="100%" height="500" src="https://www.youtube.com/embed/5eHx-tBtgYs?ecver=1" frameborder="0" allowfullscreen></iframe>
             </div>
-            <recommended :user="user" :currentcourse="currentCourse"></recommended>
+            <videos :user="user" :currentcourse="currentCourse"></videos>
         </div>
     </div>
 </template>

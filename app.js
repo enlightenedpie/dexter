@@ -74,11 +74,28 @@ app.get('/', function(req, res){
                                 "name" : "SAT English 3",
                                 "time" : "35",
                                 "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
-                            }}
+                            }
+                        }
                     }
                 },
                 "videos" : {
-
+                    "recentlyWatched" : {
+                        "91765" : {
+                            "name" : "SAT Math II Subject Test",
+                            "time" : "0",
+                            "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
+                        },
+                        "94328" : {
+                            "name" : "SAT Chemistry Subject Test",
+                            "time" : "0",
+                            "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
+                        },
+                        "57492" : {
+                            "name" : "SAT General Prep",
+                            "time" : "35",
+                            "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
+                        }
+                    }
                 },
                 "profile" : {
                     "firstName" : "Rick",
@@ -101,7 +118,7 @@ app.get('/', function(req, res){
                 meta: ['mixin'],
                 structuredData: {}
             },
-            components: ['modal', 'navbar', 'recommended'],
+            components: ['modal', 'navbar', 'videos'],
             mixins: []
         }
     };
