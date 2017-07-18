@@ -93,14 +93,9 @@ h1 {
   display:inline;
   padding: 4px 14px;
   border:1px solid black;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
-.thumbnails {
-  width:13%;
-  position:static;
-  top:200px;
-}
 
 .modal-button {
   top:-1px;
@@ -124,11 +119,26 @@ h1 {
 
 .videos li {
   display:inline;
+  padding:20px;
  
 }
 
-.videos a{
+.videos a {
+  text-decoration:none;
+}
 
+.other-vids {
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+  text-align:center;
+}
+
+
+.thumbnails {
+  width:100%;
+  position:static;
+  top:200px;
 }
 
 .onoffswitch {
@@ -227,7 +237,7 @@ div.tab button.active {
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;
-  border-radius: 2px;
+  border-radius: 5px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
   transition: all .3s ease;
 }
