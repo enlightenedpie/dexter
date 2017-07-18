@@ -115,11 +115,16 @@ h1 {
 
 .videos {
 	padding-left:30px;
+  text-align:center;
+  position:relative;
+  right:17px;
 }
 
 .videos li {
   display:inline;
-  padding:20px;
+  padding:68px;
+  position:relative;
+  right:17px;
  
 }
 
@@ -129,7 +134,7 @@ h1 {
 
 .other-vids {
   display: inline-block;
-  width: 200px;
+  width: 300px;
   height: 100px;
   text-align:center;
 }
