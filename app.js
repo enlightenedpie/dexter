@@ -40,17 +40,20 @@ app.get('/', function(req, res){
                             "16458" : {
                                 "name" : "ACT Math 1",
                                 "time" : "0",
-                                "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
+                                "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
+                                "thumbnail" : "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
                             },
                             "89347" : {
                                 "name" : "ACT Math 2",
                                 "time" : "0",
-                                "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
+                                "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
+                                "thumbnail" : "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
                             },
                             "85315" : {
                                 "name" : "ACT Math 3",
                                 "time" : "35",
-                                "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
+                                "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
+                                "thumbnail" : "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
                             }
                         }
                     },
@@ -63,17 +66,20 @@ app.get('/', function(req, res){
                             "SATenglish1" : {
                                 "name" : "SAT English 1",
                                 "time" : "0",
-                                "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
+                                "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
+                                "thumbnail" : "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
                         },
                             "SATenglish2" : {
                                 "name" : "SAT English 2",
                                 "time" : "0",
-                                "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
+                                "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
+                                "thumbnail" : "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
                             },
                             "SATenglish3" : {
                                 "name" : "SAT English 3",
                                 "time" : "35",
-                                "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
+                                "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
+                                "thumbnail" : "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
                             }
                         }
                     }
@@ -83,17 +89,20 @@ app.get('/', function(req, res){
                         "91765" : {
                             "name" : "SAT Math II Subject Test",
                             "time" : "0",
-                            "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
+                            "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
+                            "thumbnail" : "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
                         },
                         "94328" : {
                             "name" : "SAT Chemistry Subject Test",
                             "time" : "0",
-                            "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
+                            "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
+                            "thumbnail" : "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
                         },
                         "57492" : {
                             "name" : "SAT General Prep",
                             "time" : "35",
-                            "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1"
+                            "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
+                            "thumbnail" : "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
                         }
                     }
                 },
