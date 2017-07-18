@@ -86,7 +86,7 @@
             <h3>{{currentcourse}}</h3>
         <div id="navbar-items">
           <ul class="nav-items">
-            <li class="active" v-for="(item, index) in user.courses[currentcourse].subjects" v-on:click="makeActiveTab(item)">
+            <li v-for="(item, index) in user.courses[currentcourse].subjects" v-on:click="makeActiveTab(item)">
               <a> {{item}} </a>
             </li>
           </ul>
