@@ -1,11 +1,7 @@
 <template lang="html">
     <div id="parentdiv">
         <div class="maindiv">
-            <modal :showmodal="showModal" :modalswitch="modalswitch" :user="user" :currentcourse="currentCourse" :switchcourse="switchCourse"> </modal>
-            <div id="video-holder">
-                <iframe width="100%" height="500" src="https://www.youtube.com/embed/5eHx-tBtgYs?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <navbar :user="user" :currentcourse="currentCourse"></navbar>
+            <modal :showmodal="showModal" :modalswitch="modalswitch" :user="user" :currentcourse="currentCourse" :switchcourse="switchCourse" :vidsrc="vidsrc"> </modal>
             <videos :user="user" :currentcourse="currentCourse"></videos>
         </div>
     </div>
@@ -17,7 +13,8 @@ export default {
     data() {
         return {
             currentCourse : "ACT",
-            showModal : false
+            showModal : false,
+            vidsrc : "https://www.youtube.com/embed/5eHx-tBtgYs?ecver="
         }
     },
     methods: {
