@@ -80,6 +80,23 @@ h1 {
 }
 
 
+#NavBar h3 {
+  text-align:center;
+}
+
+#navbar-items li{
+  display:inline;
+  padding: 4px 14px;
+  border:1px solid black;
+  border-radius: 10px;
+}
+
+#navbar-items {
+  text-align:center;
+  position:relative;
+  right:17px;
+}
+
 #modal-button {
   top:-1px;
   height:60px;
@@ -100,9 +117,6 @@ h1 {
 	padding-left:30px;
 }
 
-#NavBar {
-	padding-left:30px;
-}
 
 .onoffswitch {
     position: relative;
