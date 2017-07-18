@@ -1,26 +1,16 @@
 <template>
-    <div>
-        <div>
-            <div class="recommended">Recommended Videos
-                <a>
-                    <ul v-for="(item, index) in user.courses">
-                        <li v-for="(subitem, subindex) in item.recommended">
-                            <a v-if="index === currentcourse" v-bind:href="subitem.uri"><button class="recent"></button>{{subitem.name}}</a>
-                        </li>
-                    </ul>
-                </a>
-            </div>
+    <div class="recent-and-recommended">
+        <div class="recommended">Recommended Videos
+            <ul v-for="(item, index) in user.courses">
+                <li v-for="(subitem, subindex) in item.recommended">
+                    <a v-if="index === currentcourse" v-bind:href="subitem.uri">{{subitem.name}}</a>
+                </li>
+            </ul>
         </div>
-        <div>
-            <div>
-                <div class="recent">Recently Watched
-                    <a>
-                        <ul v-for="(item, index) in user.videos.recentlyWatched">
-                            <a v-bind:href="item.uri"><button class="recent"></button>{{item.name}}</a>
-                        </ul>
-                    </a>
-                </div>
-            </div>
+        <div class="recent">Recently Watched
+            <ul v-for="(item, index) in user.videos.recentlyWatched">
+                <li> <a v-bind:href="item.uri">{{item.name}}</a> </li>
+            </ul>
         </div>
     </div>
 </template>

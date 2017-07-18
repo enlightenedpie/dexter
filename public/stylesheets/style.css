@@ -112,7 +112,7 @@ h1 {
 }
 
 
-.recommended {
+.recent-and-recommended {
 	padding-left:30px;
 }
 
@@ -166,7 +166,6 @@ div.tab button.active {
     background-color: #ccc;
 }
 
-/* Style the tab content */
 .tabcontent {
     border: 1px solid #ccc;
     border-top: none;
@@ -230,14 +229,6 @@ div.tab button.active {
   padding:10px;
   border-bottom: 1px solid black;
 }
-
-
-
-
-.modal-default-body {
-  /*position:relative;*/
-}
-
 
 .modal-default-button {
   float: right;
