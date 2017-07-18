@@ -6,7 +6,7 @@
         <div id="navbar-items">
                 <ul v-for="(item, index) in user.courses">
                     <li v-for="(subitem, subindex) in item.subjects">
-                        <a v-show="index === currentcourse">{{subitem}}</a>
+                        <a v-bind:class="{active: index === currentcourse}">{{subitem}}</a>
                     </li>
                 </ul>
         </div>
