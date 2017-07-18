@@ -4,10 +4,6 @@ body {
   margin:0;
 }
 
-#stvlogo {
-
-}
-
 a {
   color: #00B7FF;
 }
@@ -35,6 +31,10 @@ h1 {
   left:50px;
   width:20%;
 
+}
+
+#menu-icon {
+  width:11px;
 }
 
 .maindiv {
@@ -82,17 +82,18 @@ h1 {
 #NavBar h3 {
   text-align:center;
 }
-.active {
+#navbar-items {
+  text-align:center;
+}
+
+#navbar-items li{
+  text-align:center;
+  position:relative;
+  right:17px;
   display:inline;
   padding: 4px 14px;
   border:1px solid black;
   border-radius: 10px;
-}
-
-#navbar-items {
-  text-align:center;
-  position:relative;
-  right:17px;
 }
 
 .thumbnails {
@@ -117,11 +118,11 @@ h1 {
 }
 
 
-.recent-and-recommended {
+.videos {
 	padding-left:30px;
 }
 
-.recent-and-recommended li {
+.videos li {
   display:inline;
   padding:10px;
 }
