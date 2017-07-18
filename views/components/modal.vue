@@ -2,9 +2,9 @@
   <div>
     <div id="toolbar">
       <ul>
-          <li> <button v-on:click="modalswitch(true)" id='modal-button'> Menu </button> </li>
+          <li> <button class='modal-button'> Menu </button> </li>
           <li><img src="https://supertutortv.com/wp-content/uploads/2016/10/sttv_site_logo.png" height=40 class="logo"/></li>
-          <li> Hi, {{ user.profile.firstName }} </li>
+          <li> <button class='modal-button' v-on:click="modalswitch(true)"> Hi, {{ user.profile.firstName }} </button> </li>
       </ul>
     </div>
     <div v-if="showmodal" id="Orders" class="tabcontent">
