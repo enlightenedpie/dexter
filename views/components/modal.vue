@@ -1,14 +1,23 @@
 <template lang="html">
-  <div id="Orders" class="tabcontent">
+<div>
+<div>        <div id="toolbar">
+            <ul>
+                <li> <button v-on:click="modalswitch(true)" id='modal-button'> Menu </button> </li>
+                <li><img src="https://supertutortv.com/wp-content/uploads/2016/10/sttv_site_logo.png" height=40 class="logo"/></li>
+                <li> Hi, {{ user.profile.firstName }} </li>
+            </ul>
+        </div>
+</div>
+  <div v-if="showmodal" id="Orders" class="tabcontent">
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container">
           <div class="modal-body">
             <div class="tab">
-              <button v-on:click="makeActive('profile')">Profile</button>
-              <button v-on:click="makeActive('orders')">Orders</button>
-              <button v-on:click="makeActive('courses')">Courses</button>
-              <button v-on:click="makeActive('settings')">Settings</button>
+              <button v-on:click="makeactive('profile')">Profile</button>
+              <button v-on:click="makeactive('orders')">Orders</button>
+              <button v-on:click="makeactive('courses')">Courses</button>
+              <button v-on:click="makeactive('settings')">Settings</button>
             </div>
             <ul>
 
@@ -34,7 +43,7 @@
                 <h3>Courses</h3>
                 <ul>
                   <li v-for="(item, index) in user.courses">
-                  <button class="course-buttons" v-on:click="changecourse(index)"> {{index}} </button>
+                  <button class="course-buttons" v-on:click="switchcourse(index)"> {{index}} </button>
                   </li>
                 </ul>
               </div>
@@ -66,10 +75,11 @@
               </div>
             </ul>
           </div>
-          <button class="modal-default-button" @click="$emit('close')"> Confirm </button>
+          <button class="modal-default-button" v-on:click="modalswitch(false)"> Confirm </button>
         </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -81,11 +91,11 @@ export default {
       }
     },
     methods: {
-      makeActive: function(item){
+      makeactive: function(item){
                 this.active = item;
             }
     },
-    props: ['currentcourse','user','changecourse'],
+    props: ['currentcourse','user','switchcourse', 'showmodal', 'modalswitch'],
     components: ['modal']
 }
 </script>
