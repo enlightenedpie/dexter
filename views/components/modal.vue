@@ -86,7 +86,7 @@
             <h3>{{currentcourse}}</h3>
         <div id="navbar-items">
           <ul class="nav-items">
-            <li v-for="(item, index) in resources.courses[currentcourse].subjects" v-on:click="makeactivesubject(index)">
+            <li v-for="(item, index) in resources.courses[currentcourse].tabs" v-on:click="makeactivetab(index); changerender(item.type)">
               <a> {{index}} </a>
             </li>
           </ul>
@@ -107,7 +107,7 @@ export default {
                 this.activecourse = item;
             }
     },
-    props: ['activesubject', 'makeactivesubject', 'currentcourse','user','switchcourse', 'showmodal', 'modalswitch', 'vidsrc', 'resources'],
+    props: ['renderelement', 'changerender', 'activetab', 'makeactivetab', 'currentcourse','user','switchcourse', 'showmodal', 'modalswitch', 'vidsrc', 'resources'],
     components: ['modal']
 }
 </script>

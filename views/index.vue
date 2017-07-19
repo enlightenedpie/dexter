@@ -2,13 +2,20 @@
     <div id="parentdiv">
         <div class="maindiv">
 
-            <modal :makeactivesubject="makeactivesubject" :activesubject="activesubject" :showmodal="showmodal"
+            <modal :makeactivetab="makeactivetab" :activetab="activetab" :showmodal="showmodal"
             :resources="resources" :modalswitch="modalswitch" :user="user" :currentcourse="currentcourse"
-            :switchcourse="switchcourse" :vidsrc="vidsrc"> </modal>
+            :switchcourse="switchcourse" :vidsrc="vidsrc" :renderelement="renderelement"
+            :changerender="changerender"> </modal>
 
-            <a v-for="(item, index) in resources.courses[currentcourse].subjects[activesubject]">
-                <videos :title="index | capitalize" :vidlist="item">
-                </videos></a>
+            <a v-bind:class="{ active: renderelement === 'video' }" v-for="(item, index) in resources.courses[currentcourse].tabs[activetab]">
+                <videos v-show="index != 'type'" :title="index | capitalize" :vidlist="item">
+            </videos></a>
+
+            <a v-bind:class="{ active : renderelement === 'dashboard' }">
+                <p>Sample text that could be read from the user element</p>
+            </a>
+
+
 
         </div>
     </div>
@@ -19,21 +26,24 @@ export default {
     data() {
         return {
             currentcourse : "ACT",
-            activesubject: "Math",
+            activetab: "Dashboard",
             showmodal : false,
-            vidsrc : "https://www.youtube.com/embed/gE8qZTEgS8E"
+            vidsrc : "https://www.youtube.com/embed/gE8qZTEgS8E",
         }
     },
     methods: {
         switchcourse(course) {
             this.currentcourse = course;
-            this.activesubject = "Math";
+            this.activetab = "Math";
             },
         modalswitch(bool) {
             this.showmodal = bool
         },
-        makeactivesubject(item) {
-            this.activesubject = item;
+        makeactivetab(tab) {
+            this.activetab = tab;
+        },
+        changerender(element){
+            this.renderelement = element;
         }
     },
     filters : {
