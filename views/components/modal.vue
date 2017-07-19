@@ -82,26 +82,6 @@
         <div id="video-holder">
             <iframe width="100%" height="650" v-bind:src="vidsrc" frameborder="0" allowfullscreen></iframe>
         </div>
-        <div id="NavBar" class="navbar">
-            <h3>{{currentcourse}}</h3>
-
-          <div class="navbar-items">
-            <ul class="nav-items">
-              <li v-for="(item, index) in resources.courses[currentcourse].tabs" v-on:click="makeactivetab(index);" v-bind:class="{active : activetab === index}">
-                <a v-show="index != 'type'"> {{index}} </a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="navbar-items">
-            <ul class="nav-items">
-              <li v-for="(index, item) in resources.courses[currentcourse].tabs[activetab]" v-on:click="makeactivesubtab(item)" v-bind:class="{active : activesubtab === item}">
-                <a v-show="item != 'type'" > {{item | capitalize}}</a>
-              </li>
-            </ul>
-          </div>
-
-        </div>
   </div>
 </template>
 
@@ -116,11 +96,6 @@ export default {
       makeActiveCourse: function(item){
                 this.activecourse = item;
             }
-    },
-    filters : {
-        capitalize(title) {
-            return title.charAt(0).toUpperCase() + title.slice(1);
-        }
     },
     props: ['renderelement', 'activetab', 'activesubtab', 'makeactivetab', 'makeactivesubtab','currentcourse','user','switchcourse', 'showmodal', 'modalswitch', 'vidsrc', 'resources'],
     components: ['modal']

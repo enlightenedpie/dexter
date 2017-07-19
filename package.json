@@ -16,8 +16,7 @@
   "dependencies": {
     "express": "~4.15.2",
     "express-vue": "~3.9.6",
-    "vue": "~2.4.1",
-    "vue-router": "^2.7.0"
+    "vue": "~2.4.1"
   },
   "description": "To use this just run `npm install`",
   "bugs": {

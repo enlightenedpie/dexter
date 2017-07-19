@@ -2,16 +2,31 @@
     <div id="parentdiv">
         <div class="maindiv">
 
-            <modal :makeactivetab="makeactivetab" :makeactivesubtab="makeactivesubtab" :activetab="activetab" :activesubtab="activesubtab" :showmodal="showmodal"
-            :resources="resources" :modalswitch="modalswitch" :user="user" :currentcourse="currentcourse"
-            :switchcourse="switchcourse" :vidsrc="vidsrc"> </modal>
-            <a>
-            <videos v-show="activetab != 'Dashboard'" :title="activesubtab | capitalize" :vidlist="resources.courses[currentcourse].tabs[activetab][activesubtab]">
-            </videos></a>
+        <modal :showmodal="showmodal" :resources="resources" :modalswitch="modalswitch" :user="user"
+        :currentcourse="currentcourse" :switchcourse="switchcourse" :vidsrc="vidsrc"> </modal>
 
-            <a v-show="activetab === 'Dashboard'">
-                <p>Sample text that could be read from the user element</p>
-            </a>
+        <div id="NavBar" class="navbar">
+            <h3>{{currentcourse}}</h3>
+
+        <navbar :navlist="resources.courses[currentcourse].tabs" :makeactivetab="makeactivetab" :activetab="activetab"></navbar>
+
+          <div class="navbar-items">
+            <ul class="nav-items">
+              <li v-for="(index, item) in resources.courses[currentcourse].tabs[activetab]"
+               v-on:click="makeactivesubtab(item)" v-bind:class="{active : activesubtab === item}">
+                <a v-show="item != 'type'" > {{item | capitalize}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <videos v-show="activetab != 'Dashboard'" :title="activesubtab | capitalize"
+            :vidlist="resources.courses[currentcourse].tabs[activetab][activesubtab]">
+        </videos>
+
+        <a v-show="activetab === 'Dashboard'">
+            <p>Sample text that could be read from the user element</p>
+        </a>
 
         </div>
     </div>
