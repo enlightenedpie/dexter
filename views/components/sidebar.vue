@@ -2,7 +2,7 @@
 	<div class="sublist-dropdown">
 	    <ul>
 	      <li v-for="(index, item) in sidelist"
-	       v-on:click="makeactivesubtab(item)" v-bind:class="{active : activesubtab === item}">
+	       v-on:click="makeactive(item)" v-bind:class="{active : isactive === item}">
 	        <a v-show="item != 'type'" > {{item | capitalize}}</a>
 	      </li>
 	    </ul>
@@ -11,6 +11,11 @@
 
 <script>
 export default {
-	props: ['makeactivesubtab','activesubtab','sidelist']
+    props: ['makeactive', 'isactive', 'sidelist'],
+    filters: {
+        capitalize(title) {
+            return title.charAt(0).toUpperCase() + title.slice(1);
+        }
+    }
 }
 </script>

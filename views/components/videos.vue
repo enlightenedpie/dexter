@@ -16,6 +16,6 @@
 
 <script>
     export default {
-        props: ['user', 'currentcourse', 'vidlist', 'title']
+        props: ['user', 'vidlist', 'title']
     }
 </script>

@@ -3,21 +3,21 @@
         <div class="maindiv">
 
         <modal :showmodal="showmodal" :resources="resources" :modalswitch="modalswitch" :user="user"
-        :currentcourse="currentcourse" :switchcourse="switchcourse" :vidsrc="vidsrc"> </modal>
+        :activecourse="activecourse" :vidsrc="vidsrc"> </modal>
 
         <div id="NavBar" class="navbar">
-            <h3>{{currentcourse}}</h3>
+            <h3>{{activecourse}}</h3>
 
-        <navbar :navlist="resources.courses[currentcourse].tabs" :makeactivetab="makeactivetab" :activetab="activetab"></navbar>
+        <navbar :navlist="resources.courses[activecourse].tabs" :makeactivetab="makeactivetab" :activetab="activetab"></navbar>
 
-        <sidebar id="number1" :sidelist="resources.courses[currentcourse].tabs[activetab]" :makeactivesubtab="makeactivesubtab" :activesubtab="activesubtab"> </sidebar>
+        <sidebar id="number1" :sidelist="resources.courses[activecourse].tabs[activetab]" :makeactive="makeactivesubtab" :isactive="activesubtab"> </sidebar>
 
-        <sidebar id="number2" :sidelist="resources.courses[currentcourse].tabs[activetab]" :makeactivecourse="makeactivesubtab" :activesubtab="activesubtab"> </sidebar>
+        <sidebar id="number2" :sidelist="resources.courses" :makeactive="makeactivecourse" :isactive="activecourse"> </sidebar>
 
         </div>
 
         <videos v-show="activetab != 'Dashboard'" :title="activesubtab | capitalize"
-            :vidlist="resources.courses[currentcourse].tabs[activetab][activesubtab]">
+            :vidlist="resources.courses[activecourse].tabs[activetab][activesubtab]">
         </videos>
 
         <a v-show="activetab === 'Dashboard'">
@@ -37,21 +37,21 @@ export default {
         }
     },
     methods: {
-        switchcourse(course) {
-            this.currentcourse = course;
+        makeactivecourse(course) {
+            this.activecourse = course;
             this.activetab = "Dashboard";
-            window.history.pushState('course', '', '/' + this.currentcourse);
+            window.history.pushState('course', '', '/' + this.activecourse);
             },
         modalswitch(bool) {
             this.showmodal = bool
         },
         makeactivetab(tab) {
             this.activetab = tab;
-            window.history.pushState('tab', '', '/' + this.currentcourse + '/' + this.activetab);
+            window.history.pushState('tab', '', '/' + this.activecourse + '/' + this.activetab);
         },
         makeactivesubtab(item) {
             this.activesubtab = item;
-            window.history.pushState('subtab', '', '/' + this.currentcourse + '/' + this.activetab + '/' + this.activesubtab);
+            window.history.pushState('subtab', '', '/' + this.activecourse + '/' + this.activetab + '/' + this.activesubtab);
         }
     },
     filters : {

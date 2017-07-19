@@ -13,20 +13,20 @@
           <div class="modal-container">
             <div class="modal-body">
               <div class="tab">
-                <button v-on:click="makeActiveCourse('profile')">Profile</button>
-                <button v-on:click="makeActiveCourse('orders')">Orders</button>
-                <button v-on:click="makeActiveCourse('courses')">Courses</button>
-                <button v-on:click="makeActiveCourse('settings')">Settings</button>
+                <button v-on:click="makeActiveMenu('profile')">Profile</button>
+                <button v-on:click="makeActiveMenu('orders')">Orders</button>
+                <button v-on:click="makeActiveMenu('courses')">Courses</button>
+                <button v-on:click="makeActiveMenu('settings')">Settings</button>
               </div>
               <ul>
 
-                <div v-if="activecourse === 'profile'">
+                <div v-if="activemenu === 'profile'">
                   <h3>Profile</h3>
                   <img :src="user.profile.image" height="80">
                   <p>{{user.profile.firstName}} {{user.profile.lastName}}</p>
                 </div>
 
-                <div v-if="activecourse === 'orders'">
+                <div v-if="activemenu === 'orders'">
                   <h3>Orders</h3>
                   <ul>
                     <li v-for="(item, index) in user.orders">
@@ -38,16 +38,7 @@
                   </ul>
                 </div>
 
-                <div v-if="activecourse === 'courses'">
-                  <h3>Courses</h3>
-                  <ul>
-                    <li v-for="(item, index) in resources.courses">
-                    <button class="course-buttons" v-on:click="switchcourse(index)"> {{index}} </button>
-                    </li>
-                  </ul>
-                </div>
-
-                <div v-if="activecourse === 'settings'">
+                <div v-if="activemenu === 'settings'">
                   <h3>Settings</h3>
                   <a>Recommend Content</a>
                   <div class="onoffswitch">
@@ -89,15 +80,15 @@
 export default {
     data() {
       return {
-        activecourse: 'profile',
+        activemenu: 'profile',
             }
     },
     methods: {
-      makeActiveCourse: function(item){
-                this.activecourse = item;
+      makeActiveMenu: function(item){
+                this.activemenu = item;
             }
     },
-    props: ['renderelement', 'activetab', 'activesubtab', 'makeactivetab', 'makeactivesubtab','currentcourse','user','switchcourse', 'showmodal', 'modalswitch', 'vidsrc', 'resources'],
+    props: ['renderelement', 'activesubtab', 'makeactivemenu', 'makeactivesubtab','user', 'showmodal', 'modalswitch', 'vidsrc', 'resources'],
     components: ['modal']
 }
 </script>

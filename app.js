@@ -465,7 +465,7 @@ const vue = {
 app.get('/', function(req, res){
     let scope = {
         data: {
-            currentcourse : 'SAT',
+            activecourse : 'SAT',
             activetab: 'Dashboard',
             activesubtab: 'tips',
             resources : resources,
@@ -476,10 +476,10 @@ app.get('/', function(req, res){
     res.render('index', scope);
 });
 
-app.get('/:currentcourse', function(req, res){
+app.get('/:activecourse', function(req, res){
     let scope = {
         data: {
-            currentcourse : ((req.params.currentcourse === '') ? 'SAT' : req.params.currentcourse),
+            activecourse : ((req.params.activecourse === '') ? 'SAT' : req.params.activecourse),
             activetab: 'Dashboard',
             activesubtab: 'tips',
             resources : resources,
@@ -490,10 +490,10 @@ app.get('/:currentcourse', function(req, res){
     res.render('index', scope);
 });
 
-app.get('/:currentcourse/:activetab', function(req, res){
+app.get('/:activecourse/:activetab', function(req, res){
     let scope = {
         data: {
-            currentcourse : ((req.params.currentcourse === '') ? 'SAT' : req.params.currentcourse),
+            activecourse : ((req.params.activecourse === '') ? 'SAT' : req.params.activecourse),
             activetab: ((req.params.activetab === '') ? 'Dashboard' : req.params.activetab),
             activesubtab: 'tips',
             resources : resources,
@@ -504,10 +504,10 @@ app.get('/:currentcourse/:activetab', function(req, res){
     res.render('index', scope);
 });
 
-app.get('/:currentcourse/:activetab/:activesubtab/', function(req, res){
+app.get('/:activecourse/:activetab/:activesubtab/', function(req, res){
     let scope = {
         data: {
-            currentcourse : ((req.params.currentcourse === '') ? 'SAT' : req.params.currentcourse),
+            activecourse : ((req.params.activecourse === '') ? 'SAT' : req.params.activecourse),
             activetab: ((req.params.activetab === '') ? 'Dashboard' : req.params.activetab),
             activesubtab: ((req.params.activesubtab === '') ? 'tips' : req.params.activesubtab),
             resources : resources,
