@@ -4,8 +4,7 @@
 
             <modal :makeactivetab="makeactivetab" :makeactivesubtab="makeactivesubtab" :activetab="activetab" :showmodal="showmodal"
             :resources="resources" :modalswitch="modalswitch" :user="user" :currentcourse="currentcourse"
-            :switchcourse="switchcourse" :vidsrc="vidsrc" :renderelement="renderelement"
-            :changerender="changerender"> </modal>
+            :switchcourse="switchcourse" :vidsrc="vidsrc"> </modal>
             <a>
             <videos v-show="activetab != 'Dashboard'" :title="activesubtab | capitalize" :vidlist="resources.courses[currentcourse].tabs[activetab][activesubtab]">
             </videos></a>
@@ -40,9 +39,6 @@ export default {
         },
         makeactivetab(tab) {
             this.activetab = tab;
-        },
-        changerender(element){
-            this.renderelement = element;
         }
     },
     filters : {
