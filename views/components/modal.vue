@@ -84,13 +84,23 @@
         </div>
         <div id="NavBar" class="navbar">
             <h3>{{currentcourse}}</h3>
-        <div id="navbar-items">
-          <ul class="nav-items">
-            <li v-for="(item, index) in resources.courses[currentcourse].tabs" v-on:click="makeactivetab(index); changerender(item.type)">
-              <a v-show="index != 'type'"> {{index}} </a>
-            </li>
-          </ul>
-        </div>
+
+          <div class="navbar-items">
+            <ul class="nav-items">
+              <li v-for="(item, index) in resources.courses[currentcourse].tabs" v-on:click="makeactivetab(index);">
+                <a v-show="index != 'type'"> {{index}} </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="navbar-items">
+            <ul class="nav-items">
+              <li v-for="(index, item) in resources.courses[currentcourse].tabs[activetab]" v-on:click="makeactivesubtab(item)">
+                <a v-show="item != 'type'"> {{item}} </a>
+              </li>
+            </ul>
+          </div>
+
         </div>
   </div>
 </template>
@@ -107,7 +117,7 @@ export default {
                 this.activecourse = item;
             }
     },
-    props: ['renderelement', 'changerender', 'activetab', 'makeactivetab', 'currentcourse','user','switchcourse', 'showmodal', 'modalswitch', 'vidsrc', 'resources'],
+    props: ['renderelement', 'activetab', 'makeactivetab', 'makeactivesubtab','currentcourse','user','switchcourse', 'showmodal', 'modalswitch', 'vidsrc', 'resources'],
     components: ['modal']
 }
 </script>

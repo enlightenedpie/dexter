@@ -2,16 +2,15 @@
     <div id="parentdiv">
         <div class="maindiv">
 
-            <modal :makeactivetab="makeactivetab" :activetab="activetab" :showmodal="showmodal"
+            <modal :makeactivetab="makeactivetab" :makeactivesubtab="makeactivesubtab" :activetab="activetab" :showmodal="showmodal"
             :resources="resources" :modalswitch="modalswitch" :user="user" :currentcourse="currentcourse"
             :switchcourse="switchcourse" :vidsrc="vidsrc" :renderelement="renderelement"
             :changerender="changerender"> </modal>
-
-            <a v-show="renderelement === 'video'" v-for="(item, index) in resources.courses[currentcourse].tabs[activetab]">
-                <videos v-show="index != 'type'" :title="index | capitalize" :vidlist="item">
+            <a>
+            <videos v-show="activetab != 'Dashboard'" :title="activesubtab | capitalize" :vidlist="resources.courses[currentcourse].tabs[activetab][activesubtab]">
             </videos></a>
 
-            <a v-show="renderelement === 'dashboard'">
+            <a v-show="activetab === 'Dashboard'">
                 <p>Sample text that could be read from the user element</p>
             </a>
 

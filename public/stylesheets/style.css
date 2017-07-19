@@ -82,11 +82,11 @@ h1 {
 #NavBar h3 {
   text-align:center;
 }
-#navbar-items {
+.navbar-items {
   text-align:center;
 }
 
-#navbar-items li{
+.navbar-items li{
   text-align:center;
   position:relative;
   right:17px;

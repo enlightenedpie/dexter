@@ -26,7 +26,7 @@ app.get('/', function(req, res){
         data: {
             title: "SupertutorTV",
             currentcourse : "ACT",
-            activetab: "Dashboard",
+            activetab: "Math",
             activesubtab: "content",
             renderelement: "dashboard",
             resources : {
@@ -34,10 +34,8 @@ app.get('/', function(req, res){
                     "ACT" : {
                         "tabs" : {
                             "Dashboard": {
-                                "type" : 'dashboard'
                             },
                             "English" : {
-                                "type" : 'video',
                                 "tips": {
                                     "16458": {
                                         "name": "ACT English Tips 1",
@@ -80,7 +78,6 @@ app.get('/', function(req, res){
                                 }
                             },
                             "Math" : {
-                                "type" : 'video',
                                 "tips" : {
                                     "16458": {
                                         "name": "ACT Math Tips 1",
@@ -123,7 +120,6 @@ app.get('/', function(req, res){
                                 }
                             },
                             "Reading" : {
-                                "type" : 'video',
                                 "tips": {
                                     "16458": {
                                         "name": "ACT Reading Tips 1",
@@ -166,7 +162,6 @@ app.get('/', function(req, res){
                                 }
                             },
                             "Science" : {
-                                "type" : 'video',
                                 "tips": {
                                     "16458": {
                                         "name": "ACT Science Tips 1",
@@ -209,7 +204,6 @@ app.get('/', function(req, res){
                                 }
                             },
                             "Essay" : {
-                                "type" : 'video',
                                 "tips": {
                                     "16458": {
                                         "name": "ACT Essay Tips 1",
@@ -252,7 +246,6 @@ app.get('/', function(req, res){
                                 }
                             },
                             "Practice" : {
-                                "type" : 'video',
                                 "tips": {
                                     "16458": {
                                         "name": "ACT Practice Tips 1",
@@ -299,10 +292,8 @@ app.get('/', function(req, res){
                     "SAT" : {
                         "tabs" : {
                             "Dashboard": {
-                                "type" : 'dashboard'
                                 },
                             "English" : {
-                                "type" : 'video',
                                 "tips" : {
                                     "16458": {
                                         "name": "SAT English Tips 1",
@@ -345,7 +336,6 @@ app.get('/', function(req, res){
                                 }
                             },
                             "Math" : {
-                                "type" : 'video',
                                     "16458": {
                                         "name": "SAT Math Tips 1",
                                         "time": "0",
@@ -387,7 +377,6 @@ app.get('/', function(req, res){
                                 }
                             },
                             "Essay" : {
-                                "type" : 'video',
                                 "tips" : {
                                     "16458": {
                                         "name": "SAT Essay Tips 1",
