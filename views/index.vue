@@ -10,14 +10,8 @@
 
         <navbar :navlist="resources.courses[currentcourse].tabs" :makeactivetab="makeactivetab" :activetab="activetab"></navbar>
 
-          <div class="navbar-items">
-            <ul class="nav-items">
-              <li v-for="(index, item) in resources.courses[currentcourse].tabs[activetab]"
-               v-on:click="makeactivesubtab(item)" v-bind:class="{active : activesubtab === item}">
-                <a v-show="item != 'type'" > {{item | capitalize}}</a>
-              </li>
-            </ul>
-          </div>
+        <sidebar :sidelist="resources.courses[currentcourse].tabs[activetab]" :makeactivesubtab="makeactivesubtab" :activesubtab="activesubtab"> </sidebar>
+
         </div>
 
         <videos v-show="activetab != 'Dashboard'" :title="activesubtab | capitalize"
