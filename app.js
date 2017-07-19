@@ -25,7 +25,10 @@ app.get('/', function(req, res){
     let scope = {
         data: {
             title: "SupertutorTV",
-            renderelement: "video",
+            currentcourse : "ACT",
+            activetab: "Dashboard",
+            activesubtab: "content",
+            renderelement: "dashboard",
             resources : {
                 "courses" : {
                     "ACT" : {
@@ -423,50 +426,50 @@ app.get('/', function(req, res){
                                         "time" : "35",
                                         "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
                                         "thumbnail" : "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
-                                    }
                                 }
                             }
-                        },
-                    }
+                        }
+                    },
                 }
             },
-            user:  {
-                "videos" : {
-                    "recentlyWatched" : {
-                        "91765" : {
-                            "name" : "SAT Math II Subject Test",
-                            "time" : "0",
+            user: {
+                "videos": {
+                    "recentlyWatched": {
+                        "91765": {
+                            "name": "SAT Math II Subject Test",
+                            "time": "0",
                             "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
-                            "thumbnail" : "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
+                            "thumbnail": "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
                         },
-                        "94328" : {
-                            "name" : "SAT Chemistry Subject Test",
-                            "time" : "0",
+                        "94328": {
+                            "name": "SAT Chemistry Subject Test",
+                            "time": "0",
                             "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
-                            "thumbnail" : "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
+                            "thumbnail": "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
                         },
-                        "57492" : {
-                            "name" : "SAT General Prep",
-                            "time" : "35",
+                        "57492": {
+                            "name": "SAT General Prep",
+                            "time": "35",
                             "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
-                            "thumbnail" : "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
+                            "thumbnail": "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
                         }
                     }
                 },
-                "profile" : {
-                    "firstName" : "Rick",
-                    "lastName" : "Sanchez",
-                    "image" : "https://i.ytimg.com/vi/AzZ4K1OzomE/maxresdefault.jpg"
+                "profile": {
+                    "firstName": "Rick",
+                    "lastName": "Sanchez",
+                    "image": "https://i.ytimg.com/vi/AzZ4K1OzomE/maxresdefault.jpg"
                 },
-                "orders" : {
-                    "Complete ACT Prep Package" : "z07d6j6i76"
+                "orders": {
+                    "Complete ACT Prep Package": "z07d6j6i76"
                 },
                 "settings": {
-                    "recommendContent" : true,
-                    "resetPassword" : "dummylink.js",
-                    "offlineContent" : false
+                    "recommendContent": true,
+                    "resetPassword": "dummylink.js",
+                    "offlineContent": false
                 }
             }
+
         },
         vue: {
             head: {

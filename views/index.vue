@@ -7,28 +7,13 @@
             :switchcourse="switchcourse" :vidsrc="vidsrc" :renderelement="renderelement"
             :changerender="changerender"> </modal>
 
-            <a v-bind:class="{ active: renderelement === 'video' }" v-for="(item, index) in resources.courses[currentcourse].tabs[activetab]">
+            <a v-show="renderelement === 'video'" v-for="(item, index) in resources.courses[currentcourse].tabs[activetab]">
                 <videos v-show="index != 'type'" :title="index | capitalize" :vidlist="item">
             </videos></a>
 
-            <a v-bind:class="{ active : renderelement === 'dashboard' }">
+            <a v-show="renderelement === 'dashboard'">
                 <p>Sample text that could be read from the user element</p>
             </a>
-
-            <div id="navbar-items">
-              <ul class="nav-items">
-                <li v-for="(item, index) in resources.courses[currentcourse].subjects[activesubject]" v-on:click="makeactivesubtab(index)">
-                  <a> {{index}} </a>
-                </li>
-              </ul>
-            </div>
-
-            <!-- <a v-for="(item, index) in resources.courses[currentcourse].subjects[activesubject]">
-                <videos :title="index | capitalize" :vidlist="item">
-                </videos></a> -->
-
-                <videos :title="activesubtab | capitalize" :vidlist="resources.courses[currentcourse].subjects[activesubject][activesubtab]">
-                </videos></a>
 
         </div>
     </div>
@@ -38,9 +23,6 @@
 export default {
     data() {
         return {
-            currentcourse : "ACT",
-            activesubtab: "content",
-            activetab: "Dashboard",
             showmodal : false,
             vidsrc : "https://www.youtube.com/embed/gE8qZTEgS8E",
         }

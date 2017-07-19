@@ -87,7 +87,7 @@
         <div id="navbar-items">
           <ul class="nav-items">
             <li v-for="(item, index) in resources.courses[currentcourse].tabs" v-on:click="makeactivetab(index); changerender(item.type)">
-              <a> {{index}} </a>
+              <a v-show="index != 'type'"> {{index}} </a>
             </li>
           </ul>
         </div>
