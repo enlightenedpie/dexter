@@ -10,7 +10,9 @@
 
         <navbar :navlist="resources.courses[currentcourse].tabs" :makeactivetab="makeactivetab" :activetab="activetab"></navbar>
 
-        <sidebar :sidelist="resources.courses[currentcourse].tabs[activetab]" :makeactivesubtab="makeactivesubtab" :activesubtab="activesubtab"> </sidebar>
+        <sidebar id="number1" :sidelist="resources.courses[currentcourse].tabs[activetab]" :makeactivesubtab="makeactivesubtab" :activesubtab="activesubtab"> </sidebar>
+
+        <sidebar id="number2" :sidelist="resources.courses[currentcourse].tabs[activetab]" :makeactivecourse="makeactivesubtab" :activesubtab="activesubtab"> </sidebar>
 
         </div>
 

@@ -120,6 +120,9 @@ h3 {
   background-color:lightblue;
 }
 
+#number1 {
+  float:right;
+}
 
 .modal-button {
   top:-1px;
