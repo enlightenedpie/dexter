@@ -25,12 +25,16 @@ app.get('/', function(req, res){
     let scope = {
         data: {
             title: "SupertutorTV",
-            counter: 0,
+            renderelement: "video",
             resources : {
                 "courses" : {
                     "ACT" : {
-                        "subjects" : {
+                        "tabs" : {
+                            "Dashboard": {
+                                "type" : 'dashboard'
+                            },
                             "English" : {
+                                "type" : 'video',
                                 "tips": {
                                     "16458": {
                                         "name": "ACT English Tips 1",
@@ -56,7 +60,7 @@ app.get('/', function(req, res){
                                         "name": "ACT English 1",
                                         "time": "0",
                                         "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
-                                        "thumbnail": "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
+                                        "thumbnail": "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg",
                                     },
                                     "89347": {
                                         "name": "ACT English 2",
@@ -73,6 +77,7 @@ app.get('/', function(req, res){
                                 }
                             },
                             "Math" : {
+                                "type" : 'video',
                                 "tips" : {
                                     "16458": {
                                         "name": "ACT Math Tips 1",
@@ -115,6 +120,7 @@ app.get('/', function(req, res){
                                 }
                             },
                             "Reading" : {
+                                "type" : 'video',
                                 "tips": {
                                     "16458": {
                                         "name": "ACT Reading Tips 1",
@@ -157,6 +163,7 @@ app.get('/', function(req, res){
                                 }
                             },
                             "Science" : {
+                                "type" : 'video',
                                 "tips": {
                                     "16458": {
                                         "name": "ACT Science Tips 1",
@@ -199,6 +206,7 @@ app.get('/', function(req, res){
                                 }
                             },
                             "Essay" : {
+                                "type" : 'video',
                                 "tips": {
                                     "16458": {
                                         "name": "ACT Essay Tips 1",
@@ -241,6 +249,7 @@ app.get('/', function(req, res){
                                 }
                             },
                             "Practice" : {
+                                "type" : 'video',
                                 "tips": {
                                     "16458": {
                                         "name": "ACT Practice Tips 1",
@@ -285,8 +294,12 @@ app.get('/', function(req, res){
                         }
                     },
                     "SAT" : {
-                        "subjects" : {
+                        "tabs" : {
+                            "Dashboard": {
+                                "type" : 'dashboard'
+                                },
                             "English" : {
+                                "type" : 'video',
                                 "tips" : {
                                     "16458": {
                                         "name": "SAT English Tips 1",
@@ -329,7 +342,7 @@ app.get('/', function(req, res){
                                 }
                             },
                             "Math" : {
-                                "tips" : {
+                                "type" : 'video',
                                     "16458": {
                                         "name": "SAT Math Tips 1",
                                         "time": "0",
@@ -350,19 +363,19 @@ app.get('/', function(req, res){
                                     }
                                 },
                                 "content" : {
-                                    "12349" : {
+                                    "SATmath1" : {
                                         "name" : "SAT Math 1",
                                         "time" : "0",
                                         "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
                                         "thumbnail" : "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
                                     },
-                                    "12350" : {
+                                    "SATmath2" : {
                                         "name" : "SAT Math 2",
                                         "time" : "0",
                                         "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
                                         "thumbnail" : "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
                                     },
-                                    "12351" : {
+                                    "SATmath3" : {
                                         "name" : "SAT Math 3",
                                         "time" : "35",
                                         "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
@@ -371,6 +384,7 @@ app.get('/', function(req, res){
                                 }
                             },
                             "Essay" : {
+                                "type" : 'video',
                                 "tips" : {
                                     "16458": {
                                         "name": "SAT Essay Tips 1",
@@ -392,19 +406,19 @@ app.get('/', function(req, res){
                                     }
                                 },
                                 "content" : {
-                                    "SATenglish1" : {
+                                    "SATessay1" : {
                                         "name" : "SAT Essay 1",
                                         "time" : "0",
                                         "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
                                         "thumbnail" : "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
                                     },
-                                    "SATenglish2" : {
+                                    "SATessay2" : {
                                         "name" : "SAT Essay 2",
                                         "time" : "0",
                                         "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
                                         "thumbnail" : "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
                                     },
-                                    "SATenglish3" : {
+                                    "SATessay3" : {
                                         "name" : "SAT Essay 3",
                                         "time" : "35",
                                         "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
