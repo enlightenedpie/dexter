@@ -28,17 +28,19 @@ export default {
     methods: {
         switchcourse(course) {
             this.currentcourse = course;
-            this.activetab = "Math";
+            this.activetab = "Dashboard";
+            window.history.pushState('course', '', '/' + this.currentcourse);
             },
         modalswitch(bool) {
             this.showmodal = bool
         },
-        makeactivesubtab(item) {
-            this.activesubtab = item;
-            console.log(this.activesubtab);
-        },
         makeactivetab(tab) {
             this.activetab = tab;
+            window.history.pushState('tab', '', '/' + this.currentcourse + '/' + this.activetab);
+        },
+        makeactivesubtab(item) {
+            this.activesubtab = item;
+            window.history.pushState('subtab', '', '/' + this.currentcourse + '/' + this.activetab + '/' + this.activesubtab);
         }
     },
     filters : {

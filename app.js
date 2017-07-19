@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const expressVue = require('express-vue');
 const app = express();
+const router = require('vue-router');
 
 app.engine('vue', expressVue);
 app.set('view engine', 'vue');

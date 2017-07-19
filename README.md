@@ -1,7 +1,7 @@
-# express-vue-super-simple
+# dexter
 
-To Use this just run
+To install dependencies:
 `npm install`
 
-Then to run it
+To run the app:
 `npm start`
