@@ -2,7 +2,7 @@
     <div id="parentdiv">
         <div class="maindiv">
 
-            <modal :makeactivetab="makeactivetab" :makeactivesubtab="makeactivesubtab" :activetab="activetab" :showmodal="showmodal"
+            <modal :makeactivetab="makeactivetab" :makeactivesubtab="makeactivesubtab" :activetab="activetab" :activesubtab="activesubtab" :showmodal="showmodal"
             :resources="resources" :modalswitch="modalswitch" :user="user" :currentcourse="currentcourse"
             :switchcourse="switchcourse" :vidsrc="vidsrc"> </modal>
             <a>

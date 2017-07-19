@@ -87,7 +87,7 @@
 
           <div class="navbar-items">
             <ul class="nav-items">
-              <li v-for="(item, index) in resources.courses[currentcourse].tabs" v-on:click="makeactivetab(index);">
+              <li v-for="(item, index) in resources.courses[currentcourse].tabs" v-on:click="makeactivetab(index);" v-bind:class="{active : activetab === index}">
                 <a v-show="index != 'type'"> {{index}} </a>
               </li>
             </ul>
@@ -95,8 +95,8 @@
 
           <div class="navbar-items">
             <ul class="nav-items">
-              <li v-for="(index, item) in resources.courses[currentcourse].tabs[activetab]" v-on:click="makeactivesubtab(item)">
-                <a v-show="item != 'type'"> {{item}} </a>
+              <li v-for="(index, item) in resources.courses[currentcourse].tabs[activetab]" v-on:click="makeactivesubtab(item)" v-bind:class="{active : activesubtab === item}">
+                <a v-show="item != 'type'" > {{item | capitalize}}</a>
               </li>
             </ul>
           </div>
@@ -117,7 +117,12 @@ export default {
                 this.activecourse = item;
             }
     },
-    props: ['renderelement', 'activetab', 'makeactivetab', 'makeactivesubtab','currentcourse','user','switchcourse', 'showmodal', 'modalswitch', 'vidsrc', 'resources'],
+    filters : {
+        capitalize(title) {
+            return title.charAt(0).toUpperCase() + title.slice(1);
+        }
+    },
+    props: ['renderelement', 'activetab', 'activesubtab', 'makeactivetab', 'makeactivesubtab','currentcourse','user','switchcourse', 'showmodal', 'modalswitch', 'vidsrc', 'resources'],
     components: ['modal']
 }
 </script>
