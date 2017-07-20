@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const expressVue = require('express-vue');
+const favicon = require('serve-favicon');
 const app = express();
 
 app.engine('vue', expressVue);
@@ -11,6 +12,8 @@ app.set('vue', {
     defaultLayout: 'layout'
 });
 app.use(express.static(__dirname + '/public/stylesheets'));
+app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
+
 
 
 const mixin = {

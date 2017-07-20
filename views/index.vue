@@ -2,25 +2,24 @@
     <div id="parentdiv">
         <div class="maindiv">
 
-        <modal :showmodal="showmodal" :resources="resources" :modalswitch="modalswitch" :user="user"
-        :activecourse="activecourse" :vidsrc="vidsrc"> </modal>
+        <modal :showmodal="showmodal" :modal_switch="modalSwitch" :user="user" :vidsrc="vidsrc"> </modal>
 
         <div id="NavBar" class="navbar">
             <h3>{{activecourse}}</h3>
 
-        <navbar :navlist="resources.courses[activecourse].tabs" :makeactivetab="makeactivetab" :activetab="activetab"></navbar>
+        <navbar :navlist="resources.courses[activecourse].tabs" :make_active_tab="makeActiveTab" :activetab="activetab"></navbar>
 
-        <sidebar id="number1" :sidelist="resources.courses[activecourse].tabs[activetab]" :makeactive="makeactivesubtab" :isactive="activesubtab"> </sidebar>
+        <sidebar id="number1" :sidelist="resources.courses[activecourse].tabs[activetab]" :make_active="makeActiveSubtab" :isactive="activesubtab"> </sidebar>
 
-        <sidebar id="number2" :sidelist="resources.courses" :makeactive="makeactivecourse" :isactive="activecourse"> </sidebar>
+        <sidebar id="number2" :sidelist="resources.courses" :make_active="makeActiveCourse" :isactive="activecourse"> </sidebar>
 
         </div>
 
-        <videos v-show="activetab != 'Dashboard'" :title="activesubtab | capitalize"
+        <videos v-show="activetab != 'dashboard'" :title="activesubtab | capitalize"
             :vidlist="resources.courses[activecourse].tabs[activetab][activesubtab]">
         </videos>
 
-        <a v-show="activetab === 'Dashboard'">
+        <a v-show="activetab === 'dashboard'">
             <p>Sample text that could be read from the user element</p>
         </a>
 
@@ -37,19 +36,19 @@ export default {
         }
     },
     methods: {
-        makeactivecourse(course) {
+        makeActiveCourse(course) {
             this.activecourse = course;
             this.activetab = "Dashboard";
             window.history.pushState('course', '', '/' + this.activecourse);
             },
-        modalswitch(bool) {
+        modalSwitch(bool) {
             this.showmodal = bool
         },
-        makeactivetab(tab) {
+        makeActiveTab(tab) {
             this.activetab = tab;
             window.history.pushState('tab', '', '/' + this.activecourse + '/' + this.activetab);
         },
-        makeactivesubtab(item) {
+        makeActiveSubtab(item) {
             this.activesubtab = item;
             window.history.pushState('subtab', '', '/' + this.activecourse + '/' + this.activetab + '/' + this.activesubtab);
         }
