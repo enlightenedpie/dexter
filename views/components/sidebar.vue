@@ -3,7 +3,7 @@
 	    <ul>
 	      <li v-for="(index, item) in sidelist"
 	       v-on:click="make_active(item)" v-bind:class="{active : isactive === item}">
-	        <a v-show="item != 'type'" > {{item | capitalize}}</a>
+	        <a v-show="item != 'type'" v-text="format(item)"></a>
 	      </li>
 	    </ul>
 	</div>
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-    props: ['make_active', 'isactive', 'sidelist'],
+    props: ['make_active', 'isactive', 'sidelist','format'],
     filters: {
         capitalize(title) {
             return title.charAt(0).toUpperCase() + title.slice(1);

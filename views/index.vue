@@ -9,13 +9,13 @@
 
         <navbar :navlist="resources.courses[activecourse].tabs" :make_active_tab="makeActiveTab" :activetab="activetab"></navbar>
 
-        <sidebar id="number1" :sidelist="resources.courses[activecourse].tabs[activetab]" :make_active="makeActiveSubtab" :isactive="activesubtab"> </sidebar>
+        <sidebar id="number1" :sidelist="resources.courses[activecourse].tabs[activetab]" :make_active="makeActiveSubtab" :isactive="activesubtab" :format="capitalize"> </sidebar>
 
-        <sidebar id="number2" :sidelist="resources.courses" :make_active="makeActiveCourse" :isactive="activecourse"> </sidebar>
+        <sidebar id="number2" :sidelist="resources.courses" :make_active="makeActiveCourse" :isactive="activecourse" :format="uppercase"> </sidebar>
 
         </div>
 
-        <videos v-show="activetab != 'dashboard'" :title="activesubtab | capitalize"
+        <videos v-show="activetab != 'dashboard'" :title="capitalize(activesubtab)"
             :vidlist="resources.courses[activecourse].tabs[activetab][activesubtab]">
         </videos>
 
@@ -51,12 +51,13 @@ export default {
         makeActiveSubtab(item) {
             this.activesubtab = item;
             window.history.pushState('subtab', '', '/' + this.activecourse + '/' + this.activetab + '/' + this.activesubtab);
-        }
-    },
-    filters : {
+        },
         capitalize(title) {
             return title.charAt(0).toUpperCase() + title.slice(1);
+        },
+        uppercase(title) {
+            return title.toUpperCase();
         }
-    }
+    },
 };
 </script>
