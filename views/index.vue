@@ -5,9 +5,9 @@
         <modal :showmodal="showmodal" :modal_switch="modalSwitch" :user="user" :vidsrc="vidsrc"> </modal>
 
         <div id="NavBar" class="navbar">
-            <h3>{{activecourse}}</h3>
+            <h3>{{uppercase(activecourse)}}</h3>
 
-        <navbar :navlist="resources.courses[activecourse].tabs" :make_active_tab="makeActiveTab" :activetab="activetab"></navbar>
+        <navbar :navlist="resources.courses[activecourse].tabs" :make_active_tab="makeActiveTab" :activetab="activetab" :format="capitalize"></navbar>
 
         <sidebar id="number1" :sidelist="resources.courses[activecourse].tabs[activetab]" :make_active="makeActiveSubtab" :isactive="activesubtab" :format="capitalize"> </sidebar>
 

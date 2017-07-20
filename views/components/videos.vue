@@ -1,6 +1,5 @@
 <template>
     <div class="videos">
-        <h3>{{title}}</h3>
         <ul>
             <li v-for="(item, index) in vidlist">
                 <div class="other-vids">
