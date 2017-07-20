@@ -38,7 +38,7 @@ export default {
     methods: {
         makeActiveCourse(course) {
             this.activecourse = course;
-            this.activetab = "Dashboard";
+            this.activetab = "dashboard";
             window.history.pushState('course', '', '/' + this.activecourse);
             },
         modalSwitch(bool) {

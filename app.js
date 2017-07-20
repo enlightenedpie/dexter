@@ -26,10 +26,10 @@ const mixin = {
 
 const resources = {
     "courses": {
-        "ACT": {
+        "act": {
             "tabs": {
-                "Dashboard": {},
-                "English": {
+                "dashboard": {},
+                "english": {
                     "tips": {
                         "16458": {
                             "name": "ACT English Tips 1",
@@ -71,7 +71,7 @@ const resources = {
                         }
                     }
                 },
-                "Math": {
+                "math": {
                     "tips": {
                         "16458": {
                             "name": "ACT Math Tips 1",
@@ -113,7 +113,7 @@ const resources = {
                         }
                     }
                 },
-                "Reading": {
+                "reading": {
                     "tips": {
                         "16458": {
                             "name": "ACT Reading Tips 1",
@@ -155,7 +155,7 @@ const resources = {
                         }
                     }
                 },
-                "Science": {
+                "science": {
                     "tips": {
                         "16458": {
                             "name": "ACT Science Tips 1",
@@ -197,7 +197,7 @@ const resources = {
                         }
                     }
                 },
-                "Essay": {
+                "essay": {
                     "tips": {
                         "16458": {
                             "name": "ACT Essay Tips 1",
@@ -239,7 +239,7 @@ const resources = {
                         }
                     }
                 },
-                "Practice": {
+                "practice": {
                     "tips": {
                         "16458": {
                             "name": "ACT Practice Tips 1",
@@ -283,9 +283,9 @@ const resources = {
                 }
             }
         },
-        "SAT": {
+        "sat": {
             "tabs": {
-                "Dashboard": {},
+                "dashboard": {},
                 "English": {
                     "tips": {
                         "16458": {
@@ -328,7 +328,7 @@ const resources = {
                         }
                     }
                 },
-                "Math": {
+                "math": {
                     "tips": {
                         "16458": {
                             "name": "SAT Math Tips 1",
@@ -370,7 +370,7 @@ const resources = {
                         }
                     }
                 },
-                "Essay": {
+                "essay": {
                     "tips": {
                         "16458": {
                             "name": "SAT Essay Tips 1",
@@ -468,8 +468,8 @@ const vue = {
 app.get('/', function(req, res){
     let scope = {
         data: {
-            activecourse : 'SAT',
-            activetab: 'Dashboard',
+            activecourse : 'sat',
+            activetab: 'dashboard',
             activesubtab: 'tips',
             resources : resources,
             user: user
@@ -482,8 +482,8 @@ app.get('/', function(req, res){
 app.get('/:activecourse', function(req, res){
     let scope = {
         data: {
-            activecourse : ((req.params.activecourse === '') ? 'SAT' : req.params.activecourse),
-            activetab: 'Dashboard',
+            activecourse : ((req.params.activecourse === '') ? 'sat' : req.params.activecourse.toLowerCase()),
+            activetab: 'dashboard',
             activesubtab: 'tips',
             resources : resources,
             user: user
@@ -496,8 +496,8 @@ app.get('/:activecourse', function(req, res){
 app.get('/:activecourse/:activetab', function(req, res){
     let scope = {
         data: {
-            activecourse : ((req.params.activecourse === '') ? 'SAT' : req.params.activecourse),
-            activetab: ((req.params.activetab === '') ? 'Dashboard' : req.params.activetab),
+            activecourse : ((req.params.activecourse === '') ? 'sat' : req.params.activecourse.toLowerCase()),
+            activetab: ((req.params.activetab === '') ? 'dashboard' : req.params.activetab.toLowerCase()),
             activesubtab: 'tips',
             resources : resources,
             user: user
@@ -510,9 +510,9 @@ app.get('/:activecourse/:activetab', function(req, res){
 app.get('/:activecourse/:activetab/:activesubtab/', function(req, res){
     let scope = {
         data: {
-            activecourse : ((req.params.activecourse === '') ? 'SAT' : req.params.activecourse),
-            activetab: ((req.params.activetab === '') ? 'Dashboard' : req.params.activetab),
-            activesubtab: ((req.params.activesubtab === '') ? 'tips' : req.params.activesubtab),
+            activecourse : ((req.params.activecourse === '') ? 'sat' : req.params.activecourse.toLowerCase()),
+            activetab: ((req.params.activetab === '') ? 'dashboard' : req.params.activetab.toLowerCase()),
+            activesubtab: ((req.params.activesubtab === '') ? 'tips' : req.params.activesubtab.toLowerCase()),
             resources : resources,
             user: user
         },
