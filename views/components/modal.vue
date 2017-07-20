@@ -70,7 +70,7 @@
       </div>
     </div>
         <div id="video-holder">
-            <iframe width="100%" height="650" v-bind:src="vidsrc" frameborder="0" allowfullscreen></iframe>
+            <iframe width="100%" height="540" v-bind:src="vidsrc" frameborder="0" allowfullscreen></iframe>
         </div>
   </div>
 </template>

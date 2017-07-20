@@ -1,5 +1,6 @@
 <template>
     <div class="navbar-items">
+    <h3>{{format(title)}}</h3>
         <ul class="nav-items">
             <li v-for="(item, index) in navlist" v-on:click="make_active_tab(index);"
                 v-bind:class="{active : activetab === index}">
@@ -11,6 +12,6 @@
 
 <script>
 export default {
-    props: ['navlist', 'make_active_tab', 'activetab','format'],
+    props: ['navlist', 'make_active_tab', 'activetab','format','title'],
 }
 </script>

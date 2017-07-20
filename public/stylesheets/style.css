@@ -2,6 +2,7 @@ body {
   padding: 0px;
   font: 16px 'Lato', sans-serif;
   margin:0;
+  background-color:#f1f1f1;
 }
 
 a {
@@ -96,6 +97,7 @@ h3 {
   padding: 4px 14px;
   border:1px solid black;
   border-radius: 8px;
+  background-color:white;
 }
 
 .navbar-items li:hover {
@@ -107,21 +109,47 @@ h3 {
 }
 
 
-.sublist-dropdown {
-  border: 1px solid black;
-  width:10%;
+.sidebar {
+  border: 1px solid transparent;
+  width:15%;
+  height:70px;
 }
 
-.sublist-dropdown li:hover{
+.sidebar li {
+  text-align:center;
+  position:relative;
+  right:17px;
+  padding: 3px 14px;
+  border:1px solid black;
+  border-radius: 8px;
+  background-color:white;
+}
+
+.sidebar li:hover{
   background-color:lightblue;
 }
 
-.sublist-dropdown .active {
+.sidebar .active {
   background-color:lightblue;
 }
 
-#number1 {
+.sidebar h3 {
+  position:relative;
+  top:6px;
+}
+
+#leftbar {
+  position:relative;
+  left:4%;
+  bottom:101px;
+}
+
+
+#rightbar {
   float:right;
+  position:relative;
+  right:4%;
+  bottom:101px;
 }
 
 .modal-button {
@@ -157,6 +185,10 @@ h3 {
 
 .videos a {
   text-decoration:none;
+}
+
+.videos p {
+  color:black;
 }
 
 .other-vids {
@@ -266,11 +298,12 @@ div.tab button.active {
   width: 60%;
   height: 80%;
   margin: 0px auto;
-  padding: 20px 30px;
+  padding: 5px 5px;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
   transition: all .3s ease;
+  background-color:#f1f1f1;
 }
 
 
