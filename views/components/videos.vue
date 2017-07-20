@@ -3,10 +3,8 @@
         <ul>
             <li v-for="(item, index) in vidlist">
                 <div class="other-vids">
-                     <a v-bind:href="item.uri">
-                        <p v-bind:href="item.uri"> {{item.name}} </p>
-                        <img class="thumbnails" v-bind:src="item.thumbnail">
-                    </a>
+                        <p v-bind:href="item.uri"> {{index}} </p>
+                        <img class="thumbnails">
                 </div>
             </li>
         </ul>
