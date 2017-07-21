@@ -4,7 +4,7 @@
       <ul>
           <li> <button class='modal-button'> <img id="menu-icon" src="https://image.flaticon.com/icons/png/512/56/56763.png"> Menu </button> </li>
           <li><img src="https://supertutortv.com/wp-content/uploads/2016/10/sttv_site_logo.png" height=40 class="logo"/></li>
-          <li> <button class='modal-button' v-on:click="modal_switch(true)"> <img src="https://cdn0.iconfinder.com/data/icons/account-avatar/128/user_2-512.png" height="14"> {{ user.profile.firstName }} </button> </li>
+          <li> <button class='modal-button' @click="modal_switch(true)"> <img src="https://cdn0.iconfinder.com/data/icons/account-avatar/128/user_2-512.png" height="14"> {{ user.profile.firstName }} </button> </li>
       </ul>
     </div>
     <div v-if="showmodal" id="Orders" class="tabcontent">
@@ -13,9 +13,9 @@
           <div class="modal-container">
             <div class="modal-body">
               <div class="tab">
-                <button v-on:click="make_active_menu('profile')">Profile</button>
-                <button v-on:click="make_active_menu('orders')">Orders</button>
-                <button v-on:click="make_active_menu('settings')">Settings</button>
+                <button @click="make_active_menu('profile')">Profile</button>
+                <button @click="make_active_menu('orders')">Orders</button>
+                <button @click="make_active_menu('settings')">Settings</button>
               </div>
               <ul>
 
@@ -64,13 +64,13 @@
                 </div>
               </ul>
             </div>
-            <button class="modal-default-button" v-on:click="modal_switch(false)"> Confirm </button>
+            <button class="modal-default-button" @click="modal_switch(false)"> Confirm </button>
           </div>
         </div>
       </div>
     </div>
         <div id="video-holder">
-            <iframe width="100%" height="540" v-bind:src="vidsrc" frameborder="0" allowfullscreen></iframe>
+            <iframe width="100%" height="540" :src="vidsrc" frameborder="0" allowfullscreen></iframe>
         </div>
   </div>
 </template>

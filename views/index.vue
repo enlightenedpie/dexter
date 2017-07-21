@@ -15,14 +15,13 @@
         </div>
 
         <videos v-show="activetab != 'dashboard'" :title="capitalize(activesubtab)"
-            :vidlist="resources.courses[activecourse].tabs[activetab][activesubtab]">
+            :vidlist="resources.courses[activecourse].tabs[activetab].content" :vidsrc="vidsrc" :switch_vid="switchVid">
         </videos>
 
         <a v-show="activetab === 'dashboard'">
             <p>Sample text that could be read from the user element</p>
         </a>
 
-        </div>
     </div>
 </template>
 
@@ -45,6 +44,7 @@ export default {
         },
         makeActiveTab(tab) {
             this.activetab = tab;
+//            Set a default here to normalize subtab behavior without selecting blank tab
             window.history.pushState('tab', '', '/' + this.activecourse + '/' + this.activetab);
         },
         makeActiveSubtab(item) {
@@ -56,6 +56,9 @@ export default {
         },
         uppercase(title) {
             return title.toUpperCase();
+        },
+        switchVid(src){
+            this.vidsrc = src.replace("vimeo.com", "player.vimeo.com/video");
         }
     },
 };
