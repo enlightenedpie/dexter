@@ -13,13 +13,16 @@
         <sidebar id="leftbar" :title="activecourse" :sidelist="resources.courses" :make_active="makeActiveCourse" :isactive="activecourse" :format="uppercase"> </sidebar>
 
         </div>
-
+        
         <videos v-show="activetab != 'dashboard'" :title="capitalize(activesubtab)"
             :vidlist="resources.courses[activecourse].tabs[activetab].content" :vidsrc="vidsrc" :switch_vid="switchVid">
         </videos>
 
         <a v-show="activetab === 'dashboard'">
-            <p>Sample text that could be read from the user element</p>
+            <div class="pagecontent">
+                <img :src="user.profile.image" height="80">
+                <p> {{user.profile.firstName}} {{user.profile.lastName}} </p>
+            </div>
         </a>
 
     </div>
@@ -30,13 +33,16 @@ export default {
     data() {
         return {
             showmodal : false,
+//          default page video, with no specific url
             vidsrc : "https://www.youtube.com/embed/gE8qZTEgS8E",
         }
     },
     methods: {
         makeActiveCourse(course) {
             this.activecourse = course;
+//          Set default tab upon entering a new course to dashboard
             this.activetab = "dashboard";
+//          Edit url to match
             window.history.pushState('course', '', '/' + this.activecourse);
             },
         modalSwitch(bool) {
@@ -44,11 +50,12 @@ export default {
         },
         makeActiveTab(tab) {
             this.activetab = tab;
-//            Set a default here to normalize subtab behavior without selecting blank tab
+//          Edit url to match. Set a default here to normalize subtab behavior without selecting blank tab
             window.history.pushState('tab', '', '/' + this.activecourse + '/' + this.activetab);
         },
         makeActiveSubtab(item) {
             this.activesubtab = item;
+//          Edit url to match
             window.history.pushState('subtab', '', '/' + this.activecourse + '/' + this.activetab + '/' + this.activesubtab);
         },
         capitalize(title) {

@@ -27,6 +27,7 @@ const mixin = {
 
 let resources;
 
+//  load in JSON object
 fs.readFile('./VimeoTree.txt', 'utf8', function (err, data) {
     resources = JSON.parse(data);
 });
@@ -79,6 +80,7 @@ const vue = {
     mixins: []
 };
 
+//  load variables on url, default
 app.get('/', function(req, res){
     let scope = {
         data: {
@@ -93,6 +95,7 @@ app.get('/', function(req, res){
     res.render('index', scope);
 });
 
+//  load variables on url, default tab and subtab
 app.get('/:activecourse', function(req, res){
     let scope = {
         data: {
@@ -107,6 +110,7 @@ app.get('/:activecourse', function(req, res){
     res.render('index', scope);
 });
 
+//  load variables on url, default subtab
 app.get('/:activecourse/:activetab', function(req, res){
     let scope = {
         data: {
@@ -121,6 +125,7 @@ app.get('/:activecourse/:activetab', function(req, res){
     res.render('index', scope);
 });
 
+//  load variables on url
 app.get('/:activecourse/:activetab/:activesubtab/', function(req, res){
     let scope = {
         data: {
