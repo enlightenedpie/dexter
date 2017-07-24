@@ -32,6 +32,7 @@ fs.readFile('./VimeoTree.txt', 'utf8', function (err, data) {
     resources = JSON.parse(data);
 });
 
+//dummy user object
 const user = {
     "videos": {
         "recentlyWatched": {
@@ -70,6 +71,7 @@ const user = {
     }
 };
 
+//main vue instance for app, all components included
 const vue = {
     head: {
         title: "SupertutorTV",
@@ -80,7 +82,7 @@ const vue = {
     mixins: []
 };
 
-//  load variables on url, default
+//  load variables from url, default
 app.get('/', function(req, res){
     let scope = {
         data: {
@@ -95,7 +97,7 @@ app.get('/', function(req, res){
     res.render('index', scope);
 });
 
-//  load variables on url, default tab and subtab
+//  load variables from url, default tab and subtab
 app.get('/:activecourse', function(req, res){
     let scope = {
         data: {
@@ -110,7 +112,7 @@ app.get('/:activecourse', function(req, res){
     res.render('index', scope);
 });
 
-//  load variables on url, default subtab
+//  load variables from url, default subtab
 app.get('/:activecourse/:activetab', function(req, res){
     let scope = {
         data: {
@@ -125,7 +127,7 @@ app.get('/:activecourse/:activetab', function(req, res){
     res.render('index', scope);
 });
 
-//  load variables on url
+//  load variables from url
 app.get('/:activecourse/:activetab/:activesubtab/', function(req, res){
     let scope = {
         data: {

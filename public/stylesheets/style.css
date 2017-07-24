@@ -313,14 +313,14 @@ h3 {
 
 
 
-div.tab {
+div.tabs {
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
 }
 
 /* tab buttons */
-div.tab button {
+div.tabs button {
     background-color: inherit;
     float: left;
     border: none;
@@ -330,12 +330,12 @@ div.tab button {
     transition: 0.3s;
 }
 
-div.tab button:hover {
+div.tabs button:hover {
     background-color: #ddd;
 }
 
 /* active tablink class */
-div.tab button.active {
+div.tabs button.active {
     background-color: #ccc;
 }
 

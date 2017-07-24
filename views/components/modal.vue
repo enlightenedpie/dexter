@@ -2,29 +2,37 @@
   <div>
     <div id="toolbar">
       <ul>
+          <!-- Menu button in toolbar -->
           <li> <button class='modal-button'> <img id="menu-icon" src="https://image.flaticon.com/icons/png/512/56/56763.png"> Menu </button> </li>
+          <!-- Supertutortv logo in toolbar -->
           <li><img src="https://supertutortv.com/wp-content/uploads/2016/10/sttv_site_logo.png" height=40 class="logo"/></li>
-          <li> <button class='modal-button' v-on:click="modal_switch(true)"> <img src="https://cdn0.iconfinder.com/data/icons/account-avatar/128/user_2-512.png" height="14"> {{ user.profile.firstName }} </button> </li>
+          <!-- Button that opens / closes modal window in toolbar -->
+          <li> <button class='modal-button' v-on:click="modal_switch(true)"> 
+            <img src="https://cdn0.iconfinder.com/data/icons/account-avatar/128/user_2-512.png" height="14"> {{ user.profile.firstName }} </button>
+          </li>
       </ul>
     </div>
+    <!-- Entire Modal displays if showmodal is True -->
     <div v-if="showmodal" id="Orders" class="tabcontent">
       <div class="modal-mask">
         <div class="modal-wrapper">
           <div class="modal-container">
             <div class="modal-body">
-              <div class="tab">
+              <div class="tabs">
                 <button v-on:click="make_active_menu('profile')">Profile</button>
                 <button v-on:click="make_active_menu('orders')">Orders</button>
                 <button v-on:click="make_active_menu('settings')">Settings</button>
               </div>
               <ul>
 
+                <!-- Profile Tab -->
                 <div v-if="activemenu === 'profile'">
                   <h3>Profile</h3>
                   <img :src="user.profile.image" height="80">
                   <p>{{user.profile.firstName}} {{user.profile.lastName}}</p>
                 </div>
 
+                <!-- Orders Tab -->
                 <div v-if="activemenu === 'orders'">
                   <h3>Orders</h3>
                   <ul>
@@ -37,6 +45,7 @@
                   </ul>
                 </div>
 
+                <!-- Settings Tab -->
                 <div v-if="activemenu === 'settings'">
                   <h3>Settings</h3>
                   <a>Recommend Content</a>
@@ -56,8 +65,7 @@
                   <br>
                   <a>Offline Content</a>
                   <a><div class="onoffswitch">
-                    <input type="checkbox" name="suggestcontent" class="onoffswitch-checkbox" id="offlineContent"
-                              v-model="user.settings.offlineContent">
+                    <input type="checkbox" name="suggestcontent" class="onoffswitch-checkbox" id="offlineContent" v-model="user.settings.offlineContent">
                     <span class="onoffswitch-inner"></span>
                     <span class="onoffswitch-switch"></span>
                   </div></a>
@@ -79,6 +87,7 @@
 export default {
     data() {
       return {
+//      Variable that controls the active tab
         activemenu: 'profile',
             }
     },

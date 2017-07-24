@@ -2,22 +2,28 @@
     <div id="parentdiv">
         <div class="maindiv">
 
+        <!-- Modal Window Component. The toolbar and modal button reside inside. -->
         <modal :showmodal="showmodal" :modal_switch="modalSwitch" :user="user" :vidsrc="vidsrc"> </modal>
 
         <div id="NavBar" class="navbar">
 
-        <navbar :title="activetab" :navlist="resources.courses[activecourse].tabs" :make_active_tab="makeActiveTab" :activetab="activetab" :format="capitalize"></navbar>
+            <!-- Course Navbar -->
+            <navbar :title="activetab" :navlist="resources.courses[activecourse].tabs" :make_active_tab="makeActiveTab" :activetab="activetab" :format="capitalize"></navbar>
 
-        <sidebar id="rightbar" :title="activesubtab" :sidelist="resources.courses[activecourse].tabs[activetab]" :make_active="makeActiveSubtab" :isactive="activesubtab" :format="capitalize"> </sidebar>
+            <!-- Subject Navbar -->
+            <sidebar id="rightbar" :title="activesubtab" :sidelist="resources.courses[activecourse].tabs[activetab]" :make_active="makeActiveSubtab" :isactive="activesubtab" :format="capitalize"> </sidebar>
 
-        <sidebar id="leftbar" :title="activecourse" :sidelist="resources.courses" :make_active="makeActiveCourse" :isactive="activecourse" :format="uppercase"> </sidebar>
+            <!-- Video Type Navbar -->
+            <sidebar id="leftbar" :title="activecourse" :sidelist="resources.courses" :make_active="makeActiveCourse" :isactive="activecourse" :format="uppercase"> </sidebar>
 
         </div>
-        
+
+        <!-- Displays when the activetab variable is anything but 'dashboard' -->
         <videos v-show="activetab != 'dashboard'" :title="capitalize(activesubtab)"
             :vidlist="resources.courses[activecourse].tabs[activetab].content" :vidsrc="vidsrc" :switch_vid="switchVid">
         </videos>
 
+        <!-- Displays when the activetab variable is 'dashboard' -->
         <a v-show="activetab === 'dashboard'">
             <div class="pagecontent">
                 <img :src="user.profile.image" height="80">
@@ -32,6 +38,7 @@
 export default {
     data() {
         return {
+//          variable that controls modal window opening / closing
             showmodal : false,
 //          default page video, with no specific url
             vidsrc : "https://www.youtube.com/embed/gE8qZTEgS8E",
@@ -42,7 +49,7 @@ export default {
             this.activecourse = course;
 //          Set default tab upon entering a new course to dashboard
             this.activetab = "dashboard";
-//          Edit url to match
+//          Edit url to match page.
             window.history.pushState('course', '', '/' + this.activecourse);
             },
         modalSwitch(bool) {
@@ -50,12 +57,13 @@ export default {
         },
         makeActiveTab(tab) {
             this.activetab = tab;
-//          Edit url to match. Set a default here to normalize subtab behavior without selecting blank tab
+//          Edit url to match page.
+//          Set a default here to normalize subtab behavior without selecting blank tab
             window.history.pushState('tab', '', '/' + this.activecourse + '/' + this.activetab);
         },
         makeActiveSubtab(item) {
             this.activesubtab = item;
-//          Edit url to match
+//          Edit url to match page.
             window.history.pushState('subtab', '', '/' + this.activecourse + '/' + this.activetab + '/' + this.activesubtab);
         },
         capitalize(title) {
