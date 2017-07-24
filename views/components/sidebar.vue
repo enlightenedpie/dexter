@@ -1,4 +1,5 @@
 <template>
+<!-- Renders a title and a list of its items from JSON object -->
 	<div class="sidebar">
 		<h3> {{format(title)}} </h3>
 	    <ul>
@@ -10,7 +11,7 @@
 </template>
 
 <script>
-export default {
-    props: ['make_active', 'isactive', 'sidelist','format','title'],
-}
+	export default {
+    	props: ['make_active', 'isactive', 'sidelist','format','title'],
+	}
 </script>

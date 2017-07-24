@@ -17,13 +17,13 @@ app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 
 
 
-const mixin = {
-    methods: {
-        methods: {
+// const mixin = {
+//     methods: {
+//         methods: {
         
-        }
-    },
-};
+//         }
+//     },
+// };
 
 let resources;
 

@@ -1,4 +1,5 @@
 <template>
+<!-- Renders a title and a list of its items from JSON object -->
     <div class="navbar-items">
     <h3>{{format(title)}}</h3>
         <ul class="nav-items">
@@ -10,7 +11,7 @@
 </template>
 
 <script>
-export default {
-    props: ['navlist', 'make_active_tab', 'activetab','format','title'],
-}
+    export default {
+        props: ['navlist', 'make_active_tab', 'activetab','format','title'],
+    }
 </script>

@@ -2,7 +2,7 @@
     <div id="parentdiv">
         <div class="maindiv">
 
-        <!-- Modal Window Component. The toolbar and modal button reside inside. -->
+        <!-- Modal Window Component. Toolbar and modal button reside inside. -->
         <modal :showmodal="showmodal" :modal_switch="modalSwitch" :user="user" :vidsrc="vidsrc"> </modal>
 
         <div id="NavBar" class="navbar">
@@ -18,12 +18,12 @@
 
         </div>
 
-        <!-- Displays when the activetab variable is anything but 'dashboard' -->
+        <!-- Video content, displays when the activetab variable is anything but 'dashboard' -->
         <videos v-show="activetab != 'dashboard'" :title="capitalize(activesubtab)"
             :vidlist="resources.courses[activecourse].tabs[activetab].content" :vidsrc="vidsrc" :switch_vid="switchVid">
         </videos>
 
-        <!-- Displays when the activetab variable is 'dashboard' -->
+        <!-- Dashboard content, displays when the activetab variable is 'dashboard' -->
         <a v-show="activetab === 'dashboard'">
             <div class="pagecontent">
                 <img :src="user.profile.image" height="80">
@@ -45,33 +45,40 @@ export default {
         }
     },
     methods: {
+//      Toggle showmodal, which displays the modal window
+        modalSwitch(bool) {
+            this.showmodal = bool
+        },
+//      Selects a course as activecoruse
         makeActiveCourse(course) {
             this.activecourse = course;
 //          Set default tab upon entering a new course to dashboard
             this.activetab = "dashboard";
 //          Edit url to match page.
             window.history.pushState('course', '', '/' + this.activecourse);
-            },
-        modalSwitch(bool) {
-            this.showmodal = bool
         },
+//      Selects a tab as activetab
         makeActiveTab(tab) {
             this.activetab = tab;
 //          Edit url to match page.
 //          Set a default here to normalize subtab behavior without selecting blank tab
             window.history.pushState('tab', '', '/' + this.activecourse + '/' + this.activetab);
         },
+//      Selects a subtab as activesubtab
         makeActiveSubtab(item) {
             this.activesubtab = item;
 //          Edit url to match page.
             window.history.pushState('subtab', '', '/' + this.activecourse + '/' + this.activetab + '/' + this.activesubtab);
         },
+//      Capitalizes the first word of a string
         capitalize(title) {
             return title.charAt(0).toUpperCase() + title.slice(1);
         },
+//      Makes the entire string uppercase
         uppercase(title) {
             return title.toUpperCase();
         },
+//      Repopulates iFrame with correct link
         switchVid(src){
             this.vidsrc = src.replace("vimeo.com", "player.vimeo.com/video");
         }
