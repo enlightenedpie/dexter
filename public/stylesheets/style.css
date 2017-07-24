@@ -171,14 +171,16 @@ h3 {
 	padding-left:30px;
   text-align:center;
   position:relative;
-  right:17px;
+  top:-1150px;
+  width:60%;
+  margin:auto;
 }
 
 .videos li {
   display:inline;
   padding:5%;
   position:relative;
-  right:17px;
+  right:52px;
  
 }
 
@@ -192,7 +194,7 @@ h3 {
 
 .other-vids {
   display: inline-block;
-  width: 20%;
+  width: 23%;
   height: 100px;
   text-align:center;
 }
@@ -341,11 +343,3 @@ div.tab button.active {
 }
 
 /* END OF MODAL FORMATTING */
-
-
-/* FOR FINDING CSS
-* {
-  background: #000 !important;
-  color: #0f0 !important;
-  outline: solid #f00 1px !important;
-} */
