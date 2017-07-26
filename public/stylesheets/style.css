@@ -65,7 +65,7 @@ h1 {
   padding: 0;
 }
 
-/* Main toolbar elements (menu button, logo, modal button) */
+/* Main toolbar elements (menu button and modal button, no logo) */
 #toolbar li {
   display:inline;
   padding:10px 20px;
