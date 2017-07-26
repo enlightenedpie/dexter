@@ -50,7 +50,7 @@ export default {
         modalSwitch(bool) {
             this.showmodal = bool
         },
-//      Selects a course as activecoruse
+//      Selects a course as activecourse
         makeActiveCourse(course) {
             this.activecourse = course;
 //          Set default tab upon entering a new course to dashboard
@@ -71,7 +71,7 @@ export default {
 //          Edit url to match page.
             window.history.pushState('subtab', '', '/' + this.activecourse + '/' + this.activetab + '/' + this.activesubtab);
         },
-//      Capitalizes the first word of a string
+//      Capitalizes the first letter of the first word of a string
         capitalize(title) {
             return title.charAt(0).toUpperCase() + title.slice(1);
         },
