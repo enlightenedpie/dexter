@@ -4,26 +4,25 @@
         <thead>
         <h4>Course</h4>
         <input>
-        <tr>
-            <td><strong>Subject</strong></td>
-            <td><strong>Content</strong></td>
-            <td></td>
-        </tr>
+        <ul>
+            <li><strong>Subject</strong></li>
+            <li><strong>Content</strong></li>
+        </ul>
         </thead>
         <tbody>
         <tr v-for="(row, index) in rows">
 
-            <td><input type="text" v-model="row.title"></td>
-            <td>
-                <tr v-for="(thing, index) in row.content">
-                    <td>Name<input type="text" v-model="thing.name"></td>
-                    <td>ID<input type="text" v-model="thing.id"></td>
-                </tr>
+            <li><input type="text" v-model="row.title"></li>
+            <li>
+                <ul v-for="(thing, index) in row.content">
+                    <li>Name<input type="text" v-model="thing.name"></li>
+                    <li>ID<input type="text" v-model="thing.id"></li>
+                </ul>
             <button class="button btn-secondary" @click="addContent(row.content)">Add Content</button>
                 <a v-on:click="removeContent(row.content, index);" style="cursor: pointer">Remove Content</a>
-            <td>
+            <li>
                 <a v-on:click="removeSubject(index);" style="cursor: pointer">Remove Subject</a>
-            </td>
+            </li>
 
 
         </tbody>
