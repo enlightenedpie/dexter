@@ -1,32 +1,23 @@
 <template>
 <div class="cms-div">
-    <table class="table">
-        <thead>
-        <h4>Course</h4>
-        <input>
-        <ul>
-            <li><strong>Subject</strong></li>
-            <li><strong>Content</strong></li>
-        </ul>
-        </thead>
-        <tbody>
-        <tr v-for="(row, index) in rows">
+        <h4>Course<input title="CourseTitle"></h4>
+        <ul v-for="(subject, index) in subjects">
 
-            <li><input type="text" v-model="row.title"></li>
+            <li>Subject<input title="Subject" v-model="subject.title"></li>
             <li>
-                <ul v-for="(thing, index) in row.content">
-                    <li>Name<input type="text" v-model="thing.name"></li>
-                    <li>ID<input type="text" v-model="thing.id"></li>
+                <ul v-for="(entry, index) in subject.entries">
+                    <li><strong>Entry</strong></li>
+                    <li>Name<input title="Name" v-model="entry.name"></li>
+                    <li>ID<input title="ID" v-model="entry.id"></li>
                 </ul>
-            <button class="button btn-secondary" @click="addContent(row.content)">Add Content</button>
-                <a v-on:click="removeContent(row.content, index);" style="cursor: pointer">Remove Content</a>
+            <button class="button btn-secondary" @click="addEntry(subject.entries)">Add Entry</button>
+                <a v-if="subject.entries.length > 1" v-on:click="removeEntry(subject.entries, index);" style="cursor: pointer">Remove Entry</a>
             <li>
-                <a v-on:click="removeSubject(index);" style="cursor: pointer">Remove Subject</a>
+                <a v-if="subjects.length > 1" v-on:click="removeSubject(index);" style="cursor: pointer">Remove Subject</a>
             </li>
+        </ul>
 
 
-        </tbody>
-    </table>
     <div>
         <button class="button btn-primary" @click="addSubject">Add Subject</button>
     </div>
@@ -37,29 +28,29 @@
     export default{
         data() {
             return {
-                rows: []
+                subjects: [ { "title": "", "description": "", "entries": [ { "name": "", "id": "" } ] } ]
             }
         },
         methods: {
             addSubject: function() {
                 let elem = document.createElement('tr');
-                this.rows.push({
+                this.subjects.push({
                     title: "",
                     description: "",
-                    content: []
+                    entries: [ { "name": "", "id": "" } ]
                 });
             },
             removeSubject: function(index) {
-                this.rows.splice(index, 1);
+                this.subjects.splice(index, 1);
             },
-            addContent: function(item){
+            addEntry: function(item){
                 let elem = document.createElement('td');
                 item.push({
                     name: "",
                     id: ""
                 })
             },
-            removeContent: function(item, index){
+            removeEntry: function(item, index){
                 item.splice(index, 1)
             }
         }
