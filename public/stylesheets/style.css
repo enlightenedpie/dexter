@@ -31,6 +31,17 @@ h1 {
 }
 
 
+.cms-div{
+  text-align:auto;
+  margin:auto;
+}
+
+.cms-div input {
+  padding:3px;
+  box-sizing:border-box;
+}
+
+
 
 /* TOOLBAR FORMATTING (Toolbar located in modal.vue and called in index) */
 

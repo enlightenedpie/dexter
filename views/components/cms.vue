@@ -1,7 +1,9 @@
 <template>
-<div id="app">
+<div class="cms-div">
     <table class="table">
         <thead>
+        <h4>Course</h4>
+        <input>
         <tr>
             <td><strong>Subject</strong></td>
             <td><strong>Content</strong></td>
@@ -14,12 +16,8 @@
             <td><input type="text" v-model="row.title"></td>
             <td>
                 <tr v-for="(thing, index) in row.content">
-                    <td>Name</td>
-                    <td>ID</td>
-                    <td><input type="text" v-model="thing.name">
-                        <input type="text" v-model="thing.id">
-                    </td>
-
+                    <td>Name<input type="text" v-model="thing.name"></td>
+                    <td>ID<input type="text" v-model="thing.id"></td>
                 </tr>
             <button class="button btn-secondary" @click="addContent(row.content)">Add Content</button>
                 <a v-on:click="removeContent(row.content, index);" style="cursor: pointer">Remove Content</a>
