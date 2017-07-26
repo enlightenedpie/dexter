@@ -75,4 +75,8 @@ the expression in quotes being evaluated when the element is clicked. This synta
 
 Vue has several other builtin methods, such as `v-for=""` for iteration, `v-if=""` for conditionals, and `v-show=""` to
 control whether elements are displayed. These are used throughout the project and follow the same general syntax as the 
-rest of the 
+rest of Vue's builtin methods. More thorough documentation of them as well as those delineated above can be found at the
+[official Vue documentation](https://vuejs.org/v2/guide/).
+
+
+Developed by Team Awesome for SupertutorTV
