@@ -69,6 +69,14 @@ h1 {
   height:60px;
 }
 
+/* Div containing Supertutortv Logo */
+#logo-holder {
+  position:relative;
+  top:-50px;
+  margin:auto;
+  width:147px;
+}
+
 /* profile icon / modal button in toolbar */
 #toolbar li:last-child {
   float:right;

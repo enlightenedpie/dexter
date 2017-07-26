@@ -1,4 +1,5 @@
 <template>
+<!-- Renders a list of linked videos from JSON object -->
     <div class="pagecontent">
         <ul>
             <li v-for="(item, index) in vidlist">

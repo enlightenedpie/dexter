@@ -1,16 +1,17 @@
 <template lang="html">
+<!-- Modal Window Template -->
   <div>
     <div id="toolbar">
       <ul>
           <!-- Menu button in toolbar -->
           <li> <button class='modal-button'> <img id="menu-icon" src="https://image.flaticon.com/icons/png/512/56/56763.png"> Menu </button> </li>
-          <!-- Supertutortv logo in toolbar -->
-          <li><img src="https://supertutortv.com/wp-content/uploads/2016/10/sttv_site_logo.png" height=40 class="logo"/></li>
           <!-- Button that opens / closes modal window in toolbar -->
           <li> <button class='modal-button' @click="modal_switch(true)">
             <img src="https://cdn0.iconfinder.com/data/icons/account-avatar/128/user_2-512.png" height="14"> {{ user.profile.firstName }} </button>
           </li>
       </ul>
+      <!-- Supertutortv logo in toolbar -->
+      <div id="logo-holder"><img src="https://supertutortv.com/wp-content/uploads/2016/10/sttv_site_logo.png" height=40 class="logo"/></div>
     </div>
     <!-- Entire Modal displays if showmodal is True -->
     <div v-if="showmodal" id="Orders" class="tabcontent">
@@ -29,19 +30,21 @@
                 <div v-if="activemenu === 'profile'">
                   <h3>Profile</h3>
                   <img :src="user.profile.image" height="80">
+                  <!-- Renders user's name -->
                   <p>{{user.profile.firstName}} {{user.profile.lastName}}</p>
                 </div>
 
                 <!-- Orders Tab -->
                 <div v-if="activemenu === 'orders'">
                   <h3>Orders</h3>
-                  <ul>
-                    <li v-for="(item, index) in user.orders">
+                  <!-- Renders index and items of the JSON object -->
+                  <ul v-for="(item, index) in user.orders">
+                    <li>
                       {{index}}
                       <ul>
                         <li>- {{item}}</li>
                       </ul>
-                      </li>
+                    </li>
                   </ul>
                 </div>
 
@@ -87,14 +90,15 @@
 export default {
     data() {
       return {
-//      Variable that controls the active tab
+//      Variable that controls the active tab, default is 'profile'
         activemenu: 'profile',
-            }
+      }
     },
     methods: {
+//    Selects a tab as activemenu
       make_active_menu: function(item){
-                this.activemenu = item;
-            }
+        this.activemenu = item;
+      }
     },
     props: ['user', 'showmodal', 'modal_switch', 'vidsrc'],
     components: ['modal']
