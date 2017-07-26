@@ -18,20 +18,20 @@
 
         </div>
 
-        <cms></cms>
-
         <!-- Video content, displays when the activetab variable is anything but 'dashboard' -->
         <videos v-show="activetab != 'dashboard'" :title="capitalize(activesubtab)"
             :vidlist="resources.courses[activecourse].tabs[activetab].content" :vidsrc="vidsrc" :switch_vid="switchVid">
         </videos>
 
         <!-- Dashboard content, displays when the activetab variable is 'dashboard' -->
-        <a v-show="activetab === 'dashboard'">
-            <div class="pagecontent">
+        <div class="pagecontent" v-show="activetab === 'dashboard'">
+            <div class="dashboard">
                 <img :src="user.profile.image" height="80">
                 <p> {{user.profile.firstName}} {{user.profile.lastName}} </p>
             </div>
-        </a>
+        </div>
+
+        <cms></cms>
 
         </div>
     </div>
