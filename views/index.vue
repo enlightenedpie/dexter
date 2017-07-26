@@ -18,9 +18,7 @@
 
         </div>
 
-        <cms>
-
-        </cms>
+        <cms></cms>
 
         <!-- Video content, displays when the activetab variable is anything but 'dashboard' -->
         <videos v-show="activetab != 'dashboard'" :title="capitalize(activesubtab)"

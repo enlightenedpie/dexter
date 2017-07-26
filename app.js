@@ -66,7 +66,7 @@ const user = {
     },
     "settings": {
         "recommendContent": true,
-        "resetPassword": "dummylink.js",
+        "resetPassword": "dummylink",
         "offlineContent": false
     }
 };
