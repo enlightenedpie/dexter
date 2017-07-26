@@ -18,6 +18,10 @@
 
         </div>
 
+        <cms>
+
+        </cms>
+
         <!-- Video content, displays when the activetab variable is anything but 'dashboard' -->
         <videos v-show="activetab != 'dashboard'" :title="capitalize(activesubtab)"
             :vidlist="resources.courses[activecourse].tabs[activetab].content" :vidsrc="vidsrc" :switch_vid="switchVid">
