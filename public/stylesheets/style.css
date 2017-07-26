@@ -1,3 +1,5 @@
+/* General Formatting */
+
 body {
   padding: 0px;
   font: 16px 'Lato', sans-serif;
@@ -30,7 +32,7 @@ h1 {
 
 
 
-/* TOOLBAR FORMATTING */
+/* TOOLBAR FORMATTING (Toolbar located in modal.vue and called in index) */
 
 
 
@@ -45,6 +47,7 @@ h1 {
   top:60px;
 }
 
+/* Toolbar, located in modal.vue */
 #toolbar {
 	position:fixed;
   width:100%;
@@ -62,6 +65,7 @@ h1 {
   padding: 0;
 }
 
+/* Main toolbar elements (menu button, logo, modal button) */
 #toolbar li {
   display:inline;
   padding:10px 20px;
@@ -109,12 +113,7 @@ h1 {
 
 
 
-/* headers for course / tab / subtab */
-h3 {
-  text-align:center;
-  color:black;
-}
-
+/* Tab / Subject list, found in navbar.vue and called in index */
 .navbar-items {
   text-align:center;
 }
@@ -133,11 +132,12 @@ h3 {
   background-color:lightblue;
 }
 
+/* Navbar items assigned active class with button click */
 .navbar-items .active {
   background-color:lightblue;
 }
 
-
+/* Course and Subtab lists, located in sidear.vue and called in index */
 .sidebar {
   border: 1px solid transparent;
   width:15%;
@@ -157,22 +157,26 @@ h3 {
   background-color:lightblue;
 }
 
+/* Sidebar items assigned active class with button click */
 .sidebar .active {
   background-color:lightblue;
 }
 
+/* currentcourse, activetab, and activesubtab displayed above their respective columns */
 .sidebar h3 {
+  text-align:center;
   position:relative;
   top:6px;
 }
 
+/* Subject list, on left of page */
 #leftbar {
   position:relative;
   left:4%;
   bottom:101px;
 }
 
-
+/* Subtab list, on right of page */
 #rightbar {
   float:right;
   position:relative;
@@ -186,8 +190,9 @@ h3 {
 /* VIDEO LIST FORMATTING */
 
 
+/* Video component found in videos.vue and called in index */
 
-
+/* Pagecontent is both video div and dashboard div */
 .pagecontent {
 	padding-left:30px;
   text-align:center;
@@ -202,7 +207,6 @@ h3 {
   padding:5%;
   position:relative;
   right:52px;
- 
 }
 
 .pagecontent a {
@@ -220,7 +224,7 @@ h3 {
   text-align:center;
 }
 
-
+/* img components assicoiated with each video in the video list */
 .thumbnails {
   width:100%;
   position:static;
@@ -234,7 +238,7 @@ h3 {
 
 
 
-
+/* Div that dims background and displays the modal */
 .modal-mask {
   position: fixed;
   z-index: 9998;
@@ -247,6 +251,7 @@ h3 {
   transition: opacity .3s ease;
 }
 
+/* Makes the wrapper appear as a <td> element (table cells) */
 .modal-wrapper {
   display: table-cell;
   vertical-align: middle;
@@ -281,21 +286,7 @@ h3 {
   border: 1px solid gray;
 }
 
-/* next 3 blocks: dimming the backround */
-.modal-enter {
-  opacity: 0;
-}
-
-.modal-leave-active {
-  opacity: 0;
-}
-
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
+/* On / off switches in settings tab */
 .onoffswitch {
     position: relative;
     width: 90px;
@@ -308,6 +299,7 @@ h3 {
     margin-top: -1%;
 }
 
+/* Reset Password input in settings tab */
 .passwordreset{
     position: relative;
     float: right;
@@ -318,7 +310,6 @@ h3 {
 
 
 /* MODAL TABS */
-
 
 
 div.tabs {
@@ -338,32 +329,26 @@ div.tabs button {
     transition: 0.3s;
 }
 
+/* Change tab color upon hover */ 
 div.tabs button:hover {
     background-color: #ddd;
 }
 
-/* active tablink class */
+/* Change active tab color, with active class */
 div.tabs button.active {
     background-color: #ccc;
 }
 
+/* Same div for each tab of the modal, tabcontent */
 .tabcontent {
     border: 1px solid #ccc;
     border-top: none;
     height:0px;
 }
 
-.tabcontent h5 {
-    font-size: 14px; color: black;
-    border: 15px;
-    clear: both;
-    float: left;
-}
-
 .tabcontent a {
     font-size: 14px; color: black;
     font-weight: bold;
-    border: 15px;
 }
 
 /* END OF MODAL FORMATTING */
