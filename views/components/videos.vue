@@ -15,7 +15,7 @@
             <ul>
                 <li v-for="(item, index) in vidlist">
                     <div class="other-vids">
-                        <a v-on:click="switch_vid(item); make_active_video(index)" v-bind:class="{active : item.name === vidsrc.name}"> {{format(item.name)}} </a>
+                        <a v-on:click="switch_vid(item); make_active_video(index)" v-bind:class="{active : item.link === vidsrc.link}"> {{format(item.name)}} </a>
                     </div>
                 </li>
             </ul>
