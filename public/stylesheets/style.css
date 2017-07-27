@@ -148,12 +148,17 @@ h1 {
   background-color:lightblue;
 }
 
-/* Course and Subtab lists, located in sidear.vue and called in index */
-.sidebar {
-  border: 1px solid transparent;
-  width:15%;
-}
 
+.sidebar {
+  border:1px solid black;
+  position:absolute;
+  width:12.5%;
+  right:12.5%;
+  top:0px;
+  height: 540px;
+  overflow:scroll;
+}
+/*
 .sidebar li {
   text-align:center;
   padding: 3px 14px;
@@ -166,32 +171,16 @@ h1 {
   background-color:lightblue;
 }
 
-/* Sidebar items assigned active class with button click */
 .sidebar .active {
   background-color:lightblue;
 }
 
-/* currentcourse, activetab, and activesubtab displayed above their respective columns */
 .sidebar h3 {
   text-align:center;
   position:relative;
   top:6px;
-}
+}*/
 
-/* Subject list, on left of page */
-#leftbar {
-  position:absolute;
-  left:4%;
-  top:539px;
-}
-
-/* Subtab list, on right of page */
-#rightbar {
-  float:right;
-  position:absolute;
-  right:4%;
-  top:539px;
-}
 
 
 
@@ -201,31 +190,28 @@ h1 {
 
 /* Video component found in videos.vue and called in index */
 
-/* Pagecontent is both video div and dashboard div */
-.pagecontent {
+/* Linkeronis is both video div and dashboard div */
+.linkeronis {
+  border:1px solid black;
+  position:absolute;
+  width:12.5%;
+  right:0px;
+  top:0px;
+  height: 540px;
+  overflow:scroll;
+}
+
+.linkeronis li {
+  display:block;
+  padding:3px;
   text-align:center;
-  position:inherit;
-  width:60%;
-  margin:auto;
-  right:17px;
-  padding-top:30px;
 }
 
-.pagecontent li {
-  display:inline;
-  padding:5%;
-}
-
-.pagecontent li:last-child {
-  position:relative;
-  left:2.5%;
-}
-
-.pagecontent a {
+.linkeronis a {
   text-decoration:none;
 }
 
-.pagecontent p {
+.linkeronis p {
   color:black;
 }
 
@@ -236,12 +222,12 @@ h1 {
   width:50%;
 }
 
-.other-vids {
+/*.other-vids {
   display: inline-block;
   width: 23%;
   height: 100px;
   text-align:center;
-}
+}*/
 
 /* img components assicoiated with each video in the video list */
 .thumbnails {

@@ -90,7 +90,7 @@ const vue = {
         meta: ['mixin'],
         structuredData: {}
     },
-    components: ['modal', 'videos', 'navbar','sidebar','cms'],
+    components: ['modal', 'videos', 'navbar','cms'],
     mixins: []
 };
 
