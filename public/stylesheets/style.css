@@ -16,9 +16,9 @@ ul {
   list-style-type:none;
 }
 
-/*ul {
+ul {
   padding:0;
-}*/
+}
 
 
 button {
@@ -35,54 +35,13 @@ h1 {
   text-align:center;
 }
 
-.dashboard {
-  /*border: 1px solid black;*/
-  position:relative;
-  right:12px;
-  margin:auto;
-  width:50%;
+/* To regulate overlapping of the page */
+#parentdiv {
+  min-width:924px;
 }
 
 
-.cms-div{
-  border: 1px solid black;
-  width:510px;
-  margin:auto;
-  padding:20px;
-  border-radius:10px;
-  position:relative;
-  top:-1100px;
-  left:2px;
-}
 
-.cms-div input {
-  padding:5px;
-}
-
-.remove-subject-button {
-  float:right;
-}
-
-h5 {
-  font-size:16pt;
-  text-align:center;
-  color:#00B7FF;
-}
-
-.cms-div ul {
-  padding:10px;
-}
-
-.cms-div button{
-  outline:1px solid black;
-  border-radius:10%;
-  padding:5px;
-}
-
-.cms-div .entry-list li{
-  display:inline;
-  padding-left:20px;
-}
 
 /* TOOLBAR FORMATTING (Toolbar located in modal.vue and called in index) */
 
@@ -168,11 +127,11 @@ h5 {
 /* Tab / Subject list, found in navbar.vue and called in index */
 .navbar-items {
   text-align:center;
+/*  width:60%;
+  margin:auto;*/
 }
 
 .navbar-items li{
-  position:relative;
-  right:17px;
   display:inline;
   padding: 4px 14px;
   border:1px solid black;
@@ -197,8 +156,6 @@ h5 {
 
 .sidebar li {
   text-align:center;
-  position:relative;
-  right:17px;
   padding: 3px 14px;
   border:1px solid black;
   border-radius: 8px;
@@ -223,17 +180,17 @@ h5 {
 
 /* Subject list, on left of page */
 #leftbar {
-  position:relative;
+  position:absolute;
   left:4%;
-  bottom:101px;
+  top:539px;
 }
 
 /* Subtab list, on right of page */
 #rightbar {
   float:right;
-  position:relative;
+  position:absolute;
   right:4%;
-  bottom:101px;
+  top:539px;
 }
 
 
@@ -246,19 +203,22 @@ h5 {
 
 /* Pagecontent is both video div and dashboard div */
 .pagecontent {
-	padding-left:30px;
   text-align:center;
-  /*position:relative;*/
-  top:-1150px;
+  position:inherit;
   width:60%;
   margin:auto;
+  right:17px;
+  padding-top:30px;
 }
 
 .pagecontent li {
   display:inline;
   padding:5%;
+}
+
+.pagecontent li:last-child {
   position:relative;
-  right:52px;
+  left:2.5%;
 }
 
 .pagecontent a {
@@ -267,6 +227,13 @@ h5 {
 
 .pagecontent p {
   color:black;
+}
+
+.dashboard {
+  position:relative;
+  left:18px;
+  margin:auto;
+  width:50%;
 }
 
 .other-vids {
@@ -281,6 +248,54 @@ h5 {
   width:100%;
   position:static;
   top:200px;
+}
+
+
+
+
+/* CMS FORMATTING */
+
+
+
+
+
+.cms-div{
+  border: 1px solid black;
+  width:510px;
+  margin:auto;
+  padding:20px;
+  border-radius:10px;
+  position:relative;
+  top:90px;
+}
+
+.cms-div input {
+  padding:5px;
+}
+
+.remove-subject-button {
+  float:right;
+}
+
+h5 {
+  font-size:16pt;
+  text-align:center;
+  color:#00B7FF;
+}
+
+.cms-div ul {
+  padding:10px;
+}
+
+.cms-div button{
+  outline:1px solid black;
+  border-radius:10%;
+  padding:5px;
+}
+
+.cms-div .entry-list li{
+  display:inline;
+  padding-left:20px;
 }
 
 

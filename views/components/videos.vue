@@ -4,7 +4,7 @@
         <ul>
             <li v-for="(item, index) in vidlist">
                 <div class="other-vids">
-                    <a v-on:click="switch_vid(item.link)"> {{item.name}}
+                    <a v-on:click="switch_vid(item.link)"> {{format(item.name)}}
                         <img src="https://c3metrics.com/wp-content/uploads/2016/08/feature-video-thumbnail-overlay.png" class="thumbnails">
                     </a>
                 </div>
@@ -15,6 +15,6 @@
 
 <script>
     export default {
-        props: ['vidlist', 'title', 'switch_vid']
+        props: ['vidlist', 'title', 'switch_vid','format']
     }
 </script>

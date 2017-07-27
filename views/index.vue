@@ -20,7 +20,7 @@
 
         <!-- Video content, displays when the activetab variable is anything but 'dashboard' -->
         <videos :title="capitalize(activesubtab)"
-            :vidlist="resources.courses[activecourse].tabs[activetab][activesubtab]" :vidsrc="vidsrc" :switch_vid="switchVid">
+            :vidlist="resources.courses[activecourse].tabs[activetab][activesubtab]" :vidsrc="vidsrc" :switch_vid="switchVid" :format="capitalize">
         </videos>
 
         <!-- Dashboard content, displays when the activetab variable is 'dashboard' -->
@@ -31,6 +31,9 @@
             </div>
         </div>
         </div>
+
+        <cms> </cms>
+
     </div>
 </template>
 
@@ -70,9 +73,9 @@ export default {
 //          Edit url to match page.
             window.history.pushState('subtab', '', '/' + this.activecourse + '/' + this.activetab + '/' + this.activesubtab);
         },
-//      Capitalizes the first letter of the first word of a string
+//      Capitalizes the first letter of the every word in a string
         capitalize(title) {
-            return title.charAt(0).toUpperCase() + title.slice(1);
+            return title.replace(/\b\w/g, l => l.toUpperCase())
         },
 //      Makes the entire string uppercase
         uppercase(title) {

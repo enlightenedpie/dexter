@@ -1,8 +1,8 @@
 <template>
 <div class="cms-div">
 		<h5>Add a Course </h5>
-        <h4>Course<input title="CourseTitle"></h4>
-        <ul class="entry-list" v-for="(subject, index) in subjects">
+        <h4>Course<input title="CourseTitle" v-model="course_object.course"></h4>
+        <ul class="entry-list" v-for="(subject, index) in course_object.subjects">
             <li>Subject: <input title="Subject" v-model="subject.title"></li>
             <li>
                 <ul v-for="(entry, index) in subject.entries">
@@ -12,7 +12,7 @@
             	<button class="button btn-secondary" @click="addEntry(subject.entries)">Add Entry</button>
                 <button v-if="subject.entries.length > 1" v-on:click="removeEntry(subject.entries, index);" style="cursor: pointer">Remove Entry</button>
             	<li>
-                	<button class="remove-subject-button" v-if="subjects.length > 1" v-on:click="removeSubject(index);" style="cursor: pointer">Remove Subject</button>
+                	<button class="remove-subject-button" v-if="course_object.subjects.length > 1" v-on:click="removeSubject(index);" style="cursor: pointer">Remove Subject</button>
             	</li>
                 </ul>
             </li>
@@ -21,7 +21,7 @@
     <div>
         <button class="button btn-primary" @click="addSubject">Add Subject</button>
     </div>
-    {{course_object}}
+    <p> {{course_object}} </p>
 </div>
 </template>
 
@@ -38,7 +38,7 @@
         methods: {
             addSubject: function() {
                 let elem = document.createElement('li');
-                this.subjects.push({
+                this.course_object.subjects.push({
                     title: "",
                     entries: [ { "name": "", "id": "" } ]
                 });
