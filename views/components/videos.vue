@@ -15,7 +15,7 @@
             <ul>
                 <li v-for="(item, index) in vidlist">
                     <div class="other-vids">
-                        <a v-on:click="switch_vid(item)" > {{format(item.name)}} </a>
+                        <a v-on:click="switch_vid(item); make_active_video(index)" v-bind="{active : index === activevideo}"> {{format(item.name)}} </a>
                     </div>
                 </li>
             </ul>
@@ -25,6 +25,17 @@
 
 <script>
     export default {
-        props: ['vidlist', 'title', 'switch_vid','format', 'vidsrc','subtablist','isactive','make_active']
+        data() {
+            return {
+                activevideo: '',
+            }
+        },
+        methods: {
+            make_active_video: function (item) {
+                this.activevideo = item;
+            }
+        },
+        props: ['vidlist', 'title', 'switch_vid', 'format', 'vidsrc', 'subtablist', 'isactive', 'make_active'],
+        components: ['modal']
     }
 </script>
