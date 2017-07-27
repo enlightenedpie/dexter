@@ -7,7 +7,7 @@
 
         <div id="NavBar" class="navbar">
 
-            <!-- Course Navbar -->
+             <!--Course Navbar -->
             <navbar :title="activetab" :navlist="resources.courses[activecourse].tabs" :make_active_tab="makeActiveTab" :activetab="activetab" :format="capitalize"></navbar>
 
             <!-- Subject Navbar -->
@@ -18,11 +18,13 @@
 
         </div>
 
-        <cms></cms>
+        <cms>
+
+     </cms>
 
         <!-- Video content, displays when the activetab variable is anything but 'dashboard' -->
-        <videos v-show="activetab != 'dashboard'" :title="capitalize(activesubtab)"
-            :vidlist="resources.courses[activecourse].tabs[activetab].content" :vidsrc="vidsrc" :switch_vid="switchVid">
+        <videos :title="capitalize(activesubtab)"
+            :vidlist="resources.courses[activecourse].tabs[activetab][activesubtab]" :vidsrc="vidsrc" :switch_vid="switchVid">
         </videos>
 
         <!-- Dashboard content, displays when the activetab variable is 'dashboard' -->

@@ -86,9 +86,9 @@ const vue = {
 app.get('/', function(req, res){
     let scope = {
         data: {
-            activecourse : 'act prep',
-            activetab: 'dashboard',
-            activesubtab: 'content',
+            activecourse : 'act',
+            activetab: 'science',
+            activesubtab: 'null',
             resources : resources,
             user: user
         },
@@ -102,8 +102,8 @@ app.get('/:activecourse', function(req, res){
     let scope = {
         data: {
             activecourse : decodeURIComponent(req.params.activecourse).toLowerCase(),
-            activetab: 'dashboard',
-            activesubtab: 'content',
+            activetab: 'science',
+            activesubtab: 'null',
             resources : resources,
             user: user
         },
@@ -118,7 +118,7 @@ app.get('/:activecourse/:activetab', function(req, res){
         data: {
             activecourse : decodeURIComponent(req.params.activecourse).toLowerCase(),
             activetab: decodeURIComponent(req.params.activetab).toLowerCase(),
-            activesubtab: 'content',
+            activesubtab: 'null',
             resources : resources,
             user: user
         },

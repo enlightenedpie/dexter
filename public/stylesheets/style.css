@@ -213,7 +213,7 @@ h1 {
 .pagecontent {
 	padding-left:30px;
   text-align:center;
-  position:relative;
+  /*position:relative;*/
   top:-1150px;
   width:60%;
   margin:auto;

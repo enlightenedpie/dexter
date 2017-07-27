@@ -16,6 +16,7 @@
   "dependencies": {
     "express": "~4.15.2",
     "express-vue": "~3.9.6",
+    "fs": "0.0.1-security",
     "serve-favicon": "~2.4.3",
     "vue": "~2.4.1"
   },
