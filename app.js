@@ -32,6 +32,18 @@ fs.readFile('./VimeoTree.txt', 'utf8', function (err, data) {
     resources = JSON.parse(data);
 });
 
+function format(name) {
+    return name.replace(/-/g, ' ').toLowerCase()
+}
+
+function getsrc(list, name){
+    for (let i = 0; i < list.length; i++){
+        if (format(list[i].name) === name){
+            return list[i].link;
+        }
+    }
+}
+
 //dummy user object
 const user = {
     "videos": {
@@ -89,6 +101,7 @@ app.get('/', function(req, res){
             activecourse : 'act',
             activetab: 'science',
             activesubtab: 'null',
+            vidsrc : 'https://www.youtube.com/embed/gE8qZTEgS8E',
             resources : resources,
             user: user
         },
@@ -101,9 +114,10 @@ app.get('/', function(req, res){
 app.get('/:activecourse', function(req, res){
     let scope = {
         data: {
-            activecourse : decodeURIComponent(req.params.activecourse).toLowerCase(),
+            activecourse : format(req.params.activecourse),
             activetab: 'science',
             activesubtab: 'null',
+            vidsrc : 'https://www.youtube.com/embed/gE8qZTEgS8E',
             resources : resources,
             user: user
         },
@@ -116,9 +130,10 @@ app.get('/:activecourse', function(req, res){
 app.get('/:activecourse/:activetab', function(req, res){
     let scope = {
         data: {
-            activecourse : decodeURIComponent(req.params.activecourse).toLowerCase(),
-            activetab: decodeURIComponent(req.params.activetab).toLowerCase(),
+            activecourse : format(req.params.activecourse),
+            activetab: format(req.params.activetab),
             activesubtab: 'null',
+            vidsrc : 'https://www.youtube.com/embed/gE8qZTEgS8E',
             resources : resources,
             user: user
         },
@@ -131,9 +146,26 @@ app.get('/:activecourse/:activetab', function(req, res){
 app.get('/:activecourse/:activetab/:activesubtab/', function(req, res){
     let scope = {
         data: {
-            activecourse : decodeURIComponent(req.params.activecourse).toLowerCase(),
-            activetab: decodeURIComponent(req.params.activetab).toLowerCase(),
-            activesubtab: decodeURIComponent(req.params.activesubtab).toLowerCase(),
+            activecourse : format(req.params.activecourse),
+            activetab: format(req.params.activetab),
+            activesubtab: format(req.params.activesubtab),
+            vidsrc : 'https://www.youtube.com/embed/gE8qZTEgS8E',
+            resources : resources,
+            user: user
+        },
+        vue: vue,
+    };
+    res.render('index', scope);
+});
+
+//  load variables from url
+app.get('/:activecourse/:activetab/:activesubtab/:vidname', function(req, res){
+    let scope = {
+        data: {
+            activecourse : format(req.params.activecourse),
+            activetab: format(req.params.activetab),
+            activesubtab: format(req.params.activesubtab),
+            vidsrc : getsrc(resources.courses[format(req.params.activecourse)].tabs[format(req.params.activetab)][format(req.params.activesubtab)], format(req.params.vidname)).replace("vimeo.com", "player.vimeo.com/video"),
             resources : resources,
             user: user
         },

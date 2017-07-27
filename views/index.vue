@@ -42,12 +42,13 @@ export default {
     data() {
         return {
 //          variable that controls modal window opening / closing
-            showmodal : false,
-//          default page video, with no specific url
-            vidsrc : "https://www.youtube.com/embed/gE8qZTEgS8E",
+            showmodal : false
         }
     },
     methods: {
+        sanitize(string){
+            return string.toLowerCase().replace(/ /g, "-")
+        },
 //      Toggle showmodal, which displays the modal window
         modalSwitch(bool) {
             this.showmodal = bool
@@ -58,20 +59,20 @@ export default {
 //          Set default tab upon entering a new course to dashboard
             this.activetab = "dashboard";
 //          Edit url to match page.
-            window.history.pushState('course', '', '/' + this.activecourse);
+            window.history.pushState(history.state, '', '/' + this.sanitize(this.activecourse));
         },
 //      Selects a tab as activetab
         makeActiveTab(tab) {
             this.activetab = tab;
 //          Edit url to match page.
 //          Set a default here to normalize subtab behavior without selecting blank tab
-            window.history.pushState('tab', '', '/' + this.activecourse + '/' + this.activetab);
+            window.history.pushState(history.state, '', '/' + this.sanitize(this.activecourse) + '/' + this.sanitize(this.activetab));
         },
 //      Selects a subtab as activesubtab
         makeActiveSubtab(item) {
             this.activesubtab = item;
 //          Edit url to match page.
-            window.history.pushState('subtab', '', '/' + this.activecourse + '/' + this.activetab + '/' + this.activesubtab);
+            window.history.pushState(history.state, '', '/' + this.sanitize(this.activecourse) + '/' + this.sanitize(this.activetab) + '/' + this.sanitize(this.activesubtab));
         },
 //      Capitalizes the first letter of the every word in a string
         capitalize(title) {
@@ -82,9 +83,10 @@ export default {
             return title.toUpperCase();
         },
 //      Repopulates iFrame with correct link
-        switchVid(src){
-            this.vidsrc = src.replace("vimeo.com", "player.vimeo.com/video");
+        switchVid(item){
+            this.vidsrc = item.link.replace("vimeo.com", "player.vimeo.com/video");
+            window.history.pushState(history.state, '', '/' + this.sanitize(this.activecourse) + '/' + this.sanitize(this.activetab) + '/' + this.sanitize(this.activesubtab) +  '/' + this.sanitize(item.name));
         }
-    },
+    }
 };
 </script>
