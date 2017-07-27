@@ -150,38 +150,22 @@ h1 {
 
 
 .sidebar {
-  border:1px solid black;
   position:absolute;
   width:12.5%;
   right:12.5%;
   top:0px;
   height: 540px;
   overflow:scroll;
+  text-align:center;
 }
-/*
+
 .sidebar li {
-  text-align:center;
-  padding: 3px 14px;
-  border:1px solid black;
-  border-radius: 8px;
-  background-color:white;
+  padding:3px;
 }
 
-.sidebar li:hover{
+.sidebar .active{
   background-color:lightblue;
 }
-
-.sidebar .active {
-  background-color:lightblue;
-}
-
-.sidebar h3 {
-  text-align:center;
-  position:relative;
-  top:6px;
-}*/
-
-
 
 
 
@@ -192,19 +176,21 @@ h1 {
 
 /* Linkeronis is both video div and dashboard div */
 .linkeronis {
-  border:1px solid black;
   position:absolute;
   width:12.5%;
   right:0px;
   top:0px;
   height: 540px;
   overflow:scroll;
+  text-align:center;
+}
+
+.linkeronis .active{
+  background-color:lightblue;
 }
 
 .linkeronis li {
-  display:block;
   padding:3px;
-  text-align:center;
 }
 
 .linkeronis a {
