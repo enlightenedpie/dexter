@@ -84,7 +84,7 @@ export default {
         },
 //      Repopulates iFrame with correct link
         switchVid(item){
-            this.vidsrc = item.link.replace("vimeo.com", "player.vimeo.com/video");
+            this.vidsrc = item;
             window.history.pushState(history.state, '', '/' + this.sanitize(this.activecourse) + '/' + this.sanitize(this.activetab) + '/' + this.sanitize(this.activesubtab) +  '/' + this.sanitize(item.name));
         }
     }

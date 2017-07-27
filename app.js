@@ -39,7 +39,7 @@ function format(name) {
 function getsrc(list, name){
     for (let i = 0; i < list.length; i++){
         if (format(list[i].name) === name){
-            return list[i].link;
+            return list[i];
         }
     }
 }
@@ -101,7 +101,7 @@ app.get('/', function(req, res){
             activecourse : 'act',
             activetab: 'science',
             activesubtab: 'null',
-            vidsrc : 'https://www.youtube.com/embed/gE8qZTEgS8E',
+            vidsrc : {"name": "trump vs satgrammar", "duration": 621, "link": "https://vimeo.com/194605001", "uri": "/videos/194605001"},
             resources : resources,
             user: user
         },
@@ -117,7 +117,7 @@ app.get('/:activecourse', function(req, res){
             activecourse : format(req.params.activecourse),
             activetab: 'science',
             activesubtab: 'null',
-            vidsrc : 'https://www.youtube.com/embed/gE8qZTEgS8E',
+            vidsrc : {"name": "trump vs satgrammar", "duration": 621, "link": "https://vimeo.com/194605001", "uri": "/videos/194605001"},
             resources : resources,
             user: user
         },
@@ -133,7 +133,7 @@ app.get('/:activecourse/:activetab', function(req, res){
             activecourse : format(req.params.activecourse),
             activetab: format(req.params.activetab),
             activesubtab: 'null',
-            vidsrc : 'https://www.youtube.com/embed/gE8qZTEgS8E',
+            vidsrc : {"name": "trump vs satgrammar", "duration": 621, "link": "https://vimeo.com/194605001", "uri": "/videos/194605001"},
             resources : resources,
             user: user
         },
@@ -149,7 +149,7 @@ app.get('/:activecourse/:activetab/:activesubtab/', function(req, res){
             activecourse : format(req.params.activecourse),
             activetab: format(req.params.activetab),
             activesubtab: format(req.params.activesubtab),
-            vidsrc : 'https://www.youtube.com/embed/gE8qZTEgS8E',
+            vidsrc : {"name": "trump vs satgrammar", "duration": 621, "link": "https://vimeo.com/194605001", "uri": "/videos/194605001"},
             resources : resources,
             user: user
         },
@@ -165,7 +165,7 @@ app.get('/:activecourse/:activetab/:activesubtab/:vidname', function(req, res){
             activecourse : format(req.params.activecourse),
             activetab: format(req.params.activetab),
             activesubtab: format(req.params.activesubtab),
-            vidsrc : getsrc(resources.courses[format(req.params.activecourse)].tabs[format(req.params.activetab)][format(req.params.activesubtab)], format(req.params.vidname)).replace("vimeo.com", "player.vimeo.com/video"),
+            vidsrc : getsrc(resources.courses[format(req.params.activecourse)].tabs[format(req.params.activetab)][format(req.params.activesubtab)], format(req.params.vidname)),
             resources : resources,
             user: user
         },
