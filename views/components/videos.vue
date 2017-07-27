@@ -13,10 +13,8 @@
         </div>
         <div class="linkeronis">
             <ul>
-                <li v-for="(item, index) in vidlist">
-                    <div class="other-vids">
-                        <a v-on:click="switch_vid(item); make_active_video(index)" v-bind:class="{active : item.link === vidsrc.link}"> {{format(item.name)}} </a>
-                    </div>
+                <li v-for="(item, index) in vidlist" v-bind:class="{active : item.link === vidsrc.link}">
+                    <a v-on:click="switch_vid(item); make_active_video(index)"> {{format(item.name)}} </a>
                 </li>
             </ul>
         </div>
