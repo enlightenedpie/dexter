@@ -3,25 +3,25 @@
         <div class="maindiv">
 
         <!-- Modal Window Component. Toolbar and modal button reside inside. -->
-        <modal :showmodal="showmodal" :modal_switch="modalSwitch" :user="user" :vidsrc="vidsrc"> </modal>
+        <modal :showmodal="showmodal" :modal_switch="modalSwitch" :user="user"> </modal>
+
+        <!-- Video content and iFrame, videos display when the activetab variable is anything but 'dashboard' -->
+        <videos :title="capitalize(activesubtab)"
+            :vidlist="resources.courses[activecourse].tabs[activetab][activesubtab]" :subtablist="resources.courses[activecourse].tabs[activetab]" :make_active="makeActiveSubtab" :isactive="activesubtab" :vidsrc="vidsrc" :switch_vid="switchVid" :vidsrc="vidsrc" :format="capitalize">
+        </videos>
+
+        <!-- Subject Navbar -->
+        <!-- <sidebar id="rightbar" :title="activesubtab" :sidelist="resources.courses[activecourse].tabs[activetab]" :make_active="makeActiveSubtab" :isactive="activesubtab" :format="capitalize"> </sidebar> -->
 
         <div id="NavBar" class="navbar">
 
              <!--Course Navbar -->
             <navbar :title="activetab" :navlist="resources.courses[activecourse].tabs" :make_active_tab="makeActiveTab" :activetab="activetab" :format="capitalize"></navbar>
 
-            <!-- Subject Navbar -->
-            <sidebar id="rightbar" :title="activesubtab" :sidelist="resources.courses[activecourse].tabs[activetab]" :make_active="makeActiveSubtab" :isactive="activesubtab" :format="capitalize"> </sidebar>
-
-            <!-- Video Type Navbar -->
-            <sidebar id="leftbar" :title="activecourse" :sidelist="resources.courses" :make_active="makeActiveCourse" :isactive="activecourse" :format="uppercase"> </sidebar>
+            <!-- Category Navbar -->
+            <!-- <sidebar id="leftbar" :title="activecourse" :sidelist="resources.courses" :make_active="makeActiveCourse" :isactive="activecourse" :format="uppercase"> </sidebar> -->
 
         </div>
-
-        <!-- Video content, displays when the activetab variable is anything but 'dashboard' -->
-        <videos :title="capitalize(activesubtab)"
-            :vidlist="resources.courses[activecourse].tabs[activetab][activesubtab]" :vidsrc="vidsrc" :switch_vid="switchVid" :format="capitalize">
-        </videos>
 
         <!-- Dashboard content, displays when the activetab variable is 'dashboard' -->
         <div class="pagecontent" v-show="activetab === 'dashboard'">

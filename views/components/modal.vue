@@ -80,9 +80,6 @@
         </div>
       </div>
     </div>
-        <div id="video-holder">
-            <iframe width="100%" height="540" :src="vidsrc" frameborder="0" allowfullscreen></iframe>
-        </div>
   </div>
 </template>
 
@@ -100,7 +97,7 @@ export default {
         this.activemenu = item;
       }
     },
-    props: ['user', 'showmodal', 'modal_switch', 'vidsrc'],
+    props: ['user', 'showmodal', 'modal_switch'],
     components: ['modal']
 }
 </script>
