@@ -123,8 +123,9 @@ h1 {
 
 
 
+/* Sidebar component found in videos.vue and called in index */
 
-/* Tab / Subject list, found in navbar.vue and called in index */
+/* Subject list, found in navbar.vue and called in index */
 .navbar-items {
   text-align:center;
 /*  width:60%;
@@ -155,8 +156,10 @@ h1 {
   right:12.5%;
   top:0px;
   height: 540px;
-  overflow:scroll;
+  overflow-y:scroll;
+  overflow-x:hidden;
   text-align:center;
+  border-bottom:1px solid black;
 }
 
 .sidebar li {
@@ -167,13 +170,6 @@ h1 {
   background-color:lightblue;
 }
 
-
-
-/* VIDEO LIST FORMATTING */
-
-
-/* Video component found in videos.vue and called in index */
-
 /* Linkeronis is both video div and dashboard div */
 .linkeronis {
   position:absolute;
@@ -181,8 +177,11 @@ h1 {
   right:0px;
   top:0px;
   height: 540px;
-  overflow:scroll;
+  overflow-y:scroll;
+  overflow-x:hidden;
   text-align:center;
+  border-left:1px solid black;
+  border-bottom:1px solid black;
 }
 
 .linkeronis .active{
@@ -208,14 +207,10 @@ h1 {
   width:50%;
 }
 
-/* img components assicoiated with each video in the video list */
-.thumbnails {
-  width:100%;
-  position:static;
-  top:200px;
+#video-holder {
+  position:relative;
+  top:1px;
 }
-
-
 
 
 /* CMS FORMATTING */
