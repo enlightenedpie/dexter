@@ -83,6 +83,8 @@ const user = {
     }
 };
 
+const videfault = {"uri": "/videos/181869937", "duration": 36, "description": null, "pictures": {"link": "https://i.vimeocdn.com/video/590725878_100x75.jpg?r=pad", "width": 100, "height": 75, "link_with_play_button": "https://i.vimeocdn.com/filter/overlay?src0=https%3a%2f%2fi.vimeocdn.com%2fvideo%2f590725878_100x75.jpg&src1=http%3a%2f%2ff.vimeocdn.com%2fp%2fimages%2fcrawler_play.png"}, "link": "https://vimeo.com/181869937", "name": "question 17"}
+
 //main vue instance for app, all components included
 const vue = {
     head: {
@@ -101,7 +103,7 @@ app.get('/', function(req, res){
             activecourse : 'act',
             activetab: 'science',
             activesubtab: 'null',
-            vidsrc : {"name": "trump vs satgrammar", "duration": 621, "link": "https://vimeo.com/194605001", "uri": "/videos/194605001"},
+            vidsrc : videfault,
             resources : resources,
             user: user
         },
@@ -117,7 +119,7 @@ app.get('/:activecourse', function(req, res){
             activecourse : format(req.params.activecourse),
             activetab: 'science',
             activesubtab: 'null',
-            vidsrc : {"name": "trump vs satgrammar", "duration": 621, "link": "https://vimeo.com/194605001", "uri": "/videos/194605001"},
+            vidsrc : videfault,
             resources : resources,
             user: user
         },
@@ -133,7 +135,7 @@ app.get('/:activecourse/:activetab', function(req, res){
             activecourse : format(req.params.activecourse),
             activetab: format(req.params.activetab),
             activesubtab: 'null',
-            vidsrc : {"name": "trump vs satgrammar", "duration": 621, "link": "https://vimeo.com/194605001", "uri": "/videos/194605001"},
+            vidsrc : videfault,
             resources : resources,
             user: user
         },
@@ -149,7 +151,7 @@ app.get('/:activecourse/:activetab/:activesubtab/', function(req, res){
             activecourse : format(req.params.activecourse),
             activetab: format(req.params.activetab),
             activesubtab: format(req.params.activesubtab),
-            vidsrc : {"name": "trump vs satgrammar", "duration": 621, "link": "https://vimeo.com/194605001", "uri": "/videos/194605001"},
+            vidsrc : videfault,
             resources : resources,
             user: user
         },
