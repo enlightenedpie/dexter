@@ -14,7 +14,11 @@
         <div class="linkeronis">
             <ul>
                 <li v-for="(item, index) in vidlist" v-bind:class="{active : item.link === vidsrc.link}">
-                    <a v-on:click="switch_vid(item); make_active_video(index)"> {{format(item.name)}} </a>
+                    <a v-on:click="switch_vid(item); make_active_video(index)"> 
+                        <p> {{format(item.name)}} </p>
+                        <img class="thumbnails" :src="item.pictures.link">
+                        <p> {{temporize(item.duration)}} </p>
+                     </a>
                 </li>
             </ul>
         </div>
@@ -29,6 +33,19 @@
             }
         },
         methods: {
+            temporize: function(item) {
+                var hours = Math.floor(item / 3600);
+                var minutes = Math.floor(item / 60);
+                var seconds = item - minutes * 60;
+                if (hours != 0 && minutes != 0) {
+                    var coolString = hours + ":" + minutes + ":" + seconds
+                } else if (hours == 0){
+                    var coolString = minutes + ":" + seconds
+                } else {
+                    var coolString = seconds + "s"
+                }
+                return coolString
+            },
             make_active_video: function (item) {
                 this.activevideo = item;
             },
