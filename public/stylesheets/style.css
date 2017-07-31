@@ -192,10 +192,6 @@ h1 {
   padding:3px;
 }
 
-.linkeronis a {
-  text-decoration:none;
-}
-
 .linkeronis p {
   color: #00B7FF;
 }
@@ -214,9 +210,43 @@ h1 {
 
 .thumbnails {
   width:100px;
-  position:inherit;
+  position:relative;
+  top:-20px;
+}
+
+.subvideo-holder {
+  height:80px;
+ /* border-top: 1px solid #d3d3d3;*/
+}
+
+.subvideo-holder p {
+  position:relative;
   top:-10px;
 }
+
+
+.time-holder {
+  background-color:black;
+  opacity:0.7;
+  z-index:3;
+  position:relative;
+  bottom:51px;
+  width:40px;
+  left:55%;
+}
+
+.subvideo-holder .times{
+  color:white;
+  font-size:9pt;
+  position:relative;
+  top:0px;
+}
+
+
+
+
+
+
 
 /* CMS FORMATTING */
 

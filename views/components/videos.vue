@@ -13,12 +13,14 @@
         </div>
         <div class="linkeronis">
             <ul>
-                <li v-for="(item, index) in vidlist" v-bind:class="{active : item.link === vidsrc.link}">
-                    <a v-on:click="switch_vid(item); make_active_video(index)"> 
+                <li v-for="(item, index) in vidlist" v-bind:class="{active : item.link === vidsrc.link}" v-on:click="switch_vid(item); make_active_video(index)">
+                    <div class="subvideo-holder">
                         <p> {{format(item.name)}} </p>
                         <img class="thumbnails" :src="item.pictures.link">
-                        <p> {{temporize(item.duration)}} </p>
-                     </a>
+                        <div class="time-holder">
+                            <p class="times"> {{temporize(item.duration)}} </p>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -36,13 +38,23 @@
             temporize: function(item) {
                 var hours = Math.floor(item / 3600);
                 var minutes = Math.floor(item / 60);
-                var seconds = item - minutes * 60;
+                var seconds = item % 60;
                 if (hours != 0 && minutes != 0) {
-                    var coolString = hours + ":" + minutes + ":" + seconds
-                } else if (hours == 0){
-                    var coolString = minutes + ":" + seconds
+                    if (seconds < 10 && minutes < 10) {
+                        var coolString = hours + ":0" + minutes + ":0" + seconds
+                    } else if (seconds < 10) {
+                        var coolString = hours + ":" + minutes + ":0" + seconds
+                    } else if (minutes < 10) {
+                        var coolString = hours + ":0" + minutes + ":" + seconds
+                    } else {
+                        var coolString = hours + ":" + minutes + ":" + seconds
+                    }
                 } else {
-                    var coolString = seconds + "s"
+                    if (seconds < 10) {
+                        var coolString = minutes + ":0" + seconds
+                    } else {
+                        var coolString = minutes + ":" + seconds
+                    }
                 }
                 return coolString
             },
