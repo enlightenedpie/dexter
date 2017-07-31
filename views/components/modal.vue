@@ -22,6 +22,7 @@
               <div class="tabs">
                 <button @click="make_active_menu('profile')">Profile</button>
                 <button @click="make_active_menu('orders')">Orders</button>
+                <button @click="make_active_menu('courses')">Courses</button>
                 <button @click="make_active_menu('settings')">Settings</button>
               </div>
               <ul>
@@ -44,6 +45,16 @@
                       <ul>
                         <li>- {{item}}</li>
                       </ul>
+                    </li>
+                  </ul>
+                </div>
+
+
+                <div v-if="activemenu === 'courses'">
+                  <h3>Courses</h3>
+                  <ul>
+                    <li v-for="(item, index) in resources.courses">
+                    <button class="course-buttons" v-on:click="switchcourse(index)"> {{index}} </button>
                     </li>
                   </ul>
                 </div>
@@ -97,7 +108,7 @@ export default {
         this.activemenu = item;
       }
     },
-    props: ['user', 'showmodal', 'modal_switch'],
+    props: ['user', 'showmodal', 'modal_switch', 'resources'],
     components: ['modal']
 }
 </script>
