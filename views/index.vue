@@ -10,16 +10,10 @@
             :vidlist="resources.courses[activecourse].tabs[activetab][activesubtab]" :subtablist="resources.courses[activecourse].tabs[activetab]" :make_active="makeActiveSubtab" :isactive="activesubtab" :switch_vid="switchVid" :vidsrc="vidsrc" :format="capitalize">
         </videos>
 
-        <!-- Subject Navbar -->
-        <!-- <sidebar id="rightbar" :title="activesubtab" :sidelist="resources.courses[activecourse].tabs[activetab]" :make_active="makeActiveSubtab" :isactive="activesubtab" :format="capitalize"> </sidebar> -->
-
         <div id="NavBar" class="navbar">
 
              <!--Course Navbar -->
             <navbar :title="activetab" :navlist="resources.courses[activecourse].tabs" :make_active_tab="makeActiveTab" :activetab="activetab" :format="capitalize"></navbar>
-
-            <!-- Category Navbar -->
-            <!-- <sidebar id="leftbar" :title="activecourse" :sidelist="resources.courses" :make_active="makeActiveCourse" :isactive="activecourse" :format="uppercase"> </sidebar> -->
 
         </div>
 
