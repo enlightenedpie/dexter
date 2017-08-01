@@ -14,12 +14,12 @@ a {
 
 ul {
   list-style-type:none;
-}
-
-ul {
   padding:0;
 }
 
+li {
+  list-style:none;
+}
 
 button {
   outline:none;
@@ -47,11 +47,6 @@ h1 {
 
 
 
-/* Menu list icon thingy */
-#menu-icon {
-  width:11px;
-}
-
 /* to account for fixed toolbar */
 .maindiv {
   position:relative;
@@ -66,7 +61,7 @@ h1 {
 	height:60px;
 	background-color:#f1f1f1;
   border-bottom: 1px solid black;
-  z-index:1;
+  z-index:2;
   margin:auto;
 }
 
@@ -97,9 +92,10 @@ h1 {
   float:right;
   padding:0;
   border-left: 1px solid black;
+  z-index:3;
 }
 
-/* both toolbar buttons */
+/* modal button in toolbar */
 .modal-button {
   top:-1px;
   height:60px;
@@ -108,12 +104,6 @@ h1 {
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   padding:20px;
-}
-
-/* menu button in toolbar */
-#toolbar li:first-child {
-  border-right: 1px solid black;
-  padding:0;
 }
 
 
@@ -133,7 +123,7 @@ h1 {
 }
 
 .navbar-items li{
-  display:inline;
+  display:inline-block;
   padding: 4px 14px;
   border:1px solid black;
   border-radius: 8px;
@@ -164,6 +154,7 @@ h1 {
 
 .sidebar li {
   padding:3px;
+  border-top:1px solid #d3d3d3;
 }
 
 .sidebar .active{
@@ -190,6 +181,7 @@ h1 {
 
 .linkeronis li {
   padding:3px;
+  border-top:1px solid #d3d3d3;
 }
 
 .linkeronis p {
@@ -229,7 +221,7 @@ h1 {
 .time-holder {
   background-color:black;
   opacity:0.7;
-  z-index:3;
+  z-index:1;
   position:relative;
   bottom:51px;
   width:40px;
@@ -293,6 +285,55 @@ h5 {
   display:inline;
   padding-left:20px;
 }
+
+
+
+
+
+/* SIDEBAR FORMATTING */
+
+
+
+/* Each sidebar has class .menus */
+.menus {
+  width:12%;
+  text-align:center;
+}
+
+
+.menus li {
+  padding:8px;
+  border:1px solid black;
+  border-bottom: none;
+  display:block;
+}
+
+.menus li:last-child {
+  border-bottom: 1px solid black;
+}
+
+/* Parent-div for sidebars */
+#bar-holder {
+  min-width:924px;
+}
+
+/* Left sidebar */
+#menu-bar {
+  padding-left:2%;
+}
+
+/* Right sidebar */
+#right-bar {
+  float:right;
+  padding-right:2%;
+}
+
+
+
+
+
+
+
 
 
 

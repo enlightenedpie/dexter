@@ -3,8 +3,6 @@
   <div>
     <div id="toolbar">
       <ul>
-          <!-- Menu button in toolbar -->
-          <li> <button class='modal-button'> <img id="menu-icon" src="https://image.flaticon.com/icons/png/512/56/56763.png"> Menu </button> </li>
           <!-- Button that opens / closes modal window in toolbar -->
           <li> <button class='modal-button' @click="modal_switch(true)">
             <img src="https://cdn0.iconfinder.com/data/icons/account-avatar/128/user_2-512.png" height="14"> {{ user.profile.firstName }} </button>
