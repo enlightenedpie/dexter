@@ -5,22 +5,22 @@
             <iframe height="540" v-bind="{width: returnwidth()}" :src="preplink(vidsrc.link)" frameborder="0" allowfullscreen></iframe>
         </div>
         <div v-if="activetab != 'dashboard'">
-        <div class="sidebar">
-          <li v-for="(index, item) in subtablist" v-on:click="make_active(item)" v-bind:class="{active : isactive === item}">
-            <a v-show="item != 'type'">{{format(item)}}</a>
-          </li>
-        </div>
-        <div class="linkeronis" v-if="vidlist">
-            <li v-for="(item, index) in vidlist" v-bind:class="{active : item.link === vidsrc.link}" v-on:click="switch_vid(item); make_active_video(index)">
-                <div class="subvideo-holder">
-                    <p> {{format(item.name)}}</p>
-                    <img class="thumbnails" :src="item.pictures.link">
-                    <div class="time-holder">
-                        <p class="times"> {{temporize(item.duration)}} </p>
+            <div v-bind="{style: returnright()}" class="sidebar">
+              <li v-for="(index, item) in subtablist" v-on:click="make_active(item)" v-bind:class="{active : isactive === item}">
+                <a v-show="item != 'type'">{{format(item)}}</a>
+              </li>
+            </div>
+            <div class="linkeronis" v-if="vidlist">
+                <li v-for="(item, index) in vidlist" v-bind:class="{active : item.link === vidsrc.link}" v-on:click="switch_vid(item); make_active_video(index)">
+                    <div class="subvideo-holder">
+                        <p> {{format(item.name)}}</p>
+                        <img class="thumbnails" :src="item.pictures.link">
+                        <div class="time-holder">
+                            <p class="times"> {{temporize(item.duration)}} </p>
+                        </div>
                     </div>
-                </div>
-            </li>
-        </div>
+                </li>
+            </div>
         </div>
     </div>
 </template>
@@ -47,10 +47,18 @@
                     return '100%'
                 }
                 else if (!this.vidlist){
-                    return '82.5%'
+                    return '87.5%'
                 }
                 else {
                     return '75%'
+                }
+            },
+            returnright: function(){
+                if (!this.vidlist){
+                    return 'right:0;'
+                }
+                else {
+                    return 'right:12.5%;'
                 }
             }
         },
