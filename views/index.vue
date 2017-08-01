@@ -2,26 +2,18 @@
     <div id="parentdiv">
         <div class="maindiv">
 
-        <!-- Modal Window Component. Toolbar and modal button reside inside. -->
-        <modal :showmodal="showmodal" :modal_switch="modalSwitch" :user="user"> </modal>
+            <!-- Modal Window Component. Toolbar and modal button reside inside. -->
+            <modal :showmodal="showmodal" :modal_switch="modalSwitch" :user="user"> </modal>
 
-        <!-- Video content and iFrame, videos display when the activetab variable is anything but 'dashboard' -->
-        <videos :title="capitalize(activesubtab)"
-            :vidlist="resources.courses[activecourse].tabs[activetab][activesubtab]" :subtablist="resources.courses[activecourse].tabs[activetab]" :make_active="makeActiveSubtab" :isactive="activesubtab" :switch_vid="switchVid" :vidsrc="vidsrc" :format="capitalize">
-        </videos>
+            <!-- Video content and iFrame, videos display when the activetab variable is anything but 'dashboard' -->
+            <videos :title="capitalize(activesubtab)"
+                :vidlist="resources.courses[activecourse].tabs[activetab][activesubtab]" :subtablist="resources.courses[activecourse].tabs[activetab]" :make_active="makeActiveSubtab" :isactive="activesubtab" :switch_vid="switchVid" :vidsrc="vidsrc" :format="capitalize">
+            </videos>
 
-        <div>
-             <!--Course Navbar -->
-            <navbar :title="activetab" :navlist="resources.courses[activecourse].tabs" :make_active_tab="makeActiveTab" :activetab="activetab" :format="capitalize"></navbar>
-        </div>
-
-        <!-- Dashboard content, displays when the activetab variable is 'dashboard' -->
-        <div class="pagecontent" v-show="activetab === 'dashboard'">
-            <div class="dashboard">
-                <img :src="user.profile.image" height="80">
-                <p> {{user.profile.firstName}} {{user.profile.lastName}} </p>
+            <div>
+                 <!--Course Navbar -->
+                <navbar :title="activetab" :navlist="resources.courses[activecourse].tabs" :make_active_tab="makeActiveTab" :activetab="activetab" :format="capitalize"></navbar>
             </div>
-        </div>
         </div>
 
 
@@ -36,6 +28,15 @@
                 <li> 36 </li>
                 <li> {{user.profile.firstName}} </li>
                 <li> Progress </li>
+            </div>
+        </div>
+
+
+        <!-- Dashboard content, displays when the activetab variable is 'dashboard' -->
+        <div class="pagecontent" v-show="activetab === 'dashboard'">
+            <div class="dashboard">
+                <img :src="user.profile.image" height="80">
+                <p> {{user.profile.firstName}} {{user.profile.lastName}} </p>
             </div>
         </div>
 
