@@ -74,6 +74,7 @@ export default {
 //      Selects a tab as activetab
         makeActiveTab(tab) {
             this.activetab = tab;
+            this.activesubtab = '';
 //          Edit url to match page.
 //          Set a default here to normalize subtab behavior without selecting blank tab
             window.history.pushState(history.state, '', '/' + this.sanitize(this.activecourse) + '/' + this.sanitize(this.activetab));

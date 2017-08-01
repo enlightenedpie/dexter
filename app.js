@@ -102,7 +102,7 @@ app.get('/', function(req, res){
         data: {
             activecourse : 'act',
             activetab: 'science',
-            activesubtab: 'null',
+            activesubtab: '',
             vidsrc : videfault,
             resources : resources,
             user: user
@@ -118,7 +118,7 @@ app.get('/:activecourse', function(req, res){
         data: {
             activecourse : format(req.params.activecourse),
             activetab: 'science',
-            activesubtab: 'null',
+            activesubtab: '',
             vidsrc : videfault,
             resources : resources,
             user: user
@@ -134,7 +134,7 @@ app.get('/:activecourse/:activetab', function(req, res){
         data: {
             activecourse : format(req.params.activecourse),
             activetab: format(req.params.activetab),
-            activesubtab: 'null',
+            activesubtab: '',
             vidsrc : videfault,
             resources : resources,
             user: user
