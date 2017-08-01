@@ -6,14 +6,16 @@
         </div>
         <div class="sidebar">
             <ul>
-              <li v-for="(index, item) in subtablist" v-on:click="make_active(item)" v-bind:class="{active : isactive === item}">
+              <li v-for="(index, item) in subtablist" v-on:click="make_active(item)"
+                  v-bind:class="{active : isactive === item}">
                 <a v-show="item != 'type'">{{format(item)}}</a>
               </li>
             </ul>
         </div>
         <div class="linkeronis">
             <ul>
-                <li v-for="(item, index) in vidlist" v-bind:class="{active : item.link === vidsrc.link}" v-on:click="switch_vid(item); make_active_video(index)">
+                <li v-for="(item, index) in vidlist" v-bind:class="{active : item.link === vidsrc.link}"
+                    v-on:click="switch_vid(item); make_active_video(index)">
                     <div class="subvideo-holder">
                         <p> {{format(item.name)}}</p>
                         <img class="thumbnails" :src="item.pictures.link">
@@ -35,21 +37,8 @@
             }
         },
         methods: {
-            temporize: function(item) {
-                var hours = Math.floor(item / 3600);
-                var minutes = Math.floor(item / 60);
-                var seconds = item % 60;
-                if (seconds < 10) {
-                    var coolString = minutes + ":0" + seconds
-                } else {
-                    var coolString = minutes + ":" + seconds
-                } if (hours != 0 && minutes != 0) {
-                    if (minutes < 10) {
-                        coolString = hours + ":0" + coolString
-                    } else {
-                        coolString = hours + ":" + coolString
-                    }
-                } return coolString
+            temporize : function(seconds){
+                return new Date(seconds * 1000).toISOString().substr(11, 8).replace("00:0", "").replace("00:", "");
             },
             make_active_video: function (item) {
                 this.activevideo = item;
