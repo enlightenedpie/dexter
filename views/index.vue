@@ -10,11 +10,9 @@
             :vidlist="resources.courses[activecourse].tabs[activetab][activesubtab]" :subtablist="resources.courses[activecourse].tabs[activetab]" :make_active="makeActiveSubtab" :isactive="activesubtab" :switch_vid="switchVid" :vidsrc="vidsrc" :format="capitalize">
         </videos>
 
-        <div id="NavBar" class="navbar">
-
+        <div>
              <!--Course Navbar -->
             <navbar :title="activetab" :navlist="resources.courses[activecourse].tabs" :make_active_tab="makeActiveTab" :activetab="activetab" :format="capitalize"></navbar>
-
         </div>
 
         <!-- Dashboard content, displays when the activetab variable is 'dashboard' -->
@@ -25,6 +23,25 @@
             </div>
         </div>
         </div>
+
+
+        <div id="bar-holder">
+            <div class="menus" id="right-bar">
+                <li> Downloads </li>
+                <li> Links </li>
+            </div>
+
+            <!-- Menu button -->
+            <div class='menus' id="menu-bar">
+                <li> 36 </li>
+                <li> {{user.profile.firstName}} </li>
+                <li> Progress </li>
+            </div>
+        </div>
+
+
+
+
 
         <cms> </cms>
 
