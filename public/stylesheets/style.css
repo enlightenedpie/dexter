@@ -189,10 +189,9 @@ h1 {
 }
 
 .dashboard {
-  position:relative;
-  left:18px;
   margin:auto;
   width:50%;
+  text-align:center;
 }
 
 #video-holder {
