@@ -6,8 +6,9 @@
         </div>
         <div v-if="activetab != 'dashboard'">
             <div v-bind="{style: returnright()}" class="sidebar">
-              <li v-for="(index, item) in subtablist" v-on:click="make_active(item)" v-bind:class="{active : isactive === item}">
-                <a v-show="item != 'type'">{{format(item)}}</a>
+              <li v-for="(item, index) in subtablist" v-on:click="make_active(index)" v-bind:class="{active : isactive === index}">
+                <a v-show="index != 'type'">{{format(index)}}</a>
+                <p class="video-number">{{item.length}} Videos</p>
               </li>
             </div>
             <div class="linkeronis" v-if="vidlist">

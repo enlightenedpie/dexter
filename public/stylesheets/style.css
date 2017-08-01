@@ -151,9 +151,26 @@ h1 {
   border-bottom:1px solid black;
 }
 
+
+.sidebar a{
+  position:relative;
+  top:10px;
+}
+
+/* p element, number of videos im album */
+.sidebar .video-number{
+  font-size:10pt;
+}
+
+
 .sidebar li {
-  padding:3px;
+  padding:2px;
+  padding-bottom:1px;
   border-top:1px solid #d3d3d3;
+}
+
+.sidebar li:last-child {
+  border-bottom:1px solid #d3d3d3;
 }
 
 .sidebar .active{
@@ -181,6 +198,10 @@ h1 {
 .linkeronis li {
   padding:3px;
   border-top:1px solid #d3d3d3;
+}
+
+.linkeronis li:last-child {
+  border-bottom:1px solid #d3d3d3;
 }
 
 .linkeronis p {
