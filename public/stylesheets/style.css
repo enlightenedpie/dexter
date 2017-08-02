@@ -43,6 +43,35 @@ h1 {
 
 
 
+
+.login-holder {
+  border:1px solid black;
+  width:60%;
+  margin:auto;
+  position:relative;
+  top:190px;
+  text-align:center;
+  font-size:22pt;
+}
+
+
+.login-holder button{
+  font-size:22pt;
+  border:1px solid black;
+  border-radius:10px;
+}
+
+.login-holder input{
+  padding:1px;
+  font-size:18pt;
+  border-radius:10px;
+}
+
+.login-holder li {
+  padding:12px;
+}
+
+
 /* TOOLBAR FORMATTING (Toolbar located in modal.vue and called in index) */
 
 
@@ -319,12 +348,16 @@ h5 {
   text-align:center;
 }
 
+.menus a {
+  font-color: #00B7FF;
+}
 
 .menus li {
   padding:8px;
   border:1px solid black;
   border-bottom: none;
   display:block;
+  border-radius:2px;
 }
 
 .menus li:last-child {

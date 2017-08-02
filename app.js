@@ -86,7 +86,7 @@ const vue = {
         meta: ['mixin'],
         structuredData: {}
     },
-    components: ['modal', 'videos', 'navbar','cms'],
+    components: ['modal', 'videos', 'navbar','cms','login'],
     mixins: []
 };
 
