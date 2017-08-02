@@ -17,15 +17,19 @@
 
         <div id="bar-holder">
             <div class="menus" id="right-bar">
-                <li> Downloads </li>
-                <li> Links </li>
+                <ul>
+                    <li> Downloads </li>
+                    <li> Links </li>
+                </ul>
             </div>
 
             <!-- Menu button -->
             <div class='menus' id="menu-bar">
-                <li> 36 </li>
-                <li> {{user.profile.firstName}} </li>
-                <li> Progress </li>
+                <ul>
+                    <li> 36 </li>
+                    <li> {{user.profile.firstName}} </li>
+                    <li> Progress </li>
+                </ul>
             </div>
         </div>
 
@@ -38,11 +42,7 @@
             </div>
         </div>
 
-
-
-
-
-        <cms> </cms>
+        <cms></cms>
 
     </div>
 </template>

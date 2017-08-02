@@ -3,6 +3,7 @@ const express = require('express');
 const expressVue = require('express-vue');
 const favicon = require('serve-favicon');
 const fs = require('fs');
+const mongodb = require('mongodb')
 const app = express();
 
 app.engine('vue', expressVue);
@@ -15,22 +16,15 @@ app.set('vue', {
 app.use(express.static(__dirname + '/public/stylesheets'));
 app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 
-
-
-// const mixin = {
-//     methods: {
-//         methods: {
-        
-//         }
-//     },
-// };
-
 let resources;
 
-//  load in JSON object
-fs.readFile('./VimeoTree.txt', 'utf8', function (err, data) {
-    resources = JSON.parse(data);
+mongodb.connect("mongodb://localhost:27017/test", function(err, db) {
+    const collection = db.collection('testout');
+    collection.find().toArray(function(err, items) {
+        resources = items[0];
+    });
 });
+
 
 function format(name) {
     return name.replace(/-/g, ' ').toLowerCase()

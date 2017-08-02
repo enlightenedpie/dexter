@@ -17,6 +17,9 @@
     "express": "~4.15.2",
     "express-vue": "~3.9.6",
     "fs": "0.0.1-security",
+    "mongo-sync": "^2.0.1",
+    "mongodb": "^2.2.30",
+    "mongoose": "^4.11.5",
     "serve-favicon": "~2.4.3",
     "vue": "~2.4.1"
   },
