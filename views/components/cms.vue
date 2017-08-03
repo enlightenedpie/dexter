@@ -22,39 +22,68 @@
         <button class="button btn-primary" @click="addSubject">Add Subject</button>
     </div>
     <p> {{course_object}} </p>
+    <div>
+        <button class="button btn-primary" @click="updateCourse()">Update Course</button>
+    </div>
 </div>
 </template>
 
 <script>
-    const Vue = require('vue');
-    const fs = Vue.use('fs');
-    export default{
+    const mongodb = require('mongodb');
+    export default {
         data() {
             return {
-                course_object : {course : "",
-                        subjects: [{ "title": "", "entries": [{ "name": "", "id": "" }]}]},
+                course_object: {
+                    course: "Course",
+                    subjects: [{"title":"Title", "entries": [{"name": "Name", "id": "ID"}]}]
+                },
             }
         },
         methods: {
-            addSubject: function() {
+            addSubject: function () {
                 let elem = document.createElement('li');
                 this.course_object.subjects.push({
                     title: "",
-                    entries: [ { "name": "", "id": "" } ]
+                    entries: [{"name": "", "id": ""}]
                 });
             },
-            removeSubject: function(index) {
+            removeSubject: function (index) {
                 this.course_object.subjects.splice(index, 1);
             },
-            addEntry: function(item){
+            addEntry: function (item) {
                 let elem = document.createElement('li');
                 item.push({
                     name: "",
                     id: ""
                 })
             },
-            removeEntry: function(item, index){
+            removeEntry: function (item, index) {
                 item.splice(index, 1)
+            },
+            updateCourse: function () {
+//              First convert to pure JSON for the POST method
+                let params = {};
+                const course_name = this.course_object.course;
+                params[course_name] = {};
+                let subject;
+                let title;
+                for (subject in this.course_object.subjects){
+                    title = this.course_object.subjects[subject].title;
+                    params[course_name][title]= {};
+                    let entry;
+                    let subname;
+                    for (entry in this.course_object.subjects[subject].entries){
+                        subname = this.course_object.subjects[subject].entries[entry].name;
+                        params[course_name][title][subname] = this.course_object.subjects[subject].entries[entry].id
+                    }
+                }
+//              Set variables
+                const url = "/";
+                const xhr = new XMLHttpRequest();
+                xhr.open("POST", url, true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//              Post stringified version
+                xhr.send(JSON.stringify(params));
             }
         }
     }

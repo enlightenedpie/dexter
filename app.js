@@ -3,8 +3,10 @@ const express = require('express');
 const expressVue = require('express-vue');
 const favicon = require('serve-favicon');
 const fs = require('fs');
-const mongodb = require('mongodb')
+const mongodb = require('mongodb');
+const util = require('util');
 const app = express();
+const bodyParser = require('body-parser');
 
 app.engine('vue', expressVue);
 app.set('view engine', 'vue');
@@ -15,13 +17,19 @@ app.set('vue', {
 });
 app.use(express.static(__dirname + '/public/stylesheets'));
 app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
+app.use(bodyParser.urlencoded({extended: true}));
 
 let resources;
+let user;
 
 mongodb.connect("mongodb://localhost:27017/test", function(err, db) {
-    const collection = db.collection('testout');
-    collection.find().toArray(function(err, items) {
+    const resource_collection = db.collection('testout');
+    resource_collection.find().toArray(function(err, items) {
         resources = items[0];
+    });
+    const user_collection = db.collection('users');
+    user_collection.find({'_id' : 1}).toArray(function(err, items) {
+        user = items[0];
     });
 });
 
@@ -38,45 +46,6 @@ function getsrc(list, name){
     }
 }
 
-//dummy user object
-const user = {
-    "videos": {
-        "recentlyWatched": {
-            "91765": {
-                "name": "SAT Math II Subject Test",
-                "time": "0",
-                "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
-                "thumbnail": "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
-            },
-            "94328": {
-                "name": "SAT Chemistry Subject Test",
-                "time": "0",
-                "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
-                "thumbnail": "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
-            },
-            "57492": {
-                "name": "SAT General Prep",
-                "time": "35",
-                "uri": "https://www.youtube.com/embed/DeAw6aXHzcY?ecver=1",
-                "thumbnail": "http://i.onionstatic.com/avclub/5533/09/16x9/960.jpg"
-            }
-        }
-    },
-    "profile": {
-        "firstName": "Rick",
-        "lastName": "Sanchez",
-        "image": "https://i.ytimg.com/vi/AzZ4K1OzomE/maxresdefault.jpg"
-    },
-    "orders": {
-        "Complete ACT Prep Package": "z07d6j6i76"
-    },
-    "settings": {
-        "recommendContent": true,
-        "resetPassword": "dummylink",
-        "offlineContent": false
-    }
-};
-
 const videfault = {"uri": "/videos/181869937", "duration": 36, "description": null, "pictures": {"link": "https://i.vimeocdn.com/video/590725878_100x75.jpg?r=pad", "width": 100, "height": 75, "link_with_play_button": "https://i.vimeocdn.com/filter/overlay?src0=https%3a%2f%2fi.vimeocdn.com%2fvideo%2f590725878_100x75.jpg&src1=http%3a%2f%2ff.vimeocdn.com%2fp%2fimages%2fcrawler_play.png"}, "link": "https://vimeo.com/181869937", "name": "question 17"}
 
 //main vue instance for app, all components included
@@ -89,6 +58,66 @@ const vue = {
     components: ['modal', 'videos', 'navbar','cms'],
     mixins: []
 };
+
+
+// THIS METHOD IS NOT CURRENTLY SECURE
+// app.post('/', function(request, response) {
+//         app.post('/', function(request, response){
+//             // Convert back into the standard form for the
+//             let preparse;
+//             let parsed;
+//             for (preparse in request.body){
+//                 parsed = JSON.parse(preparse);
+//                 break;
+//             }
+//             let to_db = {};
+//             const course_title = [Object.keys(parsed)][0][0];
+//             to_db.course = course_title;
+//             to_db.subjects = [];
+//             let subject;
+//             for (subject in parsed[course_title]){
+//                 let subarray = [];
+//                 let entry;
+//                 for (entry in parsed[course_title][subject]){
+//                     subarray.push({"name": entry, "id": parsed[course_title][subject][entry]})
+//                     console.log(subarray);
+//                 }
+//                 to_db.subjects.push({"title": subject, "entries" : subarray})
+//                 console.log(to_db);
+//             }
+//             mongodb.connect("mongodb://localhost:27017/test", function(err, db) {
+//                 const resource_collection = db.collection('testinfo');
+//                 resource_collection.insertOne(to_db);
+//         });
+//     });
+// });
+
+app.post('/', function(request, response){
+    // Convert back into the standard form for the
+    let preparse;
+    let parsed;
+    for (preparse in request.body){
+        parsed = JSON.parse(preparse);
+        break;
+    }
+    let to_db = {};
+    const course_title = [Object.keys(parsed)][0][0];
+    to_db.course = course_title;
+    to_db.subjects = [];
+    let subject;
+    for (subject in parsed[course_title]){
+        let subarray = [];
+        let entry;
+        for (entry in parsed[course_title][subject]){
+            subarray.push({"name": entry, "id": parsed[course_title][subject][entry]})
+        }
+        to_db.subjects.push({"title": subject, "entries" : subarray})
+    }
+        mongodb.connect("mongodb://localhost:27017/test", function(err, db) {
+            const resource_collection = db.collection('testinfo');
+            resource_collection.insertOne(to_db);
+    });
+});
 
 //  load variables from url, default
 app.get('/', function(req, res){
