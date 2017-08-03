@@ -26,7 +26,7 @@
     </div>
     <p> {{course_object}} </p>
     <div>
-        <button class="button btn-primary" @click="updateCourse()">Update Course</button>
+        <button class="button btn-primary" v-bind:disabled="checkCourse()" @click="updateCourse()">Update Course</button>
     </div>
 </div>
 </template>
@@ -37,7 +37,7 @@
         data() {
             return {
                 course_object: {
-                    course: "Course",
+                    course: "",
                     subjects: [{"title":"", "entries": [{"name": "", "id": ""}]}]
                 },
             }
@@ -63,6 +63,24 @@
             removeEntry: function (item, index) {
                 item.splice(index, 1)
             },
+            checkCourse: function(){
+                if (!this.course_object.course){
+                    return true;
+                }
+                let subject;
+                for (subject in this.course_object.subjects) {
+                    if (!this.course_object.subjects[subject].title){
+                        return true;
+                    }
+                    let entry;
+                    for (entry in this.course_object.subjects[subject].entries) {
+                        if (!this.course_object.subjects[subject].entries[entry].name || !this.course_object.subjects[subject].entries[entry].id){
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            },
             updateCourse: function () {
 //              First convert to pure JSON for the POST method
                 let params = {};
@@ -70,12 +88,12 @@
                 params[course_name] = {};
                 let subject;
                 let title;
-                for (subject in this.course_object.subjects){
+                for (subject in this.course_object.subjects) {
                     title = this.course_object.subjects[subject].title;
-                    params[course_name][title]= {};
+                    params[course_name][title] = {};
                     let entry;
                     let subname;
-                    for (entry in this.course_object.subjects[subject].entries){
+                    for (entry in this.course_object.subjects[subject].entries) {
                         subname = this.course_object.subjects[subject].entries[entry].name;
                         params[course_name][title][subname] = this.course_object.subjects[subject].entries[entry].id
                     }
@@ -87,17 +105,6 @@
                 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 //              Post stringified version
                 xhr.send(JSON.stringify(params));
-			                            	// for (subject, index) in course_object.subjects {
-    //         	for (var i = 0; i < course_object.subjects.length; i++ ) {
-    //         		// for (entry, index) in subject.entries {
-    //         		for (var x = 0; i < course_object.subjects[i].length; x++ ) {
-    //         			if i === '' || course_object.course === '' || entry.name === '' || entry.id === '' {
-    //         				console.log("nah");
-    //         			} else {
-    //         			}
-    //         		}
-				// }
-
             }
         }
     }
