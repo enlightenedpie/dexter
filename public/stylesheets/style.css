@@ -41,8 +41,10 @@ h1 {
 }
 
 
-
-
+.cms-warning {
+  color:red;
+  text-align:center;
+}
 
 .login-holder {
   border:1px solid black;

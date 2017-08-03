@@ -9,6 +9,7 @@
                     <li><strong>Entry: </strong></li>
                     <li>Name <input title="Name" v-model="entry.name"></li>
                     <li>ID <input title="ID" v-model="entry.id"></li>
+                    <p class="cms-warning" v-if="entry.name === '' || entry.id === ''"> Please fill out each empty field in the Entry. </p>
             	<button class="button btn-secondary" @click="addEntry(subject.entries)">Add Entry</button>
                 <button v-if="subject.entries.length > 1" v-on:click="removeEntry(subject.entries, index);" style="cursor: pointer">Remove Entry</button>
             	<li>
@@ -16,7 +17,9 @@
             	</li>
                 </ul>
             </li>
+            <p class="cms-warning" v-if="subject.title === '' || course_object.course === ''"> Please fill out each empty field in the Subject. </p>
         </ul>
+
 
     <div>
         <button class="button btn-primary" @click="addSubject">Add Subject</button>
@@ -84,6 +87,17 @@
                 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 //              Post stringified version
                 xhr.send(JSON.stringify(params));
+			                            	// for (subject, index) in course_object.subjects {
+    //         	for (var i = 0; i < course_object.subjects.length; i++ ) {
+    //         		// for (entry, index) in subject.entries {
+    //         		for (var x = 0; i < course_object.subjects[i].length; x++ ) {
+    //         			if i === '' || course_object.course === '' || entry.name === '' || entry.id === '' {
+    //         				console.log("nah");
+    //         			} else {
+    //         			}
+    //         		}
+				// }
+
             }
         }
     }
