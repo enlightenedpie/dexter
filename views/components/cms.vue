@@ -28,9 +28,20 @@
     <div>
         <button class="button btn-primary" v-bind:disabled="checkCourse()" @click="updateCourse()">Update Course</button>
     </div>
+    <div>
+        <h3>Current Courses:</h3>
+        <ul v-for="(course, index) in resources.courses">
+            <li>
+                {{index}}
+                <button @click="removeCourse(index)">Remove</button>
+            </li>
+        </ul>
+        <p>Please Note- in order for course changes to take effect, they must be made here, then the treeGen.py file
+        (not included in git for security reasons) must be run, then the site must be restarted. If you screw up really
+        badly, run mongoInit.py, then treeGen.py, then restart the server.</p>
+    </div>
 </div>
 </template>
-
 <script>
     const mongodb = require('mongodb');
     export default {
@@ -42,6 +53,7 @@
                 },
             }
         },
+        props: ['resources'],
         methods: {
             addSubject: function () {
                 let elem = document.createElement('li');
@@ -84,18 +96,18 @@
             updateCourse: function () {
 //              First convert to pure JSON for the POST method
                 let params = {};
-                const course_name = this.course_object.course;
+                const course_name = this.course_object.course.toLowerCase();
                 params[course_name] = {};
                 let subject;
                 let title;
                 for (subject in this.course_object.subjects) {
-                    title = this.course_object.subjects[subject].title;
+                    title = this.course_object.subjects[subject].title.toLowerCase();
                     params[course_name][title] = {};
                     let entry;
                     let subname;
                     for (entry in this.course_object.subjects[subject].entries) {
-                        subname = this.course_object.subjects[subject].entries[entry].name;
-                        params[course_name][title][subname] = this.course_object.subjects[subject].entries[entry].id
+                        subname = this.course_object.subjects[subject].entries[entry].name.toLowerCase();
+                        params[course_name][title][subname] = this.course_object.subjects[subject].entries[entry].id.toLowerCase()
                     }
                 }
 //              Set variables
@@ -105,6 +117,13 @@
                 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 //              Post stringified version
                 xhr.send(JSON.stringify(params));
+            },
+            removeCourse(name){
+                const url = "/remove";
+                const xhr = new XMLHttpRequest();
+                xhr.open("POST", url, true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhr.send(JSON.stringify({'course': name}));
             }
         }
     }

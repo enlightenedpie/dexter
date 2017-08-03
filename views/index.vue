@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <cms></cms>
+        <cms :resources="resources"></cms>
 
         <login> </login>
 
