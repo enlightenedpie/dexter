@@ -18,17 +18,18 @@
         <div id="bar-holder">
             <div class="menus" id="right-bar">
                 <ul>
-                    <li> Downloads </li>
-                    <li> Links </li>
+                    <li><a> Downloads </a></li>
+                    <li><a> Links </a></li>
+                    <li> <img width="100%" src="https://ih1.redbubble.net/image.336024025.4199/flat,800x800,070,f.u1.jpg"> </li>
                 </ul>
             </div>
 
             <!-- Menu button -->
             <div class='menus' id="menu-bar">
                 <ul>
-                    <li> 36 </li>
-                    <li> {{user.profile.firstName}} </li>
-                    <li> Progress </li>
+                    <li> ACT: 36 </li>
+                    <li> {{user.profile.firstName}} {{user.profile.lastName}} </li>
+                    <li><a> Progress </a></li>
                 </ul>
             </div>
         </div>
@@ -43,6 +44,8 @@
         </div>
 
         <cms></cms>
+
+        <login> </login>
 
     </div>
 </template>
