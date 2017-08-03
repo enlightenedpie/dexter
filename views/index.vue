@@ -3,7 +3,7 @@
         <div class="maindiv">
 
             <!-- Modal Window Component. Toolbar and modal button reside inside. -->
-            <modal :showmodal="showmodal" :modal_switch="modalSwitch" :user="user"> </modal>
+            <modal :user="user"> </modal>
             <!-- Video content and iFrame, videos display when the activetab variable is anything but 'dashboard' -->
             <videos :title="capitalize(activesubtab)" :activetab="activetab"
                 :vidlist="resources.courses[activecourse].tabs[activetab][activesubtab]" :subtablist="resources.courses[activecourse].tabs[activetab]" :make_active="makeActiveSubtab" :isactive="activesubtab" :switch_vid="switchVid" :vidsrc="vidsrc" :format="capitalize">
@@ -14,25 +14,6 @@
             </div>
         </div>
 
-
-        <div id="bar-holder">
-            <div class="menus" id="right-bar">
-                <ul>
-                    <li><a> Downloads </a></li>
-                    <li><a> Links </a></li>
-                    <li> <img width="100%" src="https://ih1.redbubble.net/image.336024025.4199/flat,800x800,070,f.u1.jpg"> </li>
-                </ul>
-            </div>
-
-            <!-- Menu button -->
-            <div class='menus' id="menu-bar">
-                <ul>
-                    <li> ACT: 36 </li>
-                    <li> {{user.profile.firstName}} {{user.profile.lastName}} </li>
-                    <li><a> Progress </a></li>
-                </ul>
-            </div>
-        </div>
 
 
         <!-- Dashboard content, displays when the activetab variable is 'dashboard' -->
@@ -54,17 +35,11 @@
 export default {
     data() {
         return {
-//          variable that controls modal window opening / closing
-            showmodal : false
         }
     },
     methods: {
         sanitize(string){
             return string.toLowerCase().replace(/ /g, "-")
-        },
-//      Toggle showmodal, which displays the modal window
-        modalSwitch(bool) {
-            this.showmodal = bool
         },
 //      Selects a course as activecourse
         makeActiveCourse(course) {
