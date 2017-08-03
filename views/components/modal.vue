@@ -90,7 +90,7 @@
 
 
               <div v-if="currentmodal === 'act'" class="modal-body">
-                <p> This is where the other modal will be </p>
+                <h1> Add a Score </h1>
               </div>
             </div>
 
