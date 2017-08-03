@@ -26,6 +26,7 @@ mongodb.connect("mongodb://localhost:27017/test", function(err, db) {
     const resource_collection = db.collection('testout');
     resource_collection.find().toArray(function(err, items) {
         resources = items[0];
+        console.log(resources)
     });
     const user_collection = db.collection('users');
     user_collection.find({'_id' : 1}).toArray(function(err, items) {
@@ -86,6 +87,23 @@ app.post('/', function(request, response){
             resource_collection.insertOne(to_db);
     });
 });
+
+// THIS METHOD IS NOT CURRENTLY SECURE
+app.post('/remove', function(request, response){
+    // Convert back into the standard form for the
+    let preparse;
+    let parsed;
+    for (preparse in request.body){
+        parsed = JSON.parse(preparse);
+        break;
+    }
+    console.log(parsed);
+    mongodb.connect("mongodb://localhost:27017/test", function(err, db) {
+        const resource_collection = db.collection('testinfo');
+        resource_collection.removeOne(parsed);
+    });
+});
+
 
 //  load variables from url, default
 app.get('/', function(req, res){
