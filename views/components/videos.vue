@@ -2,6 +2,7 @@
 <!-- Renders a list of linked videos from JSON object -->
     <div id="parentdiv">
         <div id="video-holder">
+            <!-- Main iFrame -->
             <iframe height="540" v-bind="{width: returnwidth()}" :src="preplink(vidsrc.link)" frameborder="0" allowfullscreen></iframe>
         </div>
         <div v-if="activetab != 'dashboard'">
@@ -34,15 +35,19 @@
             }
         },
         methods: {
+//          Turn seconds into analog time, used for videos
             temporize : function(seconds){
                 return new Date(seconds * 1000).toISOString().substr(11, 8).replace("00:0", "").replace("00:", "");
             },
+//          Changes activevideo variable
             make_active_video: function (item) {
                 this.activevideo = item;
             },
+//          Changes domain to match vimeo embed parameters
             preplink: function (link){
                 return link.replace("vimeo.com", "player.vimeo.com/video")
             },
+//          Changes width of the iFrame based on the current sidebars
             returnwidth: function(){
                 if (this.activetab === 'dashboard'){
                     return '100%'
@@ -54,6 +59,7 @@
                     return '75%'
                 }
             },
+//          Changes the position of the left sidebar based on current activetab variable
             returnright: function(){
                 if (!this.vidlist){
                     return 'right:0;'

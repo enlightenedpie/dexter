@@ -38,6 +38,7 @@ export default {
         }
     },
     methods: {
+//      Replaces spaces with hyphens, for routing purposes
         sanitize(string){
             return string.toLowerCase().replace(/ /g, "-")
         },
