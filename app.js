@@ -59,39 +59,7 @@ const vue = {
     mixins: []
 };
 
-
 // THIS METHOD IS NOT CURRENTLY SECURE
-// app.post('/', function(request, response) {
-//         app.post('/', function(request, response){
-//             // Convert back into the standard form for the
-//             let preparse;
-//             let parsed;
-//             for (preparse in request.body){
-//                 parsed = JSON.parse(preparse);
-//                 break;
-//             }
-//             let to_db = {};
-//             const course_title = [Object.keys(parsed)][0][0];
-//             to_db.course = course_title;
-//             to_db.subjects = [];
-//             let subject;
-//             for (subject in parsed[course_title]){
-//                 let subarray = [];
-//                 let entry;
-//                 for (entry in parsed[course_title][subject]){
-//                     subarray.push({"name": entry, "id": parsed[course_title][subject][entry]})
-//                     console.log(subarray);
-//                 }
-//                 to_db.subjects.push({"title": subject, "entries" : subarray})
-//                 console.log(to_db);
-//             }
-//             mongodb.connect("mongodb://localhost:27017/test", function(err, db) {
-//                 const resource_collection = db.collection('testinfo');
-//                 resource_collection.insertOne(to_db);
-//         });
-//     });
-// });
-
 app.post('/', function(request, response){
     // Convert back into the standard form for the
     let preparse;

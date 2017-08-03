@@ -52,7 +52,7 @@
                   <h3>Courses</h3>
                   <ul>
                     <li v-for="(item, index) in resources.courses">
-                    <button class="course-buttons" v-on:click="switchcourse(index)"> {{index}} </button>
+                    <button class="course-buttons" v-on:click="make_active_course(index)"> {{index}} </button>
                     </li>
                   </ul>
                 </div>
@@ -118,7 +118,7 @@
         <ul>
           <li> 
             <ul>
-              <li> ACT: 36 </li>
+              <li> {{activecourse | capitalize}} </li>
               <li> <button class="act-modal-button" v-on:click="switchModal('act')">Add Score</button></li>
             </ul>
           </li>
@@ -150,7 +150,12 @@ export default {
         this.currentmodal = modal;
       }
     },
-    props: ['user', 'modal_switch', 'resources'],
+    filters : {
+        capitalize(string){
+            return string.toUpperCase();
+        }
+    },
+    props: ['user', 'modal_switch', 'resources', 'make_active_course', 'activecourse'],
     components: ['modal']
 }
 </script>

@@ -35,7 +35,7 @@
             return {
                 course_object: {
                     course: "Course",
-                    subjects: [{"title":"Title", "entries": [{"name": "Name", "id": "ID"}]}]
+                    subjects: [{"title":"", "entries": [{"name": "", "id": ""}]}]
                 },
             }
         },
