@@ -3,7 +3,7 @@
   <li> Welcome to SupertutorTV! </li>
     <li>
       Email <input type="text">
-      Password <input type="text">
+      Password <input type="password">
     </li>
     <li> <button> Log in </button> </li>
     <li> <button> Create Account </button> </li>

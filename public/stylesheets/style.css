@@ -41,10 +41,19 @@ h1 {
 }
 
 
-.cms-warning {
-  color:red;
-  text-align:center;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+/* LOGIN COMPONENT FORMATTING */
 
 .login-holder {
   border:1px solid black;
@@ -56,13 +65,14 @@ h1 {
   font-size:22pt;
 }
 
-
+/* Sign up and Log in Buttons */
 .login-holder button{
   font-size:22pt;
   border:1px solid black;
   border-radius:10px;
 }
 
+/*  Sign up and log in inputs*/
 .login-holder input{
   padding:1px;
   font-size:18pt;
@@ -231,6 +241,7 @@ h1 {
   border-top:1px solid #d3d3d3;
 }
 
+/* Border for last element */
 .linkeronis li:last-child {
   border-bottom:1px solid #d3d3d3;
 }
@@ -239,17 +250,20 @@ h1 {
   color: #00B7FF;
 }
 
+/* Dashboard div, inside .pagecontent */
 .dashboard {
   margin:auto;
   width:50%;
   text-align:center;
 }
 
+/* Conatins either Dashboard or descriptions or something */
 .pagecontent {
   position:relative;
   top:90px;
 }
 
+/* Div containing the iFrame */
 #video-holder {
   position:relative;
   top:1px;
@@ -261,18 +275,20 @@ h1 {
   top:-20px;
 }
 
+/* Individual divs holding thumbnails and titles for videos */
 .subvideo-holder {
   height:80px;
  /* border-top: 1px solid #d3d3d3;*/
 }
 
+/* Video Name */
 .subvideo-holder p {
   position:relative;
   top:-10px;
   font-size:9pt;
 }
 
-
+/* Div holding the time, on video thumbnail */
 .time-holder {
   background-color:black;
   opacity:0.7;
@@ -282,7 +298,7 @@ h1 {
   width:40px;
   left:55%;
 }
-
+/* Time on video thumbnail */
 .subvideo-holder .times{
   color:white;
   font-size:9pt;
@@ -296,12 +312,16 @@ h1 {
 
 
 
+
+
+
+
 /* CMS FORMATTING */
 
 
 
 
-
+/* Div holding the cms */
 .cms-div{
   border: 1px solid black;
   width:510px;
@@ -312,14 +332,17 @@ h1 {
   top:90px;
 }
 
+/* Empty fields on cms */
 .cms-div input {
   padding:5px;
 }
 
+/* Self-explanatory */
 .remove-subject-button {
   float:right;
 }
 
+/* 'Add a Course' header in CMS */
 h5 {
   font-size:16pt;
   text-align:center;
@@ -330,16 +353,30 @@ h5 {
   padding:10px;
 }
 
+/* Buttons in CMS */
 .cms-div button{
   outline:1px solid black;
   border-radius:10%;
   padding:5px;
 }
 
+/* Entry list formatting */
 .cms-div .entry-list li{
   display:inline;
   padding-left:20px;
 }
+
+/* Warning text, in red, after each entry and subject */
+.cms-warning {
+  color:red;
+  text-align:center;
+}
+
+
+
+
+
+
 
 
 
