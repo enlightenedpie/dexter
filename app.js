@@ -22,11 +22,17 @@ app.use(bodyParser.urlencoded({extended: true}));
 let resources;
 let user;
 
-mongodb.connect("mongodb://localhost:27017/test", function(err, db) {
-    const resource_collection = db.collection('testout');
+const secret = JSON.parse(fs.readFileSync('secret.txt', 'utf8'));
+
+
+const mongoString = 'mongodb://admin:' + secret.mongoToken + '@cluster0-shard-00-00-tbb5q.mongodb.net:27017,cluster0-shard-' +
+    '00-01-tbb5q.mongodb.net:27017,cluster0-shard-00-02-tbb5q.mongodb.net:27017/test?ssl=true&replicaSet=Clu' +
+    'ster0-shard-0&authSource=admin';
+
+mongodb.connect(mongoString, function(err, db) {
+    const resource_collection = db.collection('tree');
     resource_collection.find().toArray(function(err, items) {
         resources = items[0];
-        console.log(resources)
     });
     const user_collection = db.collection('users');
     user_collection.find({'_id' : 1}).toArray(function(err, items) {
@@ -82,8 +88,8 @@ app.post('/', function(request, response){
         }
         to_db.subjects.push({"title": subject, "entries" : subarray})
     }
-        mongodb.connect("mongodb://localhost:27017/test", function(err, db) {
-            const resource_collection = db.collection('testinfo');
+        mongodb.connect(mongoString, function(err, db) {
+            const resource_collection = db.collection('courses');
             resource_collection.insertOne(to_db);
     });
 });
@@ -98,8 +104,8 @@ app.post('/remove', function(request, response){
         break;
     }
     console.log(parsed);
-    mongodb.connect("mongodb://localhost:27017/test", function(err, db) {
-        const resource_collection = db.collection('testinfo');
+    mongodb.connect(mongoString, function(err, db) {
+        const resource_collection = db.collection('courses');
         resource_collection.removeOne(parsed);
     });
 });

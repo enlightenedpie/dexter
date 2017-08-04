@@ -4,7 +4,7 @@
 
             <!-- Modal Window Component. Toolbar and modal button reside inside. -->
             <modal :user="user" :resources="resources" :activecourse="activecourse" :make_active_course="makeActiveCourse"> </modal>
-            <!-- Video content and iFrame, videos display when the activetab variable is anything but 'dashboard' -->
+             <!--Video content and iFrame, videos display when the activetab variable is anything but 'dashboard' -->
             <videos :title="capitalize(activesubtab)" :activetab="activetab"
                 :vidlist="resources.courses[activecourse].tabs[activetab][activesubtab]" :subtablist="resources.courses[activecourse].tabs[activetab]" :make_active="makeActiveSubtab" :isactive="activesubtab" :switch_vid="switchVid" :vidsrc="vidsrc" :format="capitalize">
             </videos>
