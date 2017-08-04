@@ -1,12 +1,15 @@
-#!/usr/bin/env python3
-import requests
-import json
-import collections
+# If you really screw something up, just run this- it will restore the users and courses documents.
+# Then, run treeGen.py to generate a new tree that the site can use and you should be good to go.
 from pymongo import MongoClient
+import json
 
-client = MongoClient('mongodb://localhost:27017/')
+with open('secret.txt') as data_file:
+    data = json.load(data_file)
 
-base = {"course": "ACT", "subjects": [
+client = MongoClient("mongodb://admin:{0}@cluster0-shard-00-00-tbb5q.mongodb.net:27017,cluster0-shard-00-01-tbb5q.mongodb.net:27017,cluster0-shard-00-02-tbb5q.mongodb.net:27017/<DATABASE>?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin".format(data['mongoToken']))
+
+base = {"course": "act",
+        "subjects": [
             {"title": "General", "entries": [
                 {"name": "Prep", "id": "4291611"}]},
             {"title": "Reading", "entries": [
@@ -37,11 +40,14 @@ base = {"course": "ACT", "subjects": [
                 {"name": "Red Book Test 4", "id": "4155869"},
                 {"name": "Red Book Test 5", "id": "4154399"}]}]}
 
-doc = client['test']['testinfo']
+doc = client['test']['courses']
+
+# Comment this line out to avoid deleting all other courses
 doc.delete_many({})
+
 doc.insert_one(base)
 user = {
-    "_id" : 1,
+    "_id": 1,
     "videos": {
         "recentlyWatched": {
             "91765": {
@@ -80,5 +86,8 @@ user = {
 }
 
 users = client['test']['users']
-users.delete_many({"_id" : 1})
+
+# Comment this line out to avoid deleting all other users
+users.delete_many({})
+
 users.insert_one(user)
