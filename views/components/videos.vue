@@ -12,7 +12,7 @@
                 <p class="video-number">{{item.length}} Videos</p>
               </li>
             </div>
-            <div class="linkeronis" v-if="vidlist">
+            <div class="video-list" v-if="vidlist">
                 <li v-for="(item, index) in vidlist" v-bind:class="{active : item.link === vidsrc.link}" v-on:click="switch_vid(item); make_active_video(index)">
                     <div class="subvideo-holder">
                         <p> {{format(item.name)}}</p>

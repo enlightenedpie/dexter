@@ -1,6 +1,7 @@
 <template lang="html">
 <!-- Modal Window Template -->
   <div>
+    <!-- TOOLBAR -->
     <div id="toolbar">
       <ul>
           <!-- Button that opens / closes modal window in toolbar -->
@@ -17,11 +18,16 @@
         <div class="modal-wrapper">
           <div class="modal-container">
             <div class="modal-body">
+
+
+
+
+              <!-- Beginning of MENU modal, the other modal is below this -->
               <div v-if="currentmodal === 'menu'" class="tabs">
-                <button @click="make_active_menu('profile')">Profile</button>
-                <button @click="make_active_menu('orders')">Orders</button>
-                <button @click="make_active_menu('courses')">Courses</button>
-                <button @click="make_active_menu('settings')">Settings</button>
+                <button v-on:click="make_active_menu('profile')" v-bind:class="{active : activemenu === 'profile'}">Profile</button>
+                <button v-on:click="make_active_menu('orders')" v-bind:class="{active : activemenu === 'orders'}">Orders</button>
+                <button v-on:click="make_active_menu('courses')" v-bind:class="{active : activemenu === 'courses'}">Courses</button>
+                <button v-on:click="make_active_menu('settings')" v-bind:class="{active : activemenu === 'settings'}">Settings</button>
               </div>
               <ul>
 
@@ -88,7 +94,7 @@
 
 
 
-
+              <!-- ACT modal, menu modal is above this, sidebars are below -->
               <div v-if="currentmodal === 'act'" class="modal-body">
                 <h1> Add a Score </h1>
               </div>
