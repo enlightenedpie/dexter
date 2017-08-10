@@ -6,6 +6,12 @@ To install dependencies:
 To run the app:
 `npm start`
 
+NOTE: The error 'Error: ENOENT: no such file or directory, open 'secret.txt'' will appear when you attempt to run the site 
+without creating a secret.txt file, which will contain the mongo database password and the Vimeo API token. These have been 
+sent to Dave from Gabe under an email with the subject: "Dexter Passwords."
+
+ALSO NOTE that in git the current site is under the MONGO branch, not Master.
+
 This web application runs on a node.js, uses the express web application framework, Vue as a front end two-way data
 binding framework, and express-Vue to allow information to be passed easily from express to Vue. It is intended to be
 used with a non-relational database such as MongoDB, and to take full advantage of a JavaScript Everywhere programming
